@@ -25,11 +25,11 @@
 .kw-progress{position:fixed;top:0;left:0;right:0;height:3px;background:#1a1a24;z-index:10001;overflow:hidden}
 .kw-progress-fill{height:100%;width:0%;background:#B8DE41;box-shadow:0 0 10px rgba(184,222,65,0.6);transition:width .15s ease-out}
 /* ── Skeleton Witty Status List ── */
-.kw-witty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(90%,520px);height:90px;overflow:hidden;color:#fff;font-family:'Lora','Georgia',serif;font-size:16px;font-weight:500;line-height:30px;text-align:center;z-index:5;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,1) 38%,rgba(0,0,0,1) 62%,rgba(0,0,0,0.5) 70%,rgba(0,0,0,0.5) 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,1) 38%,rgba(0,0,0,1) 62%,rgba(0,0,0,0.5) 70%,rgba(0,0,0,0.5) 100%)}
+.kw-witty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92%,640px);height:132px;overflow:hidden;color:#fff;font-family:'Lora','Georgia',serif;font-size:22px;font-weight:500;line-height:44px;text-align:center;z-index:5;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,1) 38%,rgba(0,0,0,1) 62%,rgba(0,0,0,0.5) 70%,rgba(0,0,0,0.5) 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,1) 38%,rgba(0,0,0,1) 62%,rgba(0,0,0,0.5) 70%,rgba(0,0,0,0.5) 100%)}
 .kw-witty-list{animation:kw-witty-cycle 15s ease-in-out infinite}
-.kw-witty-item{height:30px;display:flex;align-items:center;justify-content:center;gap:9px}
-.kw-witty-icon{width:18px;height:18px;color:#B8DE41;flex-shrink:0}
-@keyframes kw-witty-cycle{0%,16%{transform:translateY(0)}20%,36%{transform:translateY(-30px)}40%,56%{transform:translateY(-60px)}60%,76%{transform:translateY(-90px)}80%,96%{transform:translateY(-120px)}100%{transform:translateY(-150px)}}
+.kw-witty-item{height:44px;display:flex;align-items:center;justify-content:center;gap:12px}
+.kw-witty-icon{width:24px;height:24px;color:#B8DE41;flex-shrink:0}
+@keyframes kw-witty-cycle{0%,16%{transform:translateY(0)}20%,36%{transform:translateY(-44px)}40%,56%{transform:translateY(-88px)}60%,76%{transform:translateY(-132px)}80%,96%{transform:translateY(-176px)}100%{transform:translateY(-220px)}}
 /* ── Deferred Image Loading ── */
 img[data-src]{opacity:0}
 img.kw-loaded{opacity:1;transition:opacity .3s ease}
