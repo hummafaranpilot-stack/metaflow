@@ -11,7 +11,7 @@ Tracks edits flagged as **reversal** — temporary changes that must be reverted
 - **Date:** 2026-05-06
 - **File:** `bg/desktop.html`
 - **Location:** Just above `<!-- Stock banner #1: below press bar -->` (between hero CTA block and the first stock banner).
-- **Status:** pending compliance review
+- **Status:** reverted on 2026-05-07
 - **Marker:** `REVERSAL R-001 START` ... `REVERSAL R-001 END`
 - **Change:** Commented out the auto-scrolling press bar showing media logos (US Weekly, Forbes Health, USA Today, The Oprah Magazine, Good Housekeeping, NBC, The Doctors).
 - **Note:** Originally I deleted this block; replaced with in-place comment on user request so it can be restored without re-typing markup. The original `<!-- As Featured In — auto-scrolling press bar -->` label comment was dropped (HTML doesn't allow nested comments) — REVERSAL marker now serves as the label.
@@ -25,7 +25,7 @@ In `bg/desktop.html`, find `REVERSAL R-001 START` and `REVERSAL R-001 END`. Dele
 
 - **Date:** 2026-05-06
 - **File:** `bg/desktop.html`
-- **Status:** pending compliance review
+- **Status:** reverted on 2026-05-07
 - **Marker:** `REVERSAL R-002 START: <id>` ... `REVERSAL R-002 END: <id>` (one pair per video block)
 - **Change:** Commented out 8 video player blocks (each with its title, badge, poster, play overlay, and caption). Players use Cloudflare Stream HLS via `data-cf-id`. CSS (`.kw-video-section`, `.mv-player`, etc.) and the JS player loader are untouched, so no other restoration is needed.
 
