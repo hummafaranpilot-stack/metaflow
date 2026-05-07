@@ -48,3 +48,11 @@
         Header set Cache-Control "no-cache, no-store, must-revalidate"
     </FilesMatch>
 </IfModule>
+
+# Font MIME types — required so browsers accept @font-face responses
+<IfModule mod_mime.c>
+    AddType font/otf   .otf
+    AddType font/ttf   .ttf
+    AddType font/woff  .woff
+    AddType font/woff2 .woff2
+</IfModule>
