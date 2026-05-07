@@ -1,0 +1,52 @@
+{
+  "mf-hook": {
+    "uid": "1f30321143d938a88c2fa62fe2847f38",
+    "label": "MetaFlow Hook - ER Drama",
+    "slot": 1
+  },
+  "mf-stats": {
+    "uid": "95640a03db216389aafcd362dcd4178f",
+    "label": "MetaFlow Stats - Complications",
+    "slot": 2
+  },
+  "mf-hotel": {
+    "uid": "860065ac734afa2667e0185eca3eae5d",
+    "label": "MetaFlow Education - Hotel",
+    "slot": 3
+  },
+  "mf-alan": {
+    "uid": "47fc2efd9255f8ceb342d464c0b5f652",
+    "label": "MetaFlow Story - Alan",
+    "slot": 4
+  },
+  "mf-jessica": {
+    "uid": "9747362533b5f7c3da1291c62557d5b4",
+    "label": "MetaFlow Testimonial - Jessica",
+    "slot": 5
+  },
+  "mf-william": {
+    "uid": "b9f67fcf576433575652f2294be5fc9c",
+    "label": "MetaFlow Testimonial - William",
+    "slot": 6
+  },
+  "mf-donna": {
+    "uid": "eeeb918011f4c6a4d17f7e445497f96a",
+    "label": "MetaFlow Testimonial - Donna",
+    "slot": 7
+  },
+  "mf-aspiration": {
+    "uid": "4aae4aa56da5b26fe86b93f701c3fd52",
+    "label": "MetaFlow Aspiration",
+    "slot": 8
+  },
+  "mf-warning": {
+    "uid": "28c276dbc0fe3ab8593ed2b9f17e94cb",
+    "label": "MetaFlow Warning - Insulin Damage",
+    "slot": 9
+  },
+  "mf-patty": {
+    "uid": "f9f240b382db0b28ccb91897f1c5f19c",
+    "label": "MetaFlow Final - Patty",
+    "slot": 10
+  }
+}

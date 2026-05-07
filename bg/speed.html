@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Optimization Plan — KetoWater &amp; KetoFlow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0e1a;
+            color: #c8cdd8;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #111827, #1a1f36);
+            border-radius: 16px;
+            border: 1px solid #2a3050;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .header .subtitle {
+            color: #6b7394;
+            font-size: 1rem;
+        }
+        .header .date {
+            color: #4a5170;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        /* Comparison Table */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 1px solid #1e2540;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        thead th {
+            background: #141929;
+            color: #8b92b0;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #1e2540;
+        }
+        thead th:first-child { border-radius: 12px 0 0 0; }
+        thead th:last-child { border-radius: 0 12px 0 0; }
+        tbody td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #151a2e;
+            font-variant-numeric: tabular-nums;
+        }
+        tbody tr:hover { background: rgba(255,255,255,0.02); }
+        tbody tr:last-child td { border-bottom: none; }
+        .metric-name { color: #e2e5ee; font-weight: 500; }
+        .pass { color: #34d399; }
+        .warn { color: #fbbf24; }
+        .fail { color: #f87171; font-weight: 600; }
+        .skip { color: #4a5170; }
+        .target { color: #6b7394; font-style: italic; }
+        .unit { color: #5a6180; font-size: 0.8em; }
+
+        /* Section */
+        .section {
+            margin: 40px 0;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-subtitle {
+            color: #5a6180;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-critical { background: rgba(248,113,113,0.15); color: #f87171; }
+        .badge-high { background: rgba(251,191,36,0.15); color: #fbbf24; }
+        .badge-medium { background: rgba(96,165,250,0.15); color: #60a5fa; }
+        .badge-low { background: rgba(52,211,153,0.15); color: #34d399; }
+
+        /* Cards */
+        .cards { display: grid; gap: 20px; }
+        .card {
+            background: #111827;
+            border: 1px solid #1e2540;
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+        .card:hover { border-color: #2e365a; }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+        .card h3 {
+            color: #e2e5ee;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .card p {
+            color: #8b92b0;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+        }
+        .card .detail {
+            color: #6b7394;
+            font-size: 0.82rem;
+            background: rgba(0,0,0,0.25);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            line-height: 1.8;
+        }
+        .affects {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .affects span {
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .tag-kw-m { background: rgba(129,140,248,0.15); color: #818cf8; }
+        .tag-kf-d { background: rgba(251,146,60,0.15); color: #fb923c; }
+        .tag-kf-m { background: rgba(244,114,182,0.15); color: #f472b6; }
+
+        /* Pros/Cons */
+        .proscons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 14px;
+        }
+        .pro-box, .con-box {
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+        }
+        .pro-box {
+            background: rgba(52,211,153,0.06);
+            border: 1px solid rgba(52,211,153,0.15);
+        }
+        .con-box {
+            background: rgba(248,113,113,0.06);
+            border: 1px solid rgba(248,113,113,0.15);
+        }
+        .pro-box h4 { color: #34d399; font-size: 0.78rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .con-box h4 { color: #f87171; font-size: 0.78rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pro-box ul, .con-box ul { padding-left: 16px; }
+        .pro-box li { color: #6ee7b7; margin-bottom: 4px; }
+        .con-box li { color: #fca5a5; margin-bottom: 4px; }
+
+        /* Impact bar */
+        .impact-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0 4px;
+        }
+        .impact-bar .label {
+            font-size: 0.72rem;
+            color: #6b7394;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 110px;
+        }
+        .impact-track {
+            flex: 1;
+            height: 6px;
+            background: #1a1f36;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .impact-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+        .impact-fill.high { background: linear-gradient(90deg, #f87171, #fb923c); }
+        .impact-fill.medium { background: linear-gradient(90deg, #fbbf24, #60a5fa); }
+        .impact-fill.low { background: linear-gradient(90deg, #34d399, #60a5fa); }
+
+        /* Summary boxes */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+        .summary-box {
+            background: #111827;
+            border: 1px solid #1e2540;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .summary-box .page-label {
+            font-size: 0.75rem;
+            color: #6b7394;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .summary-box .big-num {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .summary-box .big-unit {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+        .summary-box .sub-text {
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        /* Resource breakdown */
+        .resource-bar-wrap {
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .resource-label {
+            min-width: 80px;
+            font-size: 0.78rem;
+            color: #8b92b0;
+            text-align: right;
+        }
+        .resource-bar-track {
+            flex: 1;
+            height: 18px;
+            background: #151a2e;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .resource-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Phase indicators */
+        .phase {
+            display: flex;
+            gap: 16px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .phase-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: #111827;
+            border: 1px solid #1e2540;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: #8b92b0;
+        }
+        .phase-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .phase-1 .phase-num { background: #f87171; }
+        .phase-2 .phase-num { background: #fbbf24; }
+        .phase-3 .phase-num { background: #60a5fa; }
+        .phase-4 .phase-num { background: #34d399; }
+
+        @media (max-width: 768px) {
+            .summary-grid { grid-template-columns: 1fr; }
+            .proscons { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Speed Optimization Plan</h1>
+        <div class="subtitle">KetoWater Mobile &bull; KetoFlow Desktop &bull; KetoFlow Mobile</div>
+        <div class="date">Generated April 16, 2026 &mdash; PageSpeed Insights API v5 / Lighthouse 13.0.1</div>
+    </div>
+
+    <!-- CURRENT STATE -->
+    <div class="section">
+        <h2 class="section-title">Current State</h2>
+        <p class="section-subtitle">KW Desktop (score 69) is excluded &mdash; already acceptable</p>
+
+        <div class="summary-grid">
+            <div class="summary-box">
+                <div class="page-label">KW Mobile</div>
+                <div class="big-num fail">18.5<span class="big-unit">s</span></div>
+                <div class="sub-text fail">LCP &mdash; target &lt;2.5s</div>
+                <div style="margin-top: 10px;">
+                    <span class="big-num warn" style="font-size:1.4rem">68</span>
+                    <span class="sub-text">/100 perf</span>
+                </div>
+            </div>
+            <div class="summary-box">
+                <div class="page-label">KF Desktop</div>
+                <div class="big-num fail">10.6<span class="big-unit">s</span></div>
+                <div class="sub-text fail">LCP &mdash; target &lt;2.5s</div>
+                <div style="margin-top: 10px;">
+                    <span class="big-num warn" style="font-size:1.4rem">63</span>
+                    <span class="sub-text">/100 perf</span>
+                </div>
+            </div>
+            <div class="summary-box">
+                <div class="page-label">KF Mobile</div>
+                <div class="big-num fail">52.5<span class="big-unit">s</span></div>
+                <div class="sub-text fail">LCP &mdash; target &lt;2.5s</div>
+                <div style="margin-top: 10px;">
+                    <span class="big-num fail" style="font-size:1.4rem">63</span>
+                    <span class="sub-text">/100 perf</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full metrics table -->
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>KW Mobile</th>
+                        <th>KF Desktop</th>
+                        <th>KF Mobile</th>
+                        <th>Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric-name">Performance Score</td>
+                        <td class="warn">68</td>
+                        <td class="warn">63</td>
+                        <td class="warn">63</td>
+                        <td class="target">90+</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">TTFB</td>
+                        <td class="pass">40 <span class="unit">ms</span></td>
+                        <td class="pass">40 <span class="unit">ms</span></td>
+                        <td class="pass">90 <span class="unit">ms</span></td>
+                        <td class="target">&lt;200ms</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">First Contentful Paint</td>
+                        <td class="warn">3.2 <span class="unit">s</span></td>
+                        <td class="pass">0.9 <span class="unit">s</span></td>
+                        <td class="fail">3.9 <span class="unit">s</span></td>
+                        <td class="target">&lt;1.8s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Largest Contentful Paint</td>
+                        <td class="fail">18.5 <span class="unit">s</span></td>
+                        <td class="fail">10.6 <span class="unit">s</span></td>
+                        <td class="fail">52.5 <span class="unit">s</span></td>
+                        <td class="target">&lt;2.5s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Speed Index</td>
+                        <td class="warn">3.9 <span class="unit">s</span></td>
+                        <td class="pass">1.3 <span class="unit">s</span></td>
+                        <td class="fail">5.2 <span class="unit">s</span></td>
+                        <td class="target">&lt;3.4s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Time to Interactive</td>
+                        <td class="fail">19.7 <span class="unit">s</span></td>
+                        <td class="fail">11.1 <span class="unit">s</span></td>
+                        <td class="fail">56.2 <span class="unit">s</span></td>
+                        <td class="target">&lt;3.8s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Total Blocking Time</td>
+                        <td class="pass">50 <span class="unit">ms</span></td>
+                        <td class="pass">0 <span class="unit">ms</span></td>
+                        <td class="pass">40 <span class="unit">ms</span></td>
+                        <td class="target">&lt;200ms</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Cumulative Layout Shift</td>
+                        <td class="pass">0.03</td>
+                        <td class="fail">0.202</td>
+                        <td class="pass">0</td>
+                        <td class="target">&lt;0.1</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Max Potential FID</td>
+                        <td class="pass">80 <span class="unit">ms</span></td>
+                        <td class="pass">20 <span class="unit">ms</span></td>
+                        <td class="pass">100 <span class="unit">ms</span></td>
+                        <td class="target">&lt;100ms</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Total Page Weight</td>
+                        <td class="fail">15.3 <span class="unit">MB</span></td>
+                        <td class="fail">21.2 <span class="unit">MB</span></td>
+                        <td class="fail">19.0 <span class="unit">MB</span></td>
+                        <td class="target">&lt;3 MB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Total Requests</td>
+                        <td class="fail">192</td>
+                        <td class="fail">122</td>
+                        <td class="fail">122</td>
+                        <td class="target">&lt;50</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Image Requests</td>
+                        <td class="fail">158 <span class="unit">(14.7 MB)</span></td>
+                        <td class="fail">87 <span class="unit">(20.3 MB)</span></td>
+                        <td class="fail">86 <span class="unit">(18.1 MB)</span></td>
+                        <td class="target">&mdash;</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Font Files</td>
+                        <td class="warn">9 <span class="unit">(384 KB)</span></td>
+                        <td class="warn">9 <span class="unit">(384 KB)</span></td>
+                        <td class="warn">9 <span class="unit">(384 KB)</span></td>
+                        <td class="target">2-3</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">JS Payload</td>
+                        <td class="pass">156 <span class="unit">KB</span></td>
+                        <td class="warn">444 <span class="unit">KB</span></td>
+                        <td class="warn">451 <span class="unit">KB</span></td>
+                        <td class="target">&lt;200 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Main Thread Work</td>
+                        <td class="warn">2.7 <span class="unit">s</span></td>
+                        <td class="pass">&mdash;</td>
+                        <td class="fail">4.4 <span class="unit">s</span></td>
+                        <td class="target">&lt;2s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Resource breakdown visual -->
+        <h3 style="color:#e2e5ee; font-size:1rem; margin: 30px 0 16px;">Page Weight Breakdown</h3>
+
+        <p style="color:#6b7394; font-size:0.82rem; margin-bottom: 12px;">KW Mobile &mdash; 15.3 MB total</p>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Images</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:96%; background: linear-gradient(90deg,#f87171,#fb923c);">14.7 MB (96%)</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Fonts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:2.4%; background: #818cf8;">384 KB</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Scripts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:1%; background: #fbbf24;">156 KB</div></div>
+        </div>
+
+        <p style="color:#6b7394; font-size:0.82rem; margin: 20px 0 12px;">KF Desktop &mdash; 21.2 MB total</p>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Images</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:96%; background: linear-gradient(90deg,#f87171,#fb923c);">20.3 MB (96%)</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Scripts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:2%; background: #fbbf24;">444 KB</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Fonts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:1.8%; background: #818cf8;">384 KB</div></div>
+        </div>
+
+        <p style="color:#6b7394; font-size:0.82rem; margin: 20px 0 12px;">KF Mobile &mdash; 19.0 MB total</p>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Images</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:95%; background: linear-gradient(90deg,#f87171,#fb923c);">18.1 MB (95%)</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Scripts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:2.3%; background: #fbbf24;">451 KB</div></div>
+        </div>
+        <div class="resource-bar-wrap">
+            <span class="resource-label">Fonts</span>
+            <div class="resource-bar-track"><div class="resource-bar-fill" style="width:2%; background: #818cf8;">384 KB</div></div>
+        </div>
+    </div>
+
+    <!-- ROOT CAUSE -->
+    <div class="section">
+        <h2 class="section-title">Root Cause Analysis</h2>
+        <p class="section-subtitle">95-96% of page weight is images. That's the bottleneck.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Heaviest Images</th>
+                        <th>Page</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric-name">thumbs-panel-bg.webp</td>
+                        <td><span class="badge badge-high" style="font-size:0.68rem">KF Desktop</span></td>
+                        <td class="fail">2,020 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">kw-ice-tub.webp</td>
+                        <td>
+                            <span class="badge badge-high" style="font-size:0.68rem">KF Desktop</span>
+                            <span class="badge badge-critical" style="font-size:0.68rem">KF Mobile</span>
+                        </td>
+                        <td class="fail">1,372 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">hero-bg.webp</td>
+                        <td><span class="badge badge-high" style="font-size:0.68rem">KF Desktop</span></td>
+                        <td class="fail">1,132 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">img-14.webp</td>
+                        <td>
+                            <span class="badge badge-medium" style="font-size:0.68rem">KW Mobile</span>
+                            <span class="badge badge-critical" style="font-size:0.68rem">KF Mobile</span>
+                        </td>
+                        <td class="fail">752&ndash;1,074 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">vip-customer-banner.webp</td>
+                        <td>All 3 pages</td>
+                        <td class="fail">404&ndash;986 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">exit-popup.webp / exit-popup-mobile.webp</td>
+                        <td>All 3 pages</td>
+                        <td class="fail">349&ndash;962 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">step-4-shake-drink.webp</td>
+                        <td>
+                            <span class="badge badge-high" style="font-size:0.68rem">KF Desktop</span>
+                            <span class="badge badge-critical" style="font-size:0.68rem">KF Mobile</span>
+                        </td>
+                        <td class="fail">902 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">5plus1_jar.webp / 3_jar.webp / 2_jar.webp</td>
+                        <td>KF pages</td>
+                        <td class="warn">797&ndash;854 KB each</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">hero-bg-mobile.webp</td>
+                        <td><span class="badge badge-critical" style="font-size:0.68rem">KF Mobile</span></td>
+                        <td class="fail">802 KB</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top: 20px; border-color: #f8717133;">
+            <h3 style="color:#f87171;">Duplicate Image Requests (KW Mobile)</h3>
+            <p>Several images are loaded <strong>twice</strong> &mdash; once normally and once with a trailing <code>?</code> query. This doubles the download for those assets.</p>
+            <div class="detail">
+img-14.webp &nbsp;&nbsp; &rarr; 752 KB &times; 2 = 1,504 KB<br>
+kw-ice-tub.webp &rarr; 449 KB &times; 2 = &nbsp;&nbsp;898 KB<br>
+img-16.webp &nbsp;&nbsp; &rarr; 401 KB &times; 2 = &nbsp;&nbsp;802 KB<br>
+ketowater.webp  &rarr; 391 KB &times; 2 = &nbsp;&nbsp;782 KB<br>
+<strong style="color:#fbbf24;">Total waste: ~3.9 MB from duplicates alone</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTIMIZATION PLAN -->
+    <div class="section">
+        <h2 class="section-title">Optimization Plan</h2>
+        <p class="section-subtitle">4 phases, ordered by impact. Each phase has pros &amp; cons.</p>
+
+        <div class="phase">
+            <div class="phase-item phase-1"><div class="phase-num">1</div> Image Compression &amp; Resizing</div>
+            <div class="phase-item phase-2"><div class="phase-num">2</div> Deferred / Progressive Loading</div>
+            <div class="phase-item phase-3"><div class="phase-num">3</div> Font &amp; CSS Optimization</div>
+            <div class="phase-item phase-4"><div class="phase-num">4</div> CLS &amp; Layout Fixes</div>
+        </div>
+
+        <!-- PHASE 1 -->
+        <div class="cards">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Phase 1: Image Compression &amp; Resizing</h3>
+                    <span class="badge badge-critical">Critical Impact</span>
+                </div>
+                <p>Images are 95%+ of page weight. Most are 700KB&ndash;2MB each when they should be 50&ndash;150KB. This single change can cut page weight by 80%+.</p>
+
+                <div class="detail">
+<strong>What to do:</strong><br><br>
+1. Re-compress all WebP images with quality 70-80 (currently appear to be 90-100)<br>
+2. Resize images to their actual display dimensions:<br>
+&nbsp;&nbsp;&bull; Mobile hero: max 750px wide (currently serving desktop-size)<br>
+&nbsp;&nbsp;&bull; Product jars: max 400px wide<br>
+&nbsp;&nbsp;&bull; Thumbnails/icons: max 200px wide<br>
+&nbsp;&nbsp;&bull; KF Desktop hero-bg: max 1400px wide<br>
+3. Fix duplicate image requests on KW Mobile (remove trailing ? in src)<br>
+4. Use separate mobile-optimized images (smaller dimensions) for mobile pages<br>
+5. Consider AVIF format for browsers that support it (30-50% smaller than WebP)<br><br>
+<strong>Expected savings:</strong><br>
+&nbsp;&nbsp;KW Mobile: 15.3 MB &rarr; ~2.5 MB (save ~12.8 MB)<br>
+&nbsp;&nbsp;KF Desktop: 21.2 MB &rarr; ~3.5 MB (save ~17.7 MB)<br>
+&nbsp;&nbsp;KF Mobile: 19.0 MB &rarr; ~2.8 MB (save ~16.2 MB)
+                </div>
+
+                <div class="impact-bar">
+                    <span class="label">LCP Impact</span>
+                    <div class="impact-track"><div class="impact-fill high" style="width:95%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">TTI Impact</span>
+                    <div class="impact-track"><div class="impact-fill high" style="width:85%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">Effort</span>
+                    <div class="impact-track"><div class="impact-fill medium" style="width:40%"></div></div>
+                </div>
+
+                <div class="affects">
+                    <span class="tag-kw-m">KW Mobile</span>
+                    <span class="tag-kf-d">KF Desktop</span>
+                    <span class="tag-kf-m">KF Mobile</span>
+                </div>
+
+                <div class="proscons">
+                    <div class="pro-box">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Biggest single improvement possible</li>
+                            <li>No code changes needed &mdash; just replace image files</li>
+                            <li>Works for all visitors immediately</li>
+                            <li>Reduces bandwidth costs</li>
+                            <li>Can be done with free tools (squoosh.app, sharp)</li>
+                        </ul>
+                    </div>
+                    <div class="con-box">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Slight visual quality reduction (usually unnoticeable at q75)</li>
+                            <li>Need to re-process all images manually or via script</li>
+                            <li>AVIF support not universal (need WebP fallback)</li>
+                            <li>Must maintain separate mobile/desktop image sets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Phase 2: Deferred / Progressive Loading</h3>
+                    <span class="badge badge-high">High Impact</span>
+                </div>
+                <p>Even after compression, loading 80-150+ images at once is wasteful. Only load what the user can see, defer the rest.</p>
+
+                <div class="detail">
+<strong>What to do:</strong><br><br>
+1. Add <code>loading="lazy"</code> to all images BELOW the fold<br>
+&nbsp;&nbsp;&bull; Keep hero image, first product shot, and trust badges eager<br>
+&nbsp;&nbsp;&bull; Lazy-load: testimonials, comparison charts, FAQ, footer, popups<br>
+2. Add <code>fetchpriority="high"</code> to the hero/LCP image<br>
+3. Preload the LCP image in &lt;head&gt; with &lt;link rel="preload"&gt;<br>
+4. Defer popup &amp; exit-intent images entirely (load via JS on trigger)<br>
+5. Use Intersection Observer for heavy sections (video embeds, galleries)<br>
+6. Defer third-party scripts (ClickBank badge, tracking pixels)<br><br>
+<strong>Expected LCP improvement:</strong><br>
+&nbsp;&nbsp;KW Mobile: 18.5s &rarr; ~4-6s (with Phase 1: ~2-3s)<br>
+&nbsp;&nbsp;KF Desktop: 10.6s &rarr; ~3-5s (with Phase 1: ~1.5-2.5s)<br>
+&nbsp;&nbsp;KF Mobile: 52.5s &rarr; ~8-12s (with Phase 1: ~2-3s)
+                </div>
+
+                <div class="impact-bar">
+                    <span class="label">LCP Impact</span>
+                    <div class="impact-track"><div class="impact-fill high" style="width:80%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">TTI Impact</span>
+                    <div class="impact-track"><div class="impact-fill high" style="width:75%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">Effort</span>
+                    <div class="impact-track"><div class="impact-fill medium" style="width:50%"></div></div>
+                </div>
+
+                <div class="affects">
+                    <span class="tag-kw-m">KW Mobile</span>
+                    <span class="tag-kf-d">KF Desktop</span>
+                    <span class="tag-kf-m">KF Mobile</span>
+                </div>
+
+                <div class="proscons">
+                    <div class="pro-box">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Dramatically faster initial paint &mdash; user sees content sooner</li>
+                            <li>Reduces initial network contention</li>
+                            <li>Native browser support (no JS library needed)</li>
+                            <li>Works especially well on slow mobile connections</li>
+                            <li>Stacks with Phase 1 for compounding gains</li>
+                        </ul>
+                    </div>
+                    <div class="con-box">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Images below fold may flash/pop-in as user scrolls</li>
+                            <li>Must carefully identify which images are above-the-fold</li>
+                            <li>If LCP image is accidentally lazy-loaded, it HURTS the score</li>
+                            <li>Requires HTML changes across all 3 pages</li>
+                            <li>Exit-popup images need JS-based loading logic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Phase 3: Font &amp; CSS Optimization</h3>
+                    <span class="badge badge-medium">Medium Impact</span>
+                </div>
+                <p>9 font files (384 KB) and 29 KB unused CSS add render-blocking weight. Fonts block text rendering until downloaded.</p>
+
+                <div class="detail">
+<strong>What to do:</strong><br><br>
+1. Reduce fonts from 9 to 2-3 (pick primary + accent)<br>
+&nbsp;&nbsp;&bull; Currently loading: Montserrat, Lato, Inter, Lora, Open Sans, Amariya, etc.<br>
+&nbsp;&nbsp;&bull; Consolidate to: Inter (body) + Montserrat (headings) or similar<br>
+2. Add <code>font-display: swap</code> to all @font-face rules<br>
+3. Preload critical fonts: &lt;link rel="preload" as="font" crossorigin&gt;<br>
+4. Convert any OTF fonts to WOFF2 (amariya-regular.otf = 98 KB, WOFF2 would be ~30 KB)<br>
+5. Subset fonts to only needed characters (Latin)<br>
+6. Remove unused CSS rules (29 KB identified by Lighthouse)<br>
+7. Inline critical CSS in &lt;head&gt;, defer the rest<br><br>
+<strong>Expected FCP improvement:</strong><br>
+&nbsp;&nbsp;KW Mobile: 3.2s &rarr; ~2.0s<br>
+&nbsp;&nbsp;KF Mobile: 3.9s &rarr; ~2.2s
+                </div>
+
+                <div class="impact-bar">
+                    <span class="label">FCP Impact</span>
+                    <div class="impact-track"><div class="impact-fill medium" style="width:55%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">LCP Impact</span>
+                    <div class="impact-track"><div class="impact-fill low" style="width:25%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">Effort</span>
+                    <div class="impact-track"><div class="impact-fill medium" style="width:55%"></div></div>
+                </div>
+
+                <div class="affects">
+                    <span class="tag-kw-m">KW Mobile</span>
+                    <span class="tag-kf-d">KF Desktop</span>
+                    <span class="tag-kf-m">KF Mobile</span>
+                </div>
+
+                <div class="proscons">
+                    <div class="pro-box">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Faster text rendering &mdash; user reads content sooner</li>
+                            <li>font-display: swap eliminates invisible text flash (FOIT)</li>
+                            <li>WOFF2 compression is dramatically smaller than OTF</li>
+                            <li>Reduces total requests (fewer font files)</li>
+                            <li>Subsetting can cut font size by 60-80%</li>
+                        </ul>
+                    </div>
+                    <div class="con-box">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>font-display: swap causes brief flash of unstyled text (FOUT)</li>
+                            <li>Removing fonts may require design adjustments</li>
+                            <li>Subsetting tools add build complexity</li>
+                            <li>Less impact than Phase 1 &amp; 2 (fonts are only ~2% of weight)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHASE 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Phase 4: CLS &amp; Layout Stability</h3>
+                    <span class="badge badge-low">Lower Impact (KF Desktop specific)</span>
+                </div>
+                <p>KF Desktop has CLS of 0.202 (target &lt;0.1). Images without explicit dimensions cause layout shifts as they load.</p>
+
+                <div class="detail">
+<strong>What to do:</strong><br><br>
+1. Add explicit width/height attributes to ALL &lt;img&gt; tags<br>
+&nbsp;&nbsp;&bull; KF Desktop: 47 images flagged as unsized<br>
+&nbsp;&nbsp;&bull; KW Mobile: also has unsized images<br>
+2. Use CSS aspect-ratio for responsive containers<br>
+3. Reserve space for dynamic content (pricing cards, badges)<br>
+4. Avoid injecting content above existing content after load<br>
+5. Set explicit dimensions on ad/third-party embeds<br><br>
+<strong>Expected CLS improvement:</strong><br>
+&nbsp;&nbsp;KF Desktop: 0.202 &rarr; &lt;0.05
+                </div>
+
+                <div class="impact-bar">
+                    <span class="label">CLS Impact</span>
+                    <div class="impact-track"><div class="impact-fill high" style="width:90%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">LCP Impact</span>
+                    <div class="impact-track"><div class="impact-fill low" style="width:10%"></div></div>
+                </div>
+                <div class="impact-bar">
+                    <span class="label">Effort</span>
+                    <div class="impact-track"><div class="impact-fill low" style="width:30%"></div></div>
+                </div>
+
+                <div class="affects">
+                    <span class="tag-kf-d">KF Desktop</span>
+                    <span class="tag-kw-m" style="opacity:0.5">KW Mobile (minor)</span>
+                </div>
+
+                <div class="proscons">
+                    <div class="pro-box">
+                        <h4>Pros</h4>
+                        <ul>
+                            <li>Eliminates jarring layout jumps during load</li>
+                            <li>Simple HTML-only changes (add width/height)</li>
+                            <li>Improves user experience and perceived quality</li>
+                            <li>Google uses CLS as a ranking signal</li>
+                        </ul>
+                    </div>
+                    <div class="con-box">
+                        <h4>Cons</h4>
+                        <ul>
+                            <li>Need to know exact dimensions for every image</li>
+                            <li>Tedious for 47+ images across pages</li>
+                            <li>Won't meaningfully improve load time &mdash; just visual stability</li>
+                            <li>Only KF Desktop has a failing CLS score</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECTED RESULTS -->
+    <div class="section">
+        <h2 class="section-title">Projected Results After All Phases</h2>
+        <p class="section-subtitle">Estimated metrics assuming all 4 phases are implemented</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>KW Mobile Now</th>
+                        <th>KW Mobile After</th>
+                        <th>KF Desktop Now</th>
+                        <th>KF Desktop After</th>
+                        <th>KF Mobile Now</th>
+                        <th>KF Mobile After</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric-name">Perf Score</td>
+                        <td class="warn">68</td>
+                        <td class="pass">90&ndash;95</td>
+                        <td class="warn">63</td>
+                        <td class="pass">88&ndash;94</td>
+                        <td class="warn">63</td>
+                        <td class="pass">88&ndash;94</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">LCP</td>
+                        <td class="fail">18.5s</td>
+                        <td class="pass">1.5&ndash;2.5s</td>
+                        <td class="fail">10.6s</td>
+                        <td class="pass">1.5&ndash;2.5s</td>
+                        <td class="fail">52.5s</td>
+                        <td class="pass">2.0&ndash;3.0s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">FCP</td>
+                        <td class="warn">3.2s</td>
+                        <td class="pass">1.2&ndash;1.8s</td>
+                        <td class="pass">0.9s</td>
+                        <td class="pass">0.7&ndash;0.9s</td>
+                        <td class="fail">3.9s</td>
+                        <td class="pass">1.5&ndash;2.2s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">TTI</td>
+                        <td class="fail">19.7s</td>
+                        <td class="pass">2.0&ndash;3.5s</td>
+                        <td class="fail">11.1s</td>
+                        <td class="pass">2.0&ndash;3.0s</td>
+                        <td class="fail">56.2s</td>
+                        <td class="pass">2.5&ndash;4.0s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Page Weight</td>
+                        <td class="fail">15.3 MB</td>
+                        <td class="pass">~1.5 MB</td>
+                        <td class="fail">21.2 MB</td>
+                        <td class="pass">~2.0 MB</td>
+                        <td class="fail">19.0 MB</td>
+                        <td class="pass">~1.8 MB</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">CLS</td>
+                        <td class="pass">0.03</td>
+                        <td class="pass">&lt;0.03</td>
+                        <td class="fail">0.202</td>
+                        <td class="pass">&lt;0.05</td>
+                        <td class="pass">0</td>
+                        <td class="pass">0</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Full Load</td>
+                        <td class="fail">~19.7s</td>
+                        <td class="pass">~2&ndash;3.5s</td>
+                        <td class="fail">~11.1s</td>
+                        <td class="pass">~2&ndash;3s</td>
+                        <td class="fail">~56.2s</td>
+                        <td class="pass">~2.5&ndash;4s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- EXECUTION ORDER -->
+    <div class="section">
+        <h2 class="section-title">Recommended Execution Order</h2>
+        <p class="section-subtitle">Phase 1 alone solves ~70% of the problem. Phase 1 + 2 together solve ~90%.</p>
+
+        <div class="cards" style="gap:12px;">
+            <div class="card" style="border-left: 3px solid #f87171; padding: 16px 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <strong style="color:#e2e5ee;">Phase 1 &mdash; Image Compression &amp; Resizing</strong>
+                        <div style="color:#6b7394; font-size:0.82rem; margin-top:2px;">Do this first. Biggest bang for effort.</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="color:#f87171; font-size:0.82rem; font-weight:600;">~70% of total fix</div>
+                        <div style="color:#4a5170; font-size:0.75rem;">All 3 pages</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid #fbbf24; padding: 16px 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <strong style="color:#e2e5ee;">Phase 2 &mdash; Deferred Loading</strong>
+                        <div style="color:#6b7394; font-size:0.82rem; margin-top:2px;">Compound on Phase 1 gains. Critical for mobile.</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="color:#fbbf24; font-size:0.82rem; font-weight:600;">~20% additional</div>
+                        <div style="color:#4a5170; font-size:0.75rem;">All 3 pages</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid #60a5fa; padding: 16px 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <strong style="color:#e2e5ee;">Phase 3 &mdash; Font &amp; CSS</strong>
+                        <div style="color:#6b7394; font-size:0.82rem; margin-top:2px;">Polish. Improves FCP and text rendering.</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="color:#60a5fa; font-size:0.82rem; font-weight:600;">~7% additional</div>
+                        <div style="color:#4a5170; font-size:0.75rem;">All 3 pages</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="border-left: 3px solid #34d399; padding: 16px 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <strong style="color:#e2e5ee;">Phase 4 &mdash; CLS &amp; Layout</strong>
+                        <div style="color:#6b7394; font-size:0.82rem; margin-top:2px;">Quick win for KF Desktop layout stability.</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="color:#34d399; font-size:0.82rem; font-weight:600;">~3% additional</div>
+                        <div style="color:#4a5170; font-size:0.75rem;">KF Desktop mainly</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 1 RESULTS -->
+    <div class="section" style="border-top: 2px solid #34d399; padding-top: 40px; margin-top: 60px;">
+        <h2 class="section-title" style="color:#34d399;">Phase 1 Results &mdash; Image Compression Complete</h2>
+        <p class="section-subtitle">Executed April 17, 2026 &mdash; 184 WebP images compressed &amp; resized across both sites</p>
+
+        <!-- What was done -->
+        <div class="card" style="border-color: #34d39940; margin-bottom: 24px;">
+            <div class="card-header">
+                <h3 style="color:#34d399;">What Was Done</h3>
+                <span class="badge badge-low">Completed</span>
+            </div>
+            <div class="detail">
+<strong>Compression Settings:</strong><br>
+&nbsp;&nbsp;&bull; WebP quality: 82 (visually indistinguishable, preserves detail)<br>
+&nbsp;&nbsp;&bull; 4096&times;4096 product photos &rarr; max 1000px<br>
+&nbsp;&nbsp;&bull; Hero/background images &rarr; max 1200&ndash;1400px<br>
+&nbsp;&nbsp;&bull; Mobile hero images &rarr; max 800px<br>
+&nbsp;&nbsp;&bull; Thumbnails/icons &rarr; proportional resize<br><br>
+<strong>Files processed:</strong> 92 images per site (184 total across KetoWater + KetoFlow)<br>
+<strong>Total savings:</strong> 42 MB removed from git (26.7 MB &rarr; 5.7 MB per site)<br><br>
+<strong>Biggest individual savings:</strong><br>
+&nbsp;&nbsp;thumbs-panel-bg.webp &nbsp; 2,020 KB &rarr; 206 KB (90% saved)<br>
+&nbsp;&nbsp;kw-ice-tub.webp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,372 KB &rarr; 146 KB (89% saved)<br>
+&nbsp;&nbsp;hero-bg.webp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,132 KB &rarr; 120 KB (89% saved)<br>
+&nbsp;&nbsp;img-14.webp &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,074 KB &rarr; 113 KB (89% saved)<br>
+&nbsp;&nbsp;exit-popup-mobile.webp &nbsp; 962 KB &rarr; &nbsp;62 KB (94% saved)<br>
+&nbsp;&nbsp;hero-bg-mobile.webp &nbsp;&nbsp;&nbsp; 802 KB &rarr; &nbsp;33 KB (96% saved)
+            </div>
+        </div>
+
+        <!-- Deploy status -->
+        <div class="card" style="border-color: #fbbf2440; margin-bottom: 24px;">
+            <div class="card-header">
+                <h3 style="color:#fbbf24;">Deploy Status</h3>
+                <span class="badge badge-high">Action Needed</span>
+            </div>
+            <p>Both repos pushed to GitHub. However, the server deployment is incomplete:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px;">
+                <div style="padding: 14px; border-radius: 8px; background: rgba(248,113,113,0.06); border: 1px solid rgba(248,113,113,0.15);">
+                    <div style="color:#f87171; font-weight:600; font-size:0.85rem; margin-bottom: 6px;">KetoWater</div>
+                    <div style="color:#fca5a5; font-size:0.82rem;">
+                        No auto-deploy configured.<br>
+                        Images pushed to GitHub but NOT on production server.<br>
+                        <strong>Needs:</strong> Manual FTP upload or auto-deploy setup via Hostinger.
+                    </div>
+                </div>
+                <div style="padding: 14px; border-radius: 8px; background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.15);">
+                    <div style="color:#fbbf24; font-weight:600; font-size:0.85rem; margin-bottom: 6px;">KetoFlow</div>
+                    <div style="color:#fde68a; font-size:0.82rem;">
+                        Partial deploy via Hostinger &mdash; <code>Images/</code> directory updated, <code>product_images/</code> still serving old files.<br>
+                        Cloudflare CDN caching old versions at some edges.<br>
+                        <strong>Needs:</strong> Verify full deploy + Cloudflare cache purge.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Before / After comparison -->
+        <h3 style="color:#e2e5ee; font-size:1.1rem; margin: 30px 0 8px;">Before &amp; After Comparison</h3>
+        <p class="section-subtitle">KF Desktop shows partial improvement (CDN cache partially cleared). KW Mobile and KF Mobile blocked by incomplete deploy.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th style="border-right:1px solid #2a3050;">KW Mobile Before</th>
+                        <th style="border-right:2px solid #2a3050;">KW Mobile After</th>
+                        <th style="border-right:1px solid #2a3050;">KF Desktop Before</th>
+                        <th style="border-right:2px solid #2a3050;">KF Desktop After</th>
+                        <th style="border-right:1px solid #2a3050;">KF Mobile Before</th>
+                        <th>KF Mobile After</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric-name">Performance Score</td>
+                        <td class="warn">68</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">68 <span class="unit">(not deployed)</span></td>
+                        <td class="warn">63</td>
+                        <td class="pass" style="border-right:2px solid #2a3050;">73 <span style="color:#34d399;">+10</span></td>
+                        <td class="warn">63</td>
+                        <td class="warn">66 <span style="color:#34d399;">+3</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">LCP</td>
+                        <td class="fail">18.5s</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="fail">10.6s</td>
+                        <td class="warn" style="border-right:2px solid #2a3050;">6.9s <span style="color:#34d399;">&minus;3.7s</span></td>
+                        <td class="fail">52.5s</td>
+                        <td class="fail">49.1s <span style="color:#34d399;">&minus;3.4s</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">FCP</td>
+                        <td class="warn">3.2s</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="pass">0.9s</td>
+                        <td class="pass" style="border-right:2px solid #2a3050;">0.8s</td>
+                        <td class="fail">3.9s</td>
+                        <td class="fail">3.9s</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Speed Index</td>
+                        <td class="warn">3.9s</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="pass">1.3s</td>
+                        <td class="pass" style="border-right:2px solid #2a3050;">1.3s</td>
+                        <td class="fail">5.2s</td>
+                        <td class="warn">3.9s <span style="color:#34d399;">&minus;1.3s</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">TTI</td>
+                        <td class="fail">19.7s</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="fail">11.1s</td>
+                        <td class="warn" style="border-right:2px solid #2a3050;">7.4s <span style="color:#34d399;">&minus;3.7s</span></td>
+                        <td class="fail">56.2s</td>
+                        <td class="fail">52.4s <span style="color:#34d399;">&minus;3.8s</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">CLS</td>
+                        <td class="pass">0.03</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="fail">0.202</td>
+                        <td class="pass" style="border-right:2px solid #2a3050;">0.055 <span style="color:#34d399;">&minus;73%</span></td>
+                        <td class="pass">0</td>
+                        <td class="pass">0.092</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">TBT</td>
+                        <td class="pass">50ms</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="pass">0ms</td>
+                        <td class="pass" style="border-right:2px solid #2a3050;">0ms</td>
+                        <td class="pass">40ms</td>
+                        <td class="pass">0ms <span style="color:#34d399;">&minus;40ms</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Total Page Weight</td>
+                        <td class="fail">15.3 MB</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="fail">21.2 MB</td>
+                        <td class="fail" style="border-right:2px solid #2a3050;">14.9 MB <span style="color:#34d399;">&minus;6.3 MB</span></td>
+                        <td class="fail">19.0 MB</td>
+                        <td class="fail">17.6 MB <span style="color:#34d399;">&minus;1.4 MB</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">Image Weight</td>
+                        <td class="fail">14.7 MB</td>
+                        <td class="skip" style="border-right:2px solid #2a3050;">&mdash;</td>
+                        <td class="fail">20.3 MB</td>
+                        <td class="fail" style="border-right:2px solid #2a3050;">14.0 MB <span style="color:#34d399;">&minus;6.3 MB</span></td>
+                        <td class="fail">18.1 MB</td>
+                        <td class="fail">16.7 MB <span style="color:#34d399;">&minus;1.4 MB</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Why partial improvement -->
+        <div class="card" style="margin-top: 24px; border-color: #60a5fa40;">
+            <div class="card-header">
+                <h3 style="color:#60a5fa;">Why Only Partial Improvement?</h3>
+            </div>
+            <p>The compressed images are in GitHub but the Cloudflare CDN + Hostinger server are still serving old cached versions for most files. Once fully deployed:</p>
+            <div class="detail">
+<strong>Current server state (verified via HTTP headers):</strong><br><br>
+<span style="color:#34d399;">&#10003;</span> Images/ directory &mdash; deployed (e.g. vip-customer-banner: 986 KB &rarr; 110 KB)<br>
+<span style="color:#f87171;">&#10007;</span> product_images/ directory &mdash; still serving old files<br>
+<span style="color:#f87171;">&#10007;</span> Cloudflare edge caches &mdash; holding stale copies (max-age: 1 year, immutable)<br><br>
+<strong>Expected final results once fully deployed + cache purged:</strong><br>
+&nbsp;&nbsp;KF Desktop: 21.2 MB &rarr; ~3.5 MB total page weight<br>
+&nbsp;&nbsp;KF Mobile: &nbsp;19.0 MB &rarr; ~2.8 MB total page weight<br>
+&nbsp;&nbsp;KW Mobile: &nbsp;15.3 MB &rarr; ~2.5 MB total page weight<br><br>
+<strong>Action items to complete deployment:</strong><br>
+1. KetoWater &mdash; set up auto-deploy (Hostinger Git deploy or GitHub Actions + FTP)<br>
+2. KetoFlow &mdash; verify product_images/ deployed, trigger full sync if needed<br>
+3. Purge Cloudflare cache (Dashboard &rarr; Caching &rarr; Purge Everything)<br>
+4. Update image URLs with cache-busting ?v= parameter in HTML files<br>
+5. Re-test with PageSpeed API after cache is cleared
+            </div>
+        </div>
+
+        <!-- Local compression proof -->
+        <h3 style="color:#e2e5ee; font-size:1rem; margin: 30px 0 12px;">Local Compression Results (Git)</h3>
+        <p class="section-subtitle">What the server WILL serve once fully deployed</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image File</th>
+                        <th>Before</th>
+                        <th>After</th>
+                        <th>Dimensions</th>
+                        <th>Saved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metric-name">thumbs-panel-bg.webp</td>
+                        <td class="fail">2,020 KB</td>
+                        <td class="pass">206 KB</td>
+                        <td>5600&times;3200 &rarr; 1400&times;800</td>
+                        <td class="pass">90%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">kw-ice-tub.webp</td>
+                        <td class="fail">1,372 KB</td>
+                        <td class="pass">146 KB</td>
+                        <td>2048&times;2048 &rarr; 1000&times;1000</td>
+                        <td class="pass">89%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">hero-bg.webp</td>
+                        <td class="fail">1,132 KB</td>
+                        <td class="pass">120 KB</td>
+                        <td>2752&times;1437 &rarr; 1400&times;731</td>
+                        <td class="pass">89%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">img-14.webp</td>
+                        <td class="fail">1,074 KB</td>
+                        <td class="pass">113 KB</td>
+                        <td>2048&times;2048 &rarr; 1000&times;1000</td>
+                        <td class="pass">89%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">vip-customer-banner.webp</td>
+                        <td class="fail">986 KB</td>
+                        <td class="pass">110 KB</td>
+                        <td>2752&times;1536 &rarr; 1200&times;669</td>
+                        <td class="pass">89%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">exit-popup-mobile.webp</td>
+                        <td class="fail">962 KB</td>
+                        <td class="pass">62 KB</td>
+                        <td>1792&times;2400 &rarr; 597&times;800</td>
+                        <td class="pass">94%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">step-4-shake-drink.webp</td>
+                        <td class="fail">902 KB</td>
+                        <td class="pass">77 KB</td>
+                        <td>1792&times;2400 &rarr; 896&times;1200</td>
+                        <td class="pass">91%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">5plus1_jar.webp</td>
+                        <td class="fail">854 KB</td>
+                        <td class="pass">84 KB</td>
+                        <td>2400&times;1792 &rarr; 1200&times;896</td>
+                        <td class="pass">90%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">3_jar.webp</td>
+                        <td class="fail">833 KB</td>
+                        <td class="pass">80 KB</td>
+                        <td>2400&times;1792 &rarr; 1200&times;896</td>
+                        <td class="pass">90%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">hero-bg-mobile.webp</td>
+                        <td class="fail">802 KB</td>
+                        <td class="pass">33 KB</td>
+                        <td>1536&times;2752 &rarr; 446&times;800</td>
+                        <td class="pass">96%</td>
+                    </tr>
+                    <tr>
+                        <td class="metric-name">2_jar.webp</td>
+                        <td class="fail">797 KB</td>
+                        <td class="pass">74 KB</td>
+                        <td>2400&times;1792 &rarr; 1200&times;896</td>
+                        <td class="pass">91%</td>
+                    </tr>
+                    <tr style="background: rgba(52,211,153,0.06);">
+                        <td class="metric-name" style="color:#34d399;"><strong>Total (all 184 images)</strong></td>
+                        <td class="fail"><strong>53.4 MB</strong></td>
+                        <td class="pass"><strong>11.4 MB</strong></td>
+                        <td>&mdash;</td>
+                        <td class="pass"><strong>79%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="text-align:center; margin-top:60px; padding:20px; color:#3a4060; font-size:0.78rem;">
+        Data source: Google PageSpeed Insights API v5 &bull; Lighthouse 13.0.1<br>
+        Before: April 16, 2026 &bull; After: April 17, 2026<br>
+        Phase 1 compression committed to both repos. Full server deploy pending.
+    </div>
+
+</div>
+</body>
+</html>

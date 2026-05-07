@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerX Pro - Native Ads Copy Swipes | Affiliate Toolkit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.trustednutraproduct.com/t.js?v=powerxpro-trustednutraproduct-com-v3"></script>
+    <style>
+        :root {
+            --sidebar-bg: #184579;
+            --sidebar-hover: #1d5294;
+            --sidebar-active: #0f2d4f;
+            --accent: #2a7de1;
+            --accent-light: #e8f1fc;
+            --success: #28a745;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffc107;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: #fff;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .sidebar-header h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .sidebar-header .badge-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 12px 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 9px 20px 9px 24px;
+            color: rgba(255,255,255,0.78);
+            text-decoration: none;
+            font-size: 0.88rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-nav li a:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+            border-left-color: rgba(255,255,255,0.5);
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--sidebar-active);
+            color: #fff;
+            border-left-color: #5ba3f5;
+            font-weight: 600;
+        }
+
+        .sidebar-nav .nav-section-label {
+            padding: 18px 20px 6px 24px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .sidebar-back {
+            display: block;
+            padding: 14px 20px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.84rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
+        }
+
+        .sidebar-back:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 32px 40px 60px;
+            max-width: 980px;
+        }
+
+        .page-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--sidebar-bg);
+            margin-bottom: 6px;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: #6c757d;
+            margin-bottom: 28px;
+        }
+
+        .product-meta {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 36px;
+            font-size: 0.92rem;
+        }
+
+        .product-meta strong { color: var(--sidebar-bg); }
+
+        /* Section Cards */
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 32px 36px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .content-section h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .content-section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #34495e;
+            margin: 24px 0 10px;
+        }
+
+        .content-section h4 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #495057;
+            margin: 18px 0 8px;
+        }
+
+        .section-intro {
+            color: #6c757d;
+            font-size: 0.93rem;
+            margin-bottom: 18px;
+        }
+
+        /* Swipe blocks */
+        .swipe-block {
+            background: #f8f9fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .swipe-block .swipe-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .swipe-block .swipe-text {
+            font-size: 1.02rem;
+            color: #212529;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .swipe-block .swipe-note {
+            font-size: 0.82rem;
+            color: #6c757d;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* Copy button */
+        .btn-copy {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            color: #6c757d;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .btn-copy.copied {
+            background: var(--success);
+            color: #fff;
+            border-color: var(--success);
+        }
+
+        /* Advertorial template */
+        .advertorial-template {
+            background: #fff;
+            border: 2px solid #e2e6ea;
+            border-radius: 10px;
+            padding: 28px 28px 22px;
+            margin-bottom: 22px;
+        }
+
+        .advertorial-template .advt-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .advertorial-template .advt-angle {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .advertorial-template .advt-body {
+            font-size: 0.95rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .advertorial-template .advt-body p {
+            margin-bottom: 12px;
+        }
+
+        /* Tip / Warning / Info boxes */
+        .tip-box {
+            background: #d4edda;
+            border-left: 4px solid var(--success);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Headline list */
+        .headline-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .headline-list li {
+            padding: 10px 60px 10px 16px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+            position: relative;
+            cursor: default;
+        }
+
+        .headline-list li:hover { background: #f8f9fa; }
+
+        .headline-list li .hl-num {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .headline-list li .btn-copy {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Table styles */
+        .table-custom {
+            font-size: 0.9rem;
+        }
+
+        .table-custom thead th {
+            background: var(--sidebar-bg);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            padding: 10px 14px;
+        }
+
+        .table-custom tbody td {
+            padding: 10px 14px;
+            vertical-align: top;
+            border-color: #eee;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 6px 0;
+            font-size: 0.93rem;
+        }
+
+        .checklist li i { color: var(--success); margin-right: 8px; }
+        .checklist li .bi-x-circle-fill { color: #dc3545; }
+
+        /* Mobile toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: var(--sidebar-bg);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.show { transform: translateX(0); }
+            .sidebar-toggle { display: block; }
+            .main-content { margin-left: 0; padding: 24px 18px 50px; }
+            .main-content { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h4>PowerX Pro</h4>
+        <span class="badge-type">Native Ads Swipes</span>
+    </div>
+    <ul class="sidebar-nav">
+        <li class="nav-section-label">Headlines</li>
+        <li><a href="#curiosity-headlines">Curiosity Headlines</a></li>
+        <li><a href="#problem-aware-headlines">Problem-Aware Headlines</a></li>
+        <li class="nav-section-label">Ad Templates</li>
+        <li><a href="#advertorial-templates">Advertorial Templates</a></li>
+        <li class="nav-section-label">Creative Guidance</li>
+        <li><a href="#thumbnail-guidance">Thumbnail / Image Guidance</a></li>
+        <li><a href="#landing-page-pairing">Landing Page Pairing Guide</a></li>
+        <li class="nav-section-label">Compliance &amp; Strategy</li>
+        <li><a href="#compliance-notes">Compliance Notes</a></li>
+        <li><a href="#platform-tips">Platform-Specific Tips</a></li>
+    </ul>
+    <a href="javascript:history.back()" class="sidebar-back"><i class="bi bi-arrow-left me-2"></i>Back to Affiliate Tools</a>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <h1 class="page-title">Native Ads Copy Swipes</h1>
+    <p class="page-subtitle">Ready-to-deploy headlines, advertorials, and creative guidance for Taboola, Outbrain, MGID and more.</p>
+
+    <div class="product-meta">
+        <strong>Product:</strong> PowerX Pro &mdash; Premium Prostate Health Formula<br>
+        <strong>Target Audience:</strong> Two batches: Erectile Dysfunction (Men 20+ All Men) | Prostate Health (Men 45+)<br>
+        <strong>Key Ingredients:</strong> Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, Stinging Nettle Root<br>
+        <strong>Offer Angles:</strong> Prostate relief, fewer bathroom trips, better sleep, restored vitality, natural approach
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: CURIOSITY HEADLINES -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="curiosity-headlines">
+        <h2><i class="bi bi-lightbulb me-2"></i>Curiosity Headlines</h2>
+        <p class="section-intro">These headlines leverage curiosity gaps and implied discoveries to generate high CTR on native ad networks. They work best with candid, relatable images of men in the 45-65 age range.</p>
+
+        <ol class="headline-list">
+            <li>
+                <span class="hl-num">1</span>
+                Urologist's Discovery Stuns Medical Community &mdash; Prostate Relief Without Prescription Drugs
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">2</span>
+                Why Men Over 50 Are Rushing to Try This "Forgotten" Plant Extract
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">3</span>
+                Harvard-Trained Doctor Reveals the Real Reason Your Prostate Keeps Growing
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">4</span>
+                This Simple Morning Ritual Is Helping Men Ditch Nighttime Bathroom Trips
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">5</span>
+                Tiny African Shrub May Hold the Key to Shrinking Enlarged Prostates Naturally
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">6</span>
+                Men Are Furious After Learning What Big Pharma Hid About Prostate Health
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">7</span>
+                63-Year-Old Sleeps Through the Night for First Time in 12 Years &mdash; Here's How
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">8</span>
+                Doctors Don't Want You to Know About This Natural Prostate Breakthrough
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">9</span>
+                The 30-Second Prostate Test Every Man Over 40 Should Take Immediately
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">10</span>
+                Retired Physician Shares the One Supplement He Takes Every Day for His Prostate
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">11</span>
+                Why Thousands of Men Are Throwing Away Their Prostate Prescriptions
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">12</span>
+                New Study Reveals the Hidden Mineral Deficiency Behind Prostate Problems
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">13</span>
+                If You're Over 45 and Wake Up to Pee, Read This Before It Gets Worse
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">14</span>
+                Ancient Mediterranean Secret May Reverse Years of Prostate Damage
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">15</span>
+                Controversial Video Exposes the Root Cause of Prostate Swelling in Aging Men
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">16</span>
+                Former Skeptic Shares How a "Kitchen Cabinet" Ingredient Changed His Prostate Health
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">17</span>
+                The Prostate Problem Nobody Talks About &mdash; And the Natural Fix Going Viral
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Pro Tip:</strong> Curiosity headlines work best when paired with images that do NOT directly show the product. Use lifestyle or editorial-style photos instead.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: PROBLEM-AWARE HEADLINES -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="problem-aware-headlines">
+        <h2><i class="bi bi-bullseye me-2"></i>Problem-Aware Headlines</h2>
+        <p class="section-intro">These headlines target men who already recognize their symptoms &mdash; frequent urination, weak stream, nighttime waking. They generate lower CTR than curiosity hooks but drive higher-quality traffic with stronger buyer intent.</p>
+
+        <h3>Bathroom Trips / Frequent Urination</h3>
+        <ol class="headline-list">
+            <li>
+                <span class="hl-num">1</span>
+                Tired of Running to the Bathroom Every Hour? This May Be Why.
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">2</span>
+                Constant Bathroom Trips Are Not "Just Part of Aging" &mdash; Doctors Explain
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">3</span>
+                The Real Reason You Can't Make It Through a Movie Without a Bathroom Break
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">4</span>
+                How 47,000 Men Finally Ended Embarrassing Urgency &mdash; Without Surgery
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">5</span>
+                If You Map Every Bathroom at the Mall, Your Prostate May Be Sending a Warning
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+        </ol>
+
+        <h3>Weak Stream / Incomplete Emptying</h3>
+        <ol class="headline-list">
+            <li>
+                <span class="hl-num">6</span>
+                Weak Urine Flow After 50? It's Probably Not What You Think.
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">7</span>
+                Why Your Stream Gets Weaker Every Year &mdash; And the Simple Fix Doctors Overlook
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">8</span>
+                Dribbling, Straining, Starting and Stopping? Your Prostate Needs This.
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">9</span>
+                Men Over 40: This Is Why It Takes Forever to Empty Your Bladder
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">10</span>
+                5 Warning Signs Your Prostate Is Squeezing Your Urethra &mdash; And What to Do About It
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+        </ol>
+
+        <h3>Nighttime Urination / Sleep Disruption</h3>
+        <ol class="headline-list">
+            <li>
+                <span class="hl-num">11</span>
+                Waking Up 3-4 Times a Night to Pee? Here's What Your Body Is Telling You.
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">12</span>
+                Nighttime Bathroom Trips Are Destroying Your Sleep &mdash; This Natural Fix Helps
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">13</span>
+                Your Wife Shouldn't Have to Wake Up Every Time You Get Up to Pee
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">14</span>
+                Sleep Through the Night Again: How Men Are Beating Nocturia Without Drugs
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">15</span>
+                Getting Up to Pee at 2 AM, 4 AM, and 6 AM? Your Prostate May Be Enlarged.
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">16</span>
+                The #1 Reason Men Over 50 Can't Get a Full Night's Sleep (It's Not Stress)
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+            <li>
+                <span class="hl-num">17</span>
+                Exhausted From Nighttime Bathroom Runs? A Urologist Shares What Actually Works
+                <button class="btn-copy" onclick="copyText(this)">Copy</button>
+            </li>
+        </ol>
+
+        <div class="info-box">
+            <strong><i class="bi bi-info-circle me-1"></i> Targeting Note:</strong> Problem-aware headlines pair best with interest-based targeting: men's health, WebMD readers, Mayo Clinic visitors. For ED audience: men 20+. For Prostate audience: men 45+. Exclude women to avoid wasted spend.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: ADVERTORIAL TEMPLATES -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="advertorial-templates">
+        <h2><i class="bi bi-newspaper me-2"></i>Advertorial Templates</h2>
+        <p class="section-intro">These are complete, story-driven advertorial articles ready to deploy on your pre-sell pages. Customize names, locations, and personal details to match your audience. Each template follows the proven Problem &rarr; Agitation &rarr; Discovery &rarr; Solution &rarr; CTA framework.</p>
+
+        <!-- ADVERTORIAL 1 -->
+        <div class="advertorial-template">
+            <span class="advt-angle">Angle: Personal Discovery Story</span>
+            <h3 class="advt-title">I Was Getting Up 5 Times a Night to Pee &mdash; Until My Neighbor Told Me About This</h3>
+            <button class="btn-copy" onclick="copyAdvertorial(this)" style="position:relative;float:right;margin-top:-30px;">Copy All</button>
+            <div class="advt-body">
+                <p>For the last eight years, my nights looked exactly the same. Alarm clock goes off at 11:30 PM &mdash; except it wasn't my alarm. It was my bladder. Then again at 1 AM. Then 3 AM. Then 5 AM. By the time my real alarm went off at 6:30, I felt like I hadn't slept at all.</p>
+
+                <p>My wife started sleeping in the guest bedroom because I kept waking her up. I was too embarrassed to go on road trips with my buddies. I started mapping out every public restroom within walking distance of anywhere I went. At 58 years old, I felt like my body had betrayed me.</p>
+
+                <p>My doctor told me my prostate was enlarged &mdash; benign prostatic hyperplasia, or BPH. He wanted to put me on Flomax. I tried it. The side effects were miserable: dizziness, fatigue, and problems in the bedroom that I won't get into here. After four months, I quit.</p>
+
+                <p>Then one Saturday, my neighbor Bill &mdash; who's 64 and sharper than most guys half his age &mdash; mentioned he'd been dealing with the same problem a couple of years back. He told me about a natural formula his naturopath had recommended that combined Saw Palmetto with something called Beta-Sitosterol and Pygeum Africanum. He said within a few weeks, his nighttime trips dropped from four to one. Within two months, he was sleeping straight through.</p>
+
+                <p>I was skeptical, but desperate. So I looked into it. Turns out, there are published clinical studies showing Beta-Sitosterol can improve urinary flow and reduce residual urine volume. Saw Palmetto has been used in Europe for prostate health for decades. And Pygeum Africanum &mdash; a bark extract from an African cherry tree &mdash; has been shown to reduce nighttime urination frequency in multiple trials.</p>
+
+                <p>The product Bill was using contained all of these, plus Zinc, Lycopene, and Stinging Nettle Root. It's called PowerX Pro. I ordered a three-month supply and figured I'd give it an honest shot.</p>
+
+                <p>Week one? Nothing dramatic. Week two? I noticed I wasn't getting up until 2 AM. By week four, I was down to one trip per night. By week eight, I slept from 10:30 PM to 6 AM without getting up once. I actually cried. My wife moved back into our bedroom.</p>
+
+                <p>I'm not saying this will work for every man. But if you're dealing with the same frustration I was, it might be worth trying. They offer a money-back guarantee, so there's really nothing to lose.</p>
+
+                <p><strong>[Learn more about PowerX Pro and see if it's right for you &rarr;]</strong></p>
+            </div>
+        </div>
+
+        <!-- ADVERTORIAL 2 -->
+        <div class="advertorial-template">
+            <span class="advt-angle">Angle: Medical Authority / Research-Driven</span>
+            <h3 class="advt-title">New Research Reveals Why Prostate Problems Get Worse After 50 &mdash; And a Natural Approach That's Gaining Ground</h3>
+            <button class="btn-copy" onclick="copyAdvertorial(this)" style="position:relative;float:right;margin-top:-30px;">Copy All</button>
+            <div class="advt-body">
+                <p>If you're a man over 50, there's roughly a 50% chance your prostate has already begun to enlarge. By age 60, that number climbs to 70%. By 80, it's over 90%. Benign Prostatic Hyperplasia &mdash; BPH &mdash; is so common that many doctors consider it an inevitable part of aging. But a growing number of researchers are questioning whether it has to be.</p>
+
+                <p>The symptoms are familiar to millions of men: frequent urination, especially at night. A weak or interrupted urine stream. The feeling that your bladder never fully empties. Urgency that strikes at the worst possible moments. For many men, these symptoms quietly erode quality of life &mdash; disrupting sleep, straining relationships, and sapping energy.</p>
+
+                <p>Standard medical interventions include alpha-blockers like tamsulosin (Flomax) and 5-alpha reductase inhibitors like finasteride (Proscar). While these can be effective, they come with a well-documented list of side effects: dizziness, sexual dysfunction, fatigue, and in some cases, an increased risk of more serious conditions. Many men take these drugs for years with diminishing returns.</p>
+
+                <p>This is why a growing body of research into plant-based approaches is attracting attention. Beta-Sitosterol, a plant sterol found in various fruits and vegetables, has shown remarkable results in randomized, double-blind studies. A landmark study published in <em>The Lancet</em> found that men taking Beta-Sitosterol experienced significant improvement in urinary flow rate and a meaningful reduction in residual urine volume compared to placebo.</p>
+
+                <p>Similarly, Pygeum Africanum extract &mdash; derived from the bark of the African plum tree &mdash; has been prescribed by European doctors for decades. A systematic review of 18 clinical trials involving over 1,500 men concluded that Pygeum provided moderate improvement in urinary symptoms and flow measures.</p>
+
+                <p>Saw Palmetto, perhaps the most well-known prostate supplement ingredient, works by inhibiting the enzyme 5-alpha-reductase &mdash; the same mechanism targeted by prescription finasteride, but without the associated side effects. When combined with Stinging Nettle Root, which appears to support healthy hormone metabolism, and Zinc and Lycopene &mdash; both associated with prostate cell health &mdash; the result is a comprehensive, multi-pathway approach.</p>
+
+                <p>One formula that has gained particular traction among men seeking a natural option is PowerX Pro, which combines all six of these researched ingredients in clinically relevant dosages. Unlike many prostate supplements that rely on a single ingredient, PowerX Pro takes a synergistic approach &mdash; addressing prostate health from multiple angles simultaneously.</p>
+
+                <p>The manufacturer offers a full money-back guarantee, which suggests considerable confidence in the formula. For men frustrated with the limitations and side effects of conventional treatment, this may be an option worth investigating.</p>
+
+                <p><strong>[See the full ingredient list and clinical references for PowerX Pro &rarr;]</strong></p>
+            </div>
+        </div>
+
+        <!-- ADVERTORIAL 3 -->
+        <div class="advertorial-template">
+            <span class="advt-angle">Angle: Wife / Relationship Impact</span>
+            <h3 class="advt-title">My Husband Was a Different Man After He Started Taking This &mdash; Our Marriage May Have Depended on It</h3>
+            <button class="btn-copy" onclick="copyAdvertorial(this)" style="position:relative;float:right;margin-top:-30px;">Copy All</button>
+            <div class="advt-body">
+                <p>I'm writing this because I know there are other wives out there going through what I went through. And I want them to know there might be an answer.</p>
+
+                <p>My husband David is 61. For the past five or six years, I watched him slowly become someone I didn't recognize. He used to be energetic, adventurous, always up for a weekend trip or a night out. But gradually, everything changed. He stopped wanting to go anywhere. He was exhausted all the time. He was irritable and short-tempered. And he never, ever slept through the night.</p>
+
+                <p>At first, I thought it was depression. Then I thought maybe it was our marriage. I spent months wondering what I'd done wrong. What I didn't understand was that David was getting up four and five times a night to use the bathroom. Every single night. For years. He was running on fumes.</p>
+
+                <p>He didn't want to talk about it. Men don't, especially when it involves anything "down there." He saw his doctor once and came home with a prescription that made things worse in other ways I won't detail here. He threw the pills away after two weeks.</p>
+
+                <p>Our daughter is a nurse practitioner. When she finally got David to open up about what was going on, she did some research and suggested he try a natural prostate support formula called PowerX Pro. She liked that it contained Saw Palmetto, Beta-Sitosterol, and Pygeum Africanum &mdash; ingredients she'd seen referenced in clinical literature. She also pointed out the Zinc and Lycopene, which she said were important for prostate cell health.</p>
+
+                <p>David was reluctant. He's not a "supplement guy." But he trusted our daughter, so he gave it a try. The first couple of weeks, he didn't notice much. Around week three, he mentioned &mdash; almost casually &mdash; that he'd only gotten up twice the night before. By the end of the second month, he was sleeping five and six hours straight. I noticed the difference before he even said anything. He was smiling again. He suggested we drive up to the lake for the weekend &mdash; the first time in over a year.</p>
+
+                <p>I got my husband back. That's really all I can say. If your husband or partner is dealing with constant bathroom trips, poor sleep, and the frustration that comes with it &mdash; please look into this. It changed our lives.</p>
+
+                <p><strong>[Learn more about PowerX Pro and how it's helped thousands of men &rarr;]</strong></p>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong><i class="bi bi-exclamation-triangle me-1"></i> Important:</strong> Always include proper advertorial disclaimers on your pages: "Advertisement," "Sponsored Content," or "Paid Partnership" &mdash; as required by the FTC and the specific native ad network you're using.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: THUMBNAIL / IMAGE GUIDANCE -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="thumbnail-guidance">
+        <h2><i class="bi bi-image me-2"></i>Thumbnail / Image Guidance</h2>
+        <p class="section-intro">Your thumbnail is responsible for 60-80% of your native ad's click-through rate. Here's what works best for prostate health offers targeting men 40+.</p>
+
+        <h3>High-Performing Image Types</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:30%;">Image Type</th>
+                    <th style="width:45%;">Why It Works</th>
+                    <th style="width:25%;">Best Paired With</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Candid older man (45-65)</strong> looking contemplative or concerned</td>
+                    <td>Creates instant identification. The viewer sees himself. Works especially well when the man appears relatable, not like a model.</td>
+                    <td>Curiosity headlines, problem-aware headlines</td>
+                </tr>
+                <tr>
+                    <td><strong>Close-up of a man's face</strong> showing mild frustration or tiredness</td>
+                    <td>Emotional resonance drives clicks. Tired eyes and subtle distress signals resonate deeply with men suffering from nocturia-induced sleep deprivation.</td>
+                    <td>Nighttime urination headlines, sleep-related angles</td>
+                </tr>
+                <tr>
+                    <td><strong>Doctor / medical professional</strong> in white coat, looking directly at camera</td>
+                    <td>Adds perceived authority and trustworthiness. Triggers the reader's desire for expert guidance.</td>
+                    <td>Research-driven advertorials, medical authority headlines</td>
+                </tr>
+                <tr>
+                    <td><strong>Couple (50s-60s)</strong> looking happy or reconnected</td>
+                    <td>Aspirational outcome image. Suggests restored quality of life, improved relationship, renewed vitality.</td>
+                    <td>Relationship angle advertorials, vitality headlines</td>
+                </tr>
+                <tr>
+                    <td><strong>Natural ingredients / plants</strong> (saw palmetto berries, herbs)</td>
+                    <td>Appeals to men seeking a natural, drug-free approach. Suggests science-backed botanicals rather than pharmaceuticals.</td>
+                    <td>Ingredient-focused headlines, natural remedy angles</td>
+                </tr>
+                <tr>
+                    <td><strong>Dark bedroom / nightstand alarm clock</strong> showing middle-of-the-night time</td>
+                    <td>Immediate situational recognition for men who wake up multiple times. The 3:17 AM alarm clock is an incredibly powerful image.</td>
+                    <td>Nocturia headlines, sleep disruption angles</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Images to Avoid</h3>
+        <ul class="checklist">
+            <li><i class="bi bi-x-circle-fill"></i> Product bottle images in thumbnails (too "salesy," kills CTR on native)</li>
+            <li><i class="bi bi-x-circle-fill"></i> Overly polished stock photos of smiling models (feels fake, reduces trust)</li>
+            <li><i class="bi bi-x-circle-fill"></i> Anatomical diagrams or medical illustrations (may violate network policies)</li>
+            <li><i class="bi bi-x-circle-fill"></i> Before/after comparisons (policy violation on most native platforms)</li>
+            <li><i class="bi bi-x-circle-fill"></i> Images implying sexual performance (will get flagged and rejected)</li>
+            <li><i class="bi bi-x-circle-fill"></i> Red arrows, circles, or clickbait visual gimmicks (reduces approval rates)</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Thumbnail Best Practice:</strong> Test at least 5 different thumbnails per headline. On Taboola and Outbrain, the thumbnail drives more variance in CTR than the headline itself. Always A/B test candid vs. medical authority images against each headline.
+        </div>
+
+        <h3>Recommended Image Specifications</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Dimensions</th>
+                    <th>Format</th>
+                    <th>Max File Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Taboola</td><td>1000 x 600 px (minimum)</td><td>JPG, PNG, GIF</td><td>2 MB</td></tr>
+                <tr><td>Outbrain</td><td>1200 x 800 px (recommended)</td><td>JPG, PNG</td><td>1 MB</td></tr>
+                <tr><td>MGID</td><td>492 x 328 px (minimum)</td><td>JPG, PNG</td><td>150 KB</td></tr>
+                <tr><td>RevContent</td><td>420 x 320 px (minimum)</td><td>JPG, PNG</td><td>500 KB</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: LANDING PAGE PAIRING GUIDE -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="landing-page-pairing">
+        <h2><i class="bi bi-diagram-3 me-2"></i>Landing Page Pairing Guide</h2>
+        <p class="section-intro">Matching your native ad angle to the right landing page (TSL) is critical for conversion. Here's how to pair your ads with available PowerX Pro sales pages.</p>
+
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:25%;">Ad Angle</th>
+                    <th style="width:25%;">Best Landing Page</th>
+                    <th style="width:50%;">Why This Pairing Works</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Curiosity / Discovery</strong><br><small class="text-muted">e.g., "Urologist's discovery..."</small></td>
+                    <td>Long-Form VSL Page<br><small class="text-muted">(long3, long4)</small></td>
+                    <td>Curiosity-driven traffic needs more education and story before converting. Long-form VSL pages give them the narrative arc they expect after clicking a curiosity headline. The video builds trust over 15-25 minutes.</td>
+                </tr>
+                <tr>
+                    <td><strong>Problem-Aware / Symptom-Based</strong><br><small class="text-muted">e.g., "Tired of bathroom trips..."</small></td>
+                    <td>Advertorial &rarr; Direct Sales Page<br><small class="text-muted">(pre-sell &rarr; best/go)</small></td>
+                    <td>These readers already know their problem. An advertorial pre-sell page validates their concern and introduces the solution, then a warm click-through to the direct sales page seals the conversion.</td>
+                </tr>
+                <tr>
+                    <td><strong>Medical Authority</strong><br><small class="text-muted">e.g., "New research reveals..."</small></td>
+                    <td>Research-Style Landing Page<br><small class="text-muted">(long3 with science sections)</small></td>
+                    <td>Readers clicking medical/research headlines expect data, studies, and clinical references. Match this expectation with pages that lead with ingredient research and clinical evidence.</td>
+                </tr>
+                <tr>
+                    <td><strong>Personal Story / Testimonial</strong><br><small class="text-muted">e.g., "63-year-old sleeps through..."</small></td>
+                    <td>Advertorial Pre-Sell &rarr; VSL Page<br><small class="text-muted">(custom advertorial &rarr; long4)</small></td>
+                    <td>The reader is emotionally engaged by a story. Continue that emotional thread with a pre-sell advertorial, then transition to the VSL page for the full presentation and conversion.</td>
+                </tr>
+                <tr>
+                    <td><strong>Wife / Relationship Angle</strong><br><small class="text-muted">e.g., "My husband was different..."</small></td>
+                    <td>Testimonial-Heavy Sales Page<br><small class="text-muted">(best/go with social proof)</small></td>
+                    <td>Relationship-angle traffic (often women researching for their husbands) responds best to pages with abundant testimonials and a clear, simple ordering process.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Traffic Flow Architecture</h3>
+        <div class="swipe-block">
+            <div class="swipe-text" style="font-family: monospace; font-size: 0.88rem; line-height: 2;">
+                <strong>Standard Flow:</strong> Native Ad &rarr; Advertorial Pre-Sell &rarr; Sales Page (VSL or Text) &rarr; Checkout<br>
+                <strong>Direct Flow:</strong> Native Ad &rarr; Sales Page (VSL or Text) &rarr; Checkout<br>
+                <strong>Quiz Funnel:</strong> Native Ad &rarr; Symptom Quiz (3-5 questions) &rarr; Results Page with Recommendation &rarr; Sales Page &rarr; Checkout
+            </div>
+            <div class="swipe-note">The standard pre-sell flow typically converts 20-40% better than sending native traffic directly to a sales page, because native audiences need more warming up than search or social traffic.</div>
+        </div>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Conversion Tip:</strong> Always ensure "message match" between your ad headline and the landing page headline. If your ad says "Urologist's Discovery," your landing page should reference a urologist or medical discovery above the fold. Mismatched messaging kills conversion rates.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: COMPLIANCE NOTES -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="compliance-notes">
+        <h2><i class="bi bi-shield-check me-2"></i>Compliance Notes</h2>
+        <p class="section-intro">Native ad networks have strict policies for health supplements. Violating these policies will result in ad rejection, account warnings, or permanent bans. Follow these guidelines carefully.</p>
+
+        <h3>Universal Rules (All Networks)</h3>
+        <ul class="checklist">
+            <li><i class="bi bi-check-circle-fill"></i> Always label advertorial pages as "Advertisement," "Sponsored Content," or "Paid Content"</li>
+            <li><i class="bi bi-check-circle-fill"></i> Never claim PowerX Pro cures, treats, or prevents any disease (including BPH, cancer, or prostatitis)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Use "supports," "promotes," "may help," or "is associated with" instead of definitive claims</li>
+            <li><i class="bi bi-check-circle-fill"></i> Include the standard FDA disclaimer: "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."</li>
+            <li><i class="bi bi-check-circle-fill"></i> Never use fake news site branding (e.g., CNN, Fox News, WebMD logos or styling)</li>
+            <li><i class="bi bi-check-circle-fill"></i> All testimonials must include "Results may vary" or "Individual results not guaranteed"</li>
+            <li><i class="bi bi-check-circle-fill"></i> Never use images or names of celebrities, public figures, or doctors without explicit permission</li>
+            <li><i class="bi bi-check-circle-fill"></i> Advertorial pages must have a clear, accessible privacy policy and terms of service</li>
+        </ul>
+
+        <h3>Headline Compliance</h3>
+        <div class="warning-box">
+            <strong><i class="bi bi-exclamation-triangle me-1"></i> Avoid These Patterns:</strong>
+            <ul style="margin-bottom:0; margin-top: 8px;">
+                <li>"Doctors hate this trick" &mdash; implies medical suppression, will be rejected</li>
+                <li>"Cure your prostate problems" &mdash; disease cure claims violate FTC and network policies</li>
+                <li>"Clinically proven to shrink your prostate" &mdash; overly specific medical claim</li>
+                <li>"Better than Flomax / Finasteride" &mdash; drug comparison claims will trigger review</li>
+                <li>"FDA approved natural remedy" &mdash; supplements are not FDA approved; this is misleading</li>
+            </ul>
+        </div>
+
+        <h3>Landing Page Requirements</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th>Requirement</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Advertorial Disclosure</td><td>Visible "Advertisement" label above the fold, in a font size no smaller than the body text</td></tr>
+                <tr><td>FDA Disclaimer</td><td>Must appear on the page, typically in the footer or near any health claims</td></tr>
+                <tr><td>Contact Information</td><td>Physical address or working customer service contact must be accessible</td></tr>
+                <tr><td>Privacy Policy</td><td>Linked and accessible from the page; must cover data collection practices</td></tr>
+                <tr><td>Terms &amp; Conditions</td><td>Linked and accessible; must cover refund policy and billing terms</td></tr>
+                <tr><td>No Auto-Play Audio</td><td>Most networks prohibit auto-playing video or audio with sound on landing pages</td></tr>
+                <tr><td>No Exit Pops</td><td>Exit-intent popups are prohibited or heavily restricted on most native networks</td></tr>
+                <tr><td>No Deceptive Redirects</td><td>The landing page URL submitted must be the page the user actually sees</td></tr>
+            </tbody>
+        </table>
+
+        <h3>FTC Guidelines for Affiliate Marketers</h3>
+        <div class="info-box">
+            <strong>Material Connection Disclosure:</strong> If you earn a commission from PowerX Pro sales, you must clearly disclose this relationship. Example: "This page contains affiliate links. If you purchase through these links, I may earn a commission at no additional cost to you." This disclosure should be near the top of advertorial pages, not buried in the footer.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: PLATFORM-SPECIFIC TIPS -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="platform-tips">
+        <h2><i class="bi bi-gear me-2"></i>Platform-Specific Tips</h2>
+        <p class="section-intro">Each native ad network has different algorithms, approval processes, and optimization levers. Here's how to maximize performance on the big three.</p>
+
+        <!-- TABOOLA -->
+        <h3><i class="bi bi-broadcast me-2"></i>Taboola</h3>
+        <div class="swipe-block">
+            <div class="swipe-label">Campaign Setup</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>Campaign Objective:</strong> Use "Online Purchases" or "Lead Generation" &mdash; never "Brand Awareness" for supplement offers.</li>
+                    <li><strong>Bidding Strategy:</strong> Start with Smart Bid (Target CPA) at $40-60 CPA target. Switch to Manual CPC once you have 30+ conversions and understand your CPCs.</li>
+                    <li><strong>Budget:</strong> Minimum $50/day per campaign for the algorithm to optimize. Ideally $100-200/day during testing phase.</li>
+                    <li><strong>Creative Load:</strong> Submit 10-15 headline/thumbnail combinations per campaign. Taboola's algorithm needs volume to find winners.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Targeting Best Practices</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>OS Targeting:</strong> Separate campaigns for desktop and mobile. Desktop typically converts better for prostate supplements (older demographic).</li>
+                    <li><strong>Publisher Blocking:</strong> After 48 hours, block any publishers with 1,000+ impressions and zero conversions. Review weekly.</li>
+                    <li><strong>Geo:</strong> Start with US-only. Tier 1 English-speaking countries (CA, UK, AU) can be added after proving the funnel profitably in US.</li>
+                    <li><strong>Day Parting:</strong> Prostate supplement ads convert best between 6 AM - 10 AM and 8 PM - 12 AM (when men are experiencing symptoms).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Approval Tips</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li>Avoid words like "cure," "guaranteed results," or "miracle" in headlines &mdash; these trigger automatic rejection.</li>
+                    <li>Landing pages must load in under 3 seconds. Taboola will penalize slow-loading pages.</li>
+                    <li>Advertorial pages need an "Advertisement" label clearly visible above the fold.</li>
+                    <li>Submit your landing page for whitelist review with your account manager before scaling.</li>
+                    <li>If rejected, resubmit with softened language. Don't create a new account &mdash; this can result in a network ban.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- OUTBRAIN -->
+        <h3 class="mt-4"><i class="bi bi-broadcast me-2"></i>Outbrain</h3>
+        <div class="swipe-block">
+            <div class="swipe-label">Campaign Setup</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>Campaign Objective:</strong> Select "Conversions" and install the Outbrain pixel on your thank-you page for accurate tracking.</li>
+                    <li><strong>Bidding:</strong> Use "Conversion Bid Strategy" (CBS) with a target CPA of $45-65. Start with "Semi-Automatic" bidding for the first 2 weeks.</li>
+                    <li><strong>Budget:</strong> $75-150/day minimum during learning phase. Outbrain's algorithm needs at least 20 conversions per week to optimize effectively.</li>
+                    <li><strong>Creative Testing:</strong> Submit at least 6 headlines and 8 thumbnails per ad variation. Outbrain tests combinations automatically.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Key Differences from Taboola</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>Stricter Content Policies:</strong> Outbrain is more conservative than Taboola. Avoid aggressive curiosity gaps and implied medical claims.</li>
+                    <li><strong>Premium Publisher Network:</strong> Outbrain has higher-quality publisher inventory (CNN, Bloomberg, etc.), which means higher CPCs but better traffic quality.</li>
+                    <li><strong>Section Targeting:</strong> Use Outbrain's section targeting to place ads on health-related content sections of publisher sites.</li>
+                    <li><strong>Lookalike Audiences:</strong> Once you have 1,000+ converters, create a Lookalike audience from your pixel data. This typically reduces CPA by 20-35%.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Approval Tips</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li>Outbrain requires advertorial pages to look and feel like editorial content &mdash; not sales pages.</li>
+                    <li>No countdown timers, fake scarcity, or "only X bottles left" messaging on the landing page.</li>
+                    <li>All health claims must be supportable with published research. Keep references accessible.</li>
+                    <li>Outbrain manually reviews health supplement ads. Expect 24-72 hour approval times. Be patient; do not resubmit the same ad multiple times.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MGID -->
+        <h3 class="mt-4"><i class="bi bi-broadcast me-2"></i>MGID</h3>
+        <div class="swipe-block">
+            <div class="swipe-label">Campaign Setup</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>Campaign Type:</strong> Choose "Performance" campaign type for supplement offers.</li>
+                    <li><strong>Bidding:</strong> Start with Manual CPC at $0.15-0.40 per click. MGID does not have as sophisticated auto-bidding as Taboola/Outbrain, so manual optimization is key.</li>
+                    <li><strong>Budget:</strong> $30-75/day is sufficient for testing on MGID. Lower traffic volumes but potentially cheaper CPCs.</li>
+                    <li><strong>GEO Focus:</strong> MGID has strong inventory in US, but also performs well in European and LATAM markets if you have localized funnels.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Optimization Strategy</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li><strong>Widget/Publisher Blocking:</strong> MGID requires aggressive publisher management. Check daily for the first week. Block any widget spending $5+ with no conversions.</li>
+                    <li><strong>Creative Rotation:</strong> MGID's algorithm favors the first creatives you upload. If performance drops, create a new campaign with fresh creatives rather than adding to existing.</li>
+                    <li><strong>Selective GEO:</strong> On MGID, narrow to specific US states with the highest conversion rates for health supplements: FL, TX, CA, AZ, PA, OH, NC.</li>
+                    <li><strong>Traffic Quality:</strong> Monitor bounce rates closely. MGID can have higher bot traffic than Taboola/Outbrain. Use server-side click validation if possible.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="swipe-block">
+            <div class="swipe-label">Approval Tips</div>
+            <div class="swipe-text">
+                <ul style="margin:0; padding-left: 18px;">
+                    <li>MGID is generally more lenient than Outbrain but still requires compliance with health supplement advertising standards.</li>
+                    <li>Landing pages must have clear navigation, no deceptive elements, and accessible legal pages.</li>
+                    <li>Work directly with your MGID account manager for pre-approval of your funnel before scaling spend.</li>
+                    <li>MGID offers "Selective Bidding" by widget &mdash; use this to increase bids on high-performing publishers and decrease on poor performers.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="mt-4">Cross-Platform Comparison</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th>Factor</th>
+                    <th>Taboola</th>
+                    <th>Outbrain</th>
+                    <th>MGID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Traffic Volume</strong></td>
+                    <td>Highest</td>
+                    <td>High (premium)</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Avg. CPC (supplements)</strong></td>
+                    <td>$0.25 - $0.75</td>
+                    <td>$0.40 - $1.00</td>
+                    <td>$0.15 - $0.50</td>
+                </tr>
+                <tr>
+                    <td><strong>Approval Strictness</strong></td>
+                    <td>Moderate</td>
+                    <td>Strict</td>
+                    <td>Moderate-Lenient</td>
+                </tr>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Scale &amp; volume</td>
+                    <td>Quality traffic, higher AOV</td>
+                    <td>Budget testing, secondary scale</td>
+                </tr>
+                <tr>
+                    <td><strong>Min. Daily Budget</strong></td>
+                    <td>$50</td>
+                    <td>$75</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td><strong>Conversion Tracking</strong></td>
+                    <td>Pixel + postback</td>
+                    <td>Pixel + postback</td>
+                    <td>Pixel + postback</td>
+                </tr>
+                <tr>
+                    <td><strong>Algorithm Learning Period</strong></td>
+                    <td>5-7 days</td>
+                    <td>7-14 days</td>
+                    <td>3-5 days</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Scaling Strategy:</strong> Start with Taboola (most volume, fastest learning). Once profitable, expand to Outbrain for premium traffic. Use MGID as a supplemental channel for incremental scale. Always separate campaigns by device type across all platforms.
+        </div>
+    </div>
+
+</div><!-- /.main-content -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Copy single headline or text
+    function copyText(btn) {
+        const li = btn.closest('li') || btn.closest('.swipe-block');
+        let text = '';
+        if (li.tagName === 'LI') {
+            // For headline list items, get text without the number badge and button
+            const clone = li.cloneNode(true);
+            clone.querySelectorAll('.hl-num, .btn-copy').forEach(el => el.remove());
+            text = clone.textContent.trim();
+        } else {
+            const textEl = li.querySelector('.swipe-text');
+            text = textEl ? textEl.textContent.trim() : li.textContent.trim();
+        }
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Copy full advertorial
+    function copyAdvertorial(btn) {
+        const template = btn.closest('.advertorial-template');
+        const title = template.querySelector('.advt-title').textContent.trim();
+        const body = template.querySelector('.advt-body').textContent.trim();
+        const text = title + '\n\n' + body;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy All';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Sidebar active state on scroll
+    const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Close sidebar on mobile when link clicked
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 991) {
+                document.querySelector('.sidebar').classList.remove('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

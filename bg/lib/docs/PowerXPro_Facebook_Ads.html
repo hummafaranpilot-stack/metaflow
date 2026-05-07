@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerX Pro - Facebook Ads Copy Swipes | Affiliate Resource</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.trustednutraproduct.com/t.js?v=powerxpro-trustednutraproduct-com-v3"></script>
+    <style>
+        :root {
+            --sidebar-bg: #184579;
+            --sidebar-hover: #1d5294;
+            --sidebar-active: #0f2d52;
+            --accent-blue: #2a6fc9;
+            --accent-light: #e8f0fe;
+            --success-green: #28a745;
+            --copy-btn: #5a9bd5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f9;
+            color: #2d3748;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar */
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: #fff;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        #sidebar .sidebar-header h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            letter-spacing: 0.5px;
+        }
+
+        #sidebar .sidebar-header .subtitle {
+            font-size: 0.78rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #sidebar .back-link {
+            display: block;
+            padding: 12px 20px;
+            color: #8eb8e5;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.2s;
+        }
+
+        #sidebar .back-link:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+        }
+
+        #sidebar .back-link i {
+            margin-right: 6px;
+        }
+
+        #sidebar .toc-label {
+            padding: 16px 20px 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.5;
+            font-weight: 600;
+        }
+
+        #sidebar .toc-nav a {
+            display: block;
+            padding: 9px 20px 9px 20px;
+            color: rgba(255,255,255,0.82);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        #sidebar .toc-nav a:hover,
+        #sidebar .toc-nav a.active {
+            background: var(--sidebar-hover);
+            color: #fff;
+            border-left-color: #5a9bd5;
+        }
+
+        #sidebar .toc-nav a .toc-number {
+            display: inline-block;
+            width: 22px;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+
+        #sidebar .toc-nav a .toc-badge {
+            float: right;
+            background: rgba(255,255,255,0.15);
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+        }
+
+        /* Main content */
+        #main-content {
+            margin-left: 280px;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        /* Page header */
+        .page-header {
+            background: linear-gradient(135deg, var(--sidebar-bg) 0%, #1d5294 50%, var(--accent-blue) 100%);
+            color: #fff;
+            padding: 48px 40px;
+            margin-bottom: 0;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+
+        .page-header .lead {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin: 0 0 20px;
+        }
+
+        .page-header .meta-pills .badge {
+            background: rgba(255,255,255,0.18);
+            font-weight: 500;
+            font-size: 0.78rem;
+            padding: 5px 12px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        /* Product info bar */
+        .product-info-bar {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 24px 40px;
+        }
+
+        .product-info-bar .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .product-info-bar .info-item {
+            font-size: 0.88rem;
+        }
+
+        .product-info-bar .info-item .label {
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Section styling */
+        .section-block {
+            margin-bottom: 48px;
+            scroll-margin-top: 24px;
+        }
+
+        .section-block h2 {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: var(--sidebar-bg);
+            margin: 0 0 6px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent-blue);
+            display: inline-block;
+        }
+
+        .section-block .section-desc {
+            color: #64748b;
+            font-size: 0.92rem;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        /* Ad card */
+        .ad-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s;
+        }
+
+        .ad-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .ad-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            background: var(--accent-light);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ad-card-header .ad-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--sidebar-bg);
+        }
+
+        .ad-card-header .ad-angle {
+            font-size: 0.75rem;
+            background: var(--sidebar-bg);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 12px;
+        }
+
+        .ad-card-body {
+            padding: 20px;
+        }
+
+        .ad-field {
+            margin-bottom: 16px;
+        }
+
+        .ad-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .ad-field-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 6px;
+        }
+
+        .ad-field-content {
+            font-size: 0.93rem;
+            color: #2d3748;
+            line-height: 1.75;
+            white-space: pre-line;
+        }
+
+        .ad-field-content.headline-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+        }
+
+        .btn-copy {
+            background: var(--copy-btn);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-copy:hover {
+            background: var(--sidebar-bg);
+            color: #fff;
+        }
+
+        .btn-copy.copied {
+            background: var(--success-green);
+        }
+
+        .btn-copy-all {
+            background: transparent;
+            color: var(--accent-blue);
+            border: 1.5px solid var(--accent-blue);
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-copy-all:hover {
+            background: var(--accent-blue);
+            color: #fff;
+        }
+
+        /* Hook library */
+        .hook-category {
+            margin-bottom: 28px;
+        }
+
+        .hook-category h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hook-category h4 .hook-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+        }
+
+        .hook-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            transition: background 0.15s;
+        }
+
+        .hook-item:hover {
+            background: var(--accent-light);
+        }
+
+        .hook-item .hook-number {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: var(--sidebar-bg);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .hook-item .hook-text {
+            flex: 1;
+        }
+
+        .hook-item .btn-copy {
+            flex-shrink: 0;
+            padding: 4px 10px;
+            font-size: 0.72rem;
+        }
+
+        /* Compliance section */
+        .compliance-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .compliance-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .compliance-card ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .compliance-card ul li {
+            padding: 7px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .compliance-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .compliance-card ul li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .do-icon { color: var(--success-green); }
+        .dont-icon { color: #dc3545; }
+        .warn-icon { color: #ffc107; }
+
+        .example-box {
+            margin: 10px 0;
+            font-size: 0.88rem;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+        }
+
+        .example-box table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .example-box td {
+            padding: 12px 16px;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .example-box .bad-cell {
+            background: #fde8e8;
+            color: #721c24;
+        }
+
+        .example-box .bad-cell::before {
+            content: "\2717  ";
+            font-weight: 700;
+            color: #dc3545;
+        }
+
+        .example-box .good-cell {
+            background: #e6f4ea;
+            color: #155724;
+        }
+
+        .example-box .good-cell::before {
+            content: "\2713  ";
+            font-weight: 700;
+            color: #28a745;
+        }
+
+        @media (max-width: 576px) {
+            .example-box td {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        /* Mobile toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: var(--sidebar-bg);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 42px;
+            height: 42px;
+            background: var(--sidebar-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+
+            #sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #main-content {
+                margin-left: 0;
+            }
+
+            .content-wrapper {
+                padding: 30px 20px 60px;
+            }
+
+            .page-header {
+                padding: 32px 20px;
+            }
+
+            .product-info-bar {
+                padding: 20px;
+            }
+        }
+
+        /* Print */
+        @media print {
+            #sidebar, .sidebar-toggle, .scroll-top, .btn-copy, .btn-copy-all { display: none !important; }
+            #main-content { margin-left: 0; }
+            .ad-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Mobile Sidebar Toggle -->
+<button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Toggle navigation">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h4>PowerX Pro</h4>
+        <div class="subtitle">Facebook Ads Copy Swipes</div>
+    </div>
+    <a href="../index.html" class="back-link">
+        <i class="bi bi-arrow-left-short"></i> Back to Affiliate Tools
+    </a>
+    <div class="toc-label">Sections</div>
+    <div class="toc-nav">
+        <a href="#product-overview"><span class="toc-number">0.</span> Product Overview</a>
+        <a href="#problem-aware"><span class="toc-number">1.</span> Problem-Aware Ads <span class="toc-badge">5</span></a>
+        <a href="#solution-aware"><span class="toc-number">2.</span> Solution-Aware Ads <span class="toc-badge">4</span></a>
+        <a href="#curiosity-story"><span class="toc-number">3.</span> Curiosity / Story Ads <span class="toc-badge">4</span></a>
+        <a href="#authority-science"><span class="toc-number">4.</span> Authority / Science Ads <span class="toc-badge">3</span></a>
+        <a href="#vitality-performance"><span class="toc-number">5.</span> Vitality / Performance <span class="toc-badge">4</span></a>
+        <a href="#testimonial-style"><span class="toc-number">6.</span> Testimonial-Style Ads <span class="toc-badge">4</span></a>
+        <a href="#hook-library"><span class="toc-number">7.</span> Hook Library <span class="toc-badge">20</span></a>
+        <a href="#compliance-guide"><span class="toc-number">8.</span> Compliance Guide</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div id="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Facebook Ads Copy Swipes</h1>
+        <p class="lead">Complete, ready-to-use ad copy for promoting PowerX Pro on Facebook and Instagram. Copy, customize, and deploy.</p>
+        <div class="meta-pills">
+            <span class="badge">24 Complete Ads</span>
+            <span class="badge">20 Opening Hooks</span>
+            <span class="badge">7 Ad Angles</span>
+            <span class="badge">Compliance Guide</span>
+        </div>
+    </div>
+
+    <!-- Product Info Bar -->
+    <div class="product-info-bar">
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="label">Product</span>
+                PowerX Pro - Prostate Health Supplement
+            </div>
+            <div class="info-item">
+                <span class="label">Key Ingredients</span>
+                Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, Stinging Nettle Root
+            </div>
+            <div class="info-item">
+                <span class="label">Target Audience</span>
+                Two batches: Erectile Dysfunction (Men 20+ All Men) | Prostate Health (Men 45+)
+            </div>
+            <div class="info-item">
+                <span class="label">Guarantee</span>
+                60-Day Money-Back Guarantee
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+
+        <!-- ========================================== -->
+        <!-- SECTION 0: PRODUCT OVERVIEW -->
+        <!-- ========================================== -->
+        <div class="section-block" id="product-overview">
+            <h2>Product Overview</h2>
+            <p class="section-desc">Key selling points and talking points to weave into your ad copy. Familiarize yourself with these before writing or customizing ads.</p>
+
+            <div class="ad-card">
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Core Promise</div>
+                        <div class="ad-field-content">PowerX Pro supports healthy prostate function in men 40+, helping to reduce frequent bathroom trips, support stronger urinary flow, and restore restful sleep through the night.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Key Ingredients &amp; Benefits</div>
+                        <div class="ad-field-content"><strong>Saw Palmetto</strong> - Traditionally used to support prostate health and healthy urinary function.
+<strong>Beta-Sitosterol</strong> - A plant sterol shown to support urinary flow and comfort.
+<strong>Pygeum Africanum</strong> - African bark extract traditionally used to support normal bladder function.
+<strong>Zinc</strong> - Essential mineral critical for prostate cell health and immune function.
+<strong>Lycopene</strong> - Powerful antioxidant that supports prostate tissue health.
+<strong>Stinging Nettle Root</strong> - Supports healthy inflammatory response and complements Saw Palmetto.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Unique Selling Points</div>
+                        <div class="ad-field-content">- 6 clinically-studied, natural ingredients in one formula
+- 60-day money-back guarantee (risk-free trial)
+- Manufactured in the USA in a GMP-certified facility
+- No prescription required
+- Multi-bottle discount bundles available
+- Formulated specifically for men over 40</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Pain Points to Address</div>
+                        <div class="ad-field-content">- Waking up 3-5 times per night to use the bathroom
+- Weak or interrupted urinary stream
+- Constant urgency and "can't hold it" anxiety
+- Low energy and daytime fatigue from broken sleep
+- Declining stamina, vitality, and bedroom confidence
+- Embarrassment about frequent bathroom stops in public
+- Frustration with aging and feeling "past your prime"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: PROBLEM-AWARE ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="problem-aware">
+            <h2>1. Problem-Aware Ads</h2>
+            <p class="section-desc">These ads target men who are actively experiencing prostate-related symptoms but may not yet be searching for a specific supplement. Lead with the problem to grab attention, then introduce the solution.</p>
+
+            <!-- Ad 1.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 1.1 - "Nighttime Urgency"</span>
+                    <span class="ad-angle">Bathroom Trips</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Up again at 2 AM. Then 4 AM. Then 5:30 AM.
+
+If your bladder has turned into an alarm clock that goes off every few hours, you already know how exhausting it is. The broken sleep. The brain fog the next morning. The irritability you take out on everyone around you.
+
+Here is what most men over 40 do not realize: frequent nighttime bathroom trips are not just "part of getting older." They are often a sign that your prostate needs targeted nutritional support.
+
+PowerX Pro was formulated with 6 natural ingredients, including Saw Palmetto, Beta-Sitosterol, and Pygeum Africanum, that have been traditionally used to support healthy prostate function and normal urinary patterns.
+
+Thousands of men have already made the switch. And it comes with a 60-day money-back guarantee, so there is zero risk to try it.
+
+Stop letting your bladder run your nights.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Tired of Waking Up 3-5 Times a Night? This May Help.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Natural prostate support with a 60-day guarantee. See why thousands of men 40+ trust PowerX Pro.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 1.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 1.2 - "The Embarrassment Factor"</span>
+                    <span class="ad-angle">Social Anxiety</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">You used to sit through an entire movie without thinking twice.
+
+Now? You are scouting for the aisle seat, calculating whether you can make it to halftime, or quietly mapping out every restroom before you leave the house.
+
+It is not just inconvenient. It is embarrassing. And it steals your freedom.
+
+If you are a man over 40 dealing with an overactive bladder, weak stream, or that constant feeling of urgency, your prostate may be sending you a message.
+
+PowerX Pro combines 6 clinically-studied natural ingredients, including Saw Palmetto and Beta-Sitosterol, to support healthy prostate size and normal urinary function.
+
+No prescriptions. No awkward doctor conversations about catheters. Just targeted nutritional support backed by a full 60-day money-back guarantee.
+
+Take back your confidence.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Always Planning Around the Nearest Bathroom? Read This.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Support a healthy prostate naturally. 6 ingredients. 60-day guarantee. For men over 40.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 1.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 1.3 - "Weak Stream"</span>
+                    <span class="ad-angle">Flow Issues</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">It starts so gradually that you almost do not notice it.
+
+The stream gets weaker. It takes longer to get going. You stand there waiting, then dribbling, then waiting again. And you walk away still feeling like you did not completely finish.
+
+If this sounds familiar, you are not alone. Millions of men over 40 experience changes in urinary flow, and it often points to one thing: the prostate.
+
+As you age, your prostate can gradually enlarge, putting pressure on the urethra and making it harder for urine to flow normally. It is incredibly common, and it does not have to be your new normal.
+
+PowerX Pro provides targeted support with Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root, specifically chosen to support healthy prostate function.
+
+Try it risk-free with our 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Weak Flow? Dribbling? Your Prostate May Need This.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">6 natural ingredients to support healthy prostate function and urinary comfort. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 1.4 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 1.4 - "Exhausted by 2 PM"</span>
+                    <span class="ad-angle">Fatigue / Sleep</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">You blame it on getting older. Or stress. Or too much coffee.
+
+But the real reason you are dragging through every afternoon? You have not slept through the night in months.
+
+When your prostate wakes you up 3, 4, even 5 times a night, you never hit deep, restorative sleep. Your body never fully recharges. And by 2 PM, you are running on fumes.
+
+This is not just a "bathroom problem." It is a quality-of-life problem. It affects your mood, your energy, your focus, and your patience with the people you love.
+
+PowerX Pro was designed to address the root cause. Six natural ingredients, including Saw Palmetto and Pygeum Africanum, work together to support prostate health and help reduce nighttime urinary frequency.
+
+Better prostate support could mean better sleep. Better sleep means a better life.
+
+60-day money-back guarantee. No risk.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Your Prostate Is Stealing Your Sleep (and Your Energy)</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Support restful nights and daytime energy with PowerX Pro's 6-ingredient prostate formula. Try it risk-free.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 1.5 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 1.5 - "The Road Trip Test"</span>
+                    <span class="ad-angle">Lifestyle Impact</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Quick question for every man over 40:
+
+When was the last time you drove more than an hour without needing to stop for a bathroom break?
+
+If you had to think about it, that is your answer.
+
+Frequent urination does not just affect your nights. It changes how you plan your day. Road trips become stressful. Long meetings become risky. Even a round of golf has you eyeing the clubhouse every few holes.
+
+Your prostate is roughly the size of a walnut. But when it starts to enlarge, which is extremely common in men over 40, it can squeeze the urethra and create that constant feeling of urgency.
+
+PowerX Pro delivers 6 targeted natural ingredients, including Saw Palmetto, Beta-Sitosterol, and Zinc, to nutritionally support healthy prostate size and function.
+
+It is not a drug. It is targeted nutrition for a gland that needs more support as you age.
+
+60-day money-back guarantee. You have nothing to lose but the urgency.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Can't Drive an Hour Without Stopping? Your Prostate Needs Support.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">PowerX Pro: 6 natural ingredients for prostate health. Backed by a 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: SOLUTION-AWARE ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="solution-aware">
+            <h2>2. Solution-Aware Ads</h2>
+            <p class="section-desc">These ads target men who already know they need a prostate supplement and are comparing options. Focus on what makes PowerX Pro the better choice: ingredients, guarantee, and value.</p>
+
+            <!-- Ad 2.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 2.1 - "6-in-1 Formula"</span>
+                    <span class="ad-angle">Ingredient Superiority</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Most prostate supplements give you one or two ingredients and call it a day.
+
+PowerX Pro gives you six.
+
+Saw Palmetto to support healthy prostate size. Beta-Sitosterol to promote comfortable urinary flow. Pygeum Africanum for bladder function. Zinc for prostate cell health. Lycopene for antioxidant protection. And Stinging Nettle Root to complement the whole formula.
+
+Each ingredient was selected based on its traditional use and emerging research in prostate health. Together, they provide comprehensive nutritional support that single-ingredient formulas simply cannot match.
+
+If you have been taking Saw Palmetto alone and still running to the bathroom every two hours, it may be time for a more complete approach.
+
+Made in the USA. GMP-certified facility. 60-day money-back guarantee.
+
+This is what serious prostate support looks like.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Still Taking Single-Ingredient Prostate Supplements? Upgrade to 6.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">PowerX Pro combines 6 clinically-studied ingredients for complete prostate support. Try it risk-free for 60 days.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 2.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 2.2 - "Risk-Free Switch"</span>
+                    <span class="ad-angle">Guarantee / Trust</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Tried other prostate supplements and felt no difference?
+
+You are not alone. The supplement industry is flooded with underdosed formulas that look great on the label but deliver nothing in real life.
+
+Here is what makes PowerX Pro different:
+
+It combines 6 proven natural ingredients that work together, not one at a time. Saw Palmetto plus Beta-Sitosterol plus Pygeum Africanum plus Zinc plus Lycopene plus Stinging Nettle Root. Each one selected for a specific role in supporting prostate health.
+
+And here is the part that removes all risk: PowerX Pro comes with a full 60-day money-back guarantee. If you do not notice a meaningful difference in your bathroom frequency, sleep quality, or daily comfort, you get your money back. No questions, no hassle.
+
+You have already tried doing nothing. You have already tried cheaper supplements. Try the one that actually delivers.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Your Current Prostate Supplement Not Working? Switch Risk-Free.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">60-day guarantee. 6 powerhouse ingredients. See why men are switching to PowerX Pro.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 2.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 2.3 - "Made in USA"</span>
+                    <span class="ad-angle">Quality / Trust</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Before you put anything in your body for your prostate, ask these three questions:
+
+1. Where is it made? (PowerX Pro: USA, in a GMP-certified facility.)
+2. How many active ingredients? (PowerX Pro: 6 clinically-studied compounds.)
+3. What if it does not work for me? (PowerX Pro: Full refund within 60 days.)
+
+Most supplements fail at least one of these. PowerX Pro passes all three.
+
+We use Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root, each selected for their role in supporting prostate health, urinary comfort, and overall male vitality.
+
+No fillers. No proprietary blends hiding weak doses. Just honest ingredients in honest amounts.
+
+If you are serious about prostate support, this is the formula to try.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">3 Questions to Ask Before Buying Any Prostate Supplement</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Made in USA. 6 ingredients. 60-day guarantee. PowerX Pro checks every box.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 2.4 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 2.4 - "The Smart Choice"</span>
+                    <span class="ad-angle">Value Comparison</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Let us do the math on prostate supplements:
+
+Option A: Buy Saw Palmetto separately. Then Beta-Sitosterol. Then Zinc. Then Pygeum. Then Lycopene. Then Nettle Root. Six bottles. Six price tags. Six things to remember every morning.
+
+Option B: Take PowerX Pro. All six ingredients in one capsule. One bottle. One simple daily routine.
+
+Option A costs more, takes more effort, and gives you no quality control over how the ingredients work together.
+
+Option B was formulated by experts specifically to deliver these ingredients in the right combination for prostate support.
+
+Plus, PowerX Pro comes with multi-bottle discount options and a full 60-day money-back guarantee.
+
+The smart money is on the formula that was designed to work as a system, not a collection of random bottles on your counter.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">6 Bottles or 1? The Smarter Way to Support Your Prostate.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">All 6 key prostate ingredients in one formula. Multi-bottle savings + 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: CURIOSITY / STORY ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="curiosity-story">
+            <h2>3. Curiosity / Story Ads</h2>
+            <p class="section-desc">Story-driven ads create an emotional connection and keep readers engaged. These use narrative hooks about men who found relief, making the product feel relatable and real.</p>
+
+            <!-- Ad 3.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 3.1 - "The Camping Trip"</span>
+                    <span class="ad-angle">Story Hook</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Last summer, a 58-year-old grandfather almost canceled a camping trip with his grandkids.
+
+Not because of the weather. Not because of his back. Because he was terrified of being stuck in a tent all night with no bathroom nearby.
+
+He had been waking up 4-5 times a night for over a year. Long drives were impossible. Movie theaters were stressful. He had quietly started turning down invitations to anything that did not have a bathroom within sprinting distance.
+
+His wife found an article about how prostate enlargement affects millions of men after 40, and how certain natural compounds, especially Saw Palmetto paired with Beta-Sitosterol, have been traditionally used to support healthy prostate function.
+
+He decided to give PowerX Pro a try. It was one of the only formulas he found that combined 6 of the most researched prostate-support ingredients in a single capsule.
+
+He went on that camping trip. And for the first time in a long time, the only reason he left the tent at night was to look at the stars.
+
+PowerX Pro. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">He Almost Canceled the Trip. Here's What Changed His Mind.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">The prostate support formula helping men get back to living. 6 natural ingredients. 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 3.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 3.2 - "The Retirement Surprise"</span>
+                    <span class="ad-angle">Story Hook</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">He worked for 35 years and dreamed about retirement every single day.
+
+Fishing. Golf. Long drives with his wife. Sleeping in.
+
+Then retirement finally came, and something he never expected stole it from him: his prostate.
+
+Getting up 4 times a night. Spending half of every golf round in the clubhouse bathroom. Cutting road trips short. Feeling exhausted by noon because he could never get a full night's sleep.
+
+He told his buddy at the club, "I waited my whole life for this, and now I can't even enjoy it."
+
+That buddy slid a bottle of PowerX Pro across the table and said, "Try this. Thank me later."
+
+PowerX Pro combines Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root. Six ingredients specifically chosen to support prostate health in men over 40.
+
+Retirement is supposed to be your best chapter. Do not let your prostate rewrite the ending.
+
+60-day money-back guarantee. Zero risk.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">He Waited 35 Years for Retirement. Then His Prostate Had Other Plans.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Don't let prostate issues steal your golden years. Try PowerX Pro risk-free for 60 days.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 3.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 3.3 - "The Doctor's Waiting Room"</span>
+                    <span class="ad-angle">Story Hook</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">A 52-year-old man sat in his doctor's waiting room, convinced something was seriously wrong.
+
+The constant bathroom trips. The weak, stuttering stream. Waking up multiple times a night. He was convinced it was something terrible.
+
+His doctor examined him, ran some tests, and then said something that changed everything: "Your prostate is enlarged. It's extremely common after 40. And for most men, targeted nutritional support can make a significant difference."
+
+He mentioned several natural compounds, Saw Palmetto, Beta-Sitosterol, Pygeum, that had been widely studied for prostate support.
+
+That night, the man researched every option available. PowerX Pro stood out because it combined all six of the most studied prostate-support ingredients in one formula: Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root.
+
+He ordered it. And for the first time in years, he started sleeping like he used to.
+
+See if PowerX Pro is right for you. 60-day guarantee, so there is absolutely no risk.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">What His Doctor Said Changed Everything He Thought About Aging</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Prostate support backed by tradition and science. 6 ingredients. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 3.4 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 3.4 - "The Secret His Dad Never Told Him"</span>
+                    <span class="ad-angle">Story / Generational</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">His dad never talked about it. Neither did his uncles. And definitely not his friends.
+
+So when he hit 47 and started getting up 3-4 times a night to use the bathroom, he thought something was wrong with him. He felt alone. Embarrassed. Worried.
+
+It was only after months of broken sleep that he finally searched online and discovered something shocking: over 50% of men over 50 experience some degree of prostate enlargement. By age 60, it is closer to 70%.
+
+His dad had dealt with this too. So had his uncles. They just never said a word.
+
+But unlike his dad's generation, he had access to formulas like PowerX Pro, a blend of 6 natural ingredients specifically designed to support prostate health: Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root.
+
+He wishes someone had told him sooner. So he is telling you now.
+
+Do not suffer in silence. Do not wait until it controls your life.
+
+PowerX Pro. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">The Prostate Problem Nobody's Dad Ever Talked About</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Join thousands of men supporting their prostate naturally with PowerX Pro. Risk-free for 60 days.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: AUTHORITY / SCIENCE ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="authority-science">
+            <h2>4. Authority / Science Ads</h2>
+            <p class="section-desc">These ads leverage clinical research, scientific credibility, and ingredient-level data to appeal to analytical buyers who want evidence before they purchase.</p>
+
+            <!-- Ad 4.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 4.1 - "The Research Behind the Formula"</span>
+                    <span class="ad-angle">Clinical Evidence</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Here is what the research says about prostate health after 40:
+
+Saw Palmetto: Multiple peer-reviewed studies have examined its role in supporting healthy prostate size and urinary function. It remains one of the most widely researched natural compounds for prostate health worldwide.
+
+Beta-Sitosterol: A plant sterol that has been the subject of randomized, double-blind studies investigating its effects on urinary flow rate and residual volume.
+
+Pygeum Africanum: Used for decades in European clinical practice to support bladder comfort and reduce nighttime urinary frequency.
+
+Zinc: Research shows that prostate tissue contains higher concentrations of zinc than almost any other tissue in the body, suggesting it plays a critical role in prostate cell function.
+
+Lycopene: Epidemiological studies have consistently linked higher lycopene intake with markers of prostate health.
+
+Stinging Nettle Root: Clinical studies have explored its synergistic effects when combined with Saw Palmetto for prostate support.
+
+PowerX Pro combines all six in one formula. No filler ingredients. No pixie-dusted doses. Just the compounds that science keeps coming back to.
+
+Manufactured in a GMP-certified facility in the USA. Backed by a 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">The 6 Most Researched Natural Prostate Ingredients. All in One Bottle.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Science-backed prostate support for men 40+. PowerX Pro. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 4.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 4.2 - "Why Your Prostate Grows"</span>
+                    <span class="ad-angle">Education / Science</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Most men have no idea why they suddenly start running to the bathroom every two hours after age 40. So here is a quick biology lesson:
+
+Your prostate is a walnut-sized gland that sits just below the bladder and wraps around the urethra, the tube that carries urine out of your body.
+
+As you age, hormonal changes, particularly shifts in DHT (dihydrotestosterone) levels, can cause the prostate to gradually enlarge. As it grows, it squeezes the urethra, which is why you experience:
+
+- Weak or interrupted urine flow
+- Difficulty starting or fully emptying
+- Frequent urgency, especially at night
+- The feeling that you always "need to go"
+
+This is called benign prostatic hyperplasia (BPH), and it affects the majority of men by their 60s.
+
+The good news? Certain natural compounds have been extensively studied for their ability to support healthy prostate size and function. Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root are among the most researched.
+
+PowerX Pro delivers all six in one daily formula.
+
+60-day money-back guarantee. Because we believe in the science.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Why Your Prostate Grows After 40 (And What Science Says Can Help)</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Understand the science. Support your prostate naturally. PowerX Pro - 6 ingredients, 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 4.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 4.3 - "Europe Has Known for Decades"</span>
+                    <span class="ad-angle">Global Authority</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">In France, Germany, and Italy, doctors have been recommending natural prostate compounds like Saw Palmetto and Pygeum Africanum for decades.
+
+These are not "alternative" remedies over there. They are mainstream, first-line recommendations that physicians regularly suggest before considering pharmaceutical options.
+
+Pygeum Africanum, extracted from the bark of the African cherry tree, has been a mainstay in European urology for over 40 years. Saw Palmetto is among the most prescribed plant-based treatments in Germany.
+
+In the United States, most men have never even heard of Pygeum. And most prostate supplements only include Saw Palmetto as a standalone ingredient, missing the synergistic benefits of a multi-compound approach.
+
+PowerX Pro was formulated with a global perspective. It combines the six most studied natural prostate-support ingredients from around the world:
+
+Saw Palmetto. Beta-Sitosterol. Pygeum Africanum. Zinc. Lycopene. Stinging Nettle Root.
+
+Manufactured in the USA. GMP-certified. 60-day money-back guarantee.
+
+What European doctors have known for decades is now available to you.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">European Doctors Have Recommended This for Decades. Now It's Here.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">World-class prostate support with 6 globally researched ingredients. PowerX Pro. Try it risk-free.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 5: VITALITY / PERFORMANCE ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="vitality-performance">
+            <h2>5. Vitality / Performance Ads</h2>
+            <p class="section-desc">These ads reframe prostate support as a vitality and performance issue. They appeal to men who want to feel younger, more energetic, and more confident in every area of life.</p>
+
+            <!-- Ad 5.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 5.1 - "Feel Like Yourself Again"</span>
+                    <span class="ad-angle">Overall Vitality</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Remember when you had energy that lasted all day?
+
+When you woke up refreshed. When you did not dread long meetings or car rides. When you felt sharp, focused, and confident from morning until night.
+
+That version of you did not disappear. He is just buried under months or years of broken sleep, constant urgency, and the low-grade stress of managing a body that will not cooperate.
+
+Your prostate health is directly connected to your sleep quality. Your sleep quality is directly connected to your energy, mood, mental clarity, and yes, your performance in the bedroom.
+
+Fix the foundation, and the rest starts to follow.
+
+PowerX Pro supports healthy prostate function with 6 natural ingredients: Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root.
+
+Better prostate support. Better sleep. Better energy. A better you.
+
+60-day money-back guarantee. Get back to being the man you know you are.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">The Best Version of You Is on the Other Side of Better Sleep.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Support prostate health, reclaim your energy. PowerX Pro - 6 ingredients, 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 5.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 5.2 - "Bedroom Confidence"</span>
+                    <span class="ad-angle">Performance / Intimacy</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Nobody talks about this, so let us just say it:
+
+When your prostate is not healthy, it does not just affect your bathroom trips. It affects the bedroom too.
+
+The chronic fatigue from never sleeping through the night kills your drive. The constant discomfort and urgency makes you anxious and distracted. The stress of dealing with these symptoms every single day drains the confidence and energy that fuel intimacy.
+
+Your partner notices. Even if neither of you says anything.
+
+Supporting your prostate is not just about fewer bathroom trips. It is about restoring the vitality, energy, and confidence that make you feel like a man in every area of life.
+
+PowerX Pro combines Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root, six ingredients chosen to support prostate health from multiple angles.
+
+When your prostate is healthy, everything else gets better. Including the things you do not talk about.
+
+60-day money-back guarantee. Nothing to lose. Everything to gain.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">Prostate Problems Don't Stay in the Bathroom. They Follow You Everywhere.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Support your prostate. Restore your confidence. PowerX Pro for men who want more from life.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 5.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 5.3 - "The Domino Effect"</span>
+                    <span class="ad-angle">Connected Health</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Prostate problems are like the first domino in a long chain:
+
+Domino 1: Prostate enlarges, compresses the urethra.
+Domino 2: Frequent bathroom trips, especially at night.
+Domino 3: Broken, fragmented sleep every single night.
+Domino 4: Chronic fatigue, brain fog, irritability.
+Domino 5: Declining energy, motivation, and stamina.
+Domino 6: Less confidence in the gym, at work, and in the bedroom.
+Domino 7: Strained relationships and social withdrawal.
+
+One prostate issue quietly topples your entire quality of life. And it happens so gradually that most men do not connect the dots until they are deep in it.
+
+The solution? Address Domino 1.
+
+PowerX Pro provides targeted prostate support with 6 natural ingredients: Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root.
+
+Support the prostate. Stop the chain reaction.
+
+60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">One Prostate Issue Triggers a Chain Reaction. Here's How to Stop It.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Break the cycle with PowerX Pro. 6 prostate-support ingredients. 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 5.4 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 5.4 - "Not Ready to Slow Down"</span>
+                    <span class="ad-angle">Active Lifestyle</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">You are 45. Or 55. Or 65. And people keep telling you to "take it easy."
+
+But you are not ready to slow down. You still want to hit the gym. Play with your kids or grandkids. Travel without a bathroom itinerary. Stay up past 9 PM without feeling like you ran a marathon.
+
+The problem is, your prostate did not get the memo.
+
+It is growing. It is pressing on your bladder. And it is quietly sabotaging the active life you are fighting to keep.
+
+You do not have to choose between "toughing it out" and giving in. There is a middle ground: targeted nutritional support that works with your body, not against it.
+
+PowerX Pro delivers Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root. Six natural ingredients. One daily formula. Designed for men who refuse to let their age define them.
+
+Stay active. Stay sharp. Stay in the game.
+
+60-day money-back guarantee.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">You're Not Ready to Slow Down. Your Prostate Shouldn't Make You.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Prostate support for active men over 40. PowerX Pro. 6 ingredients. 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 6: TESTIMONIAL-STYLE ADS -->
+        <!-- ========================================== -->
+        <div class="section-block" id="testimonial-style">
+            <h2>6. Testimonial-Style Ads</h2>
+            <p class="section-desc">Written from a first-person customer perspective, these ads feel authentic and relatable. Important: ensure any testimonial-style ads comply with FTC guidelines. Use language like "results may vary" and ensure claims are truthful.</p>
+
+            <!-- Ad 6.1 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 6.1 - "The Skeptic"</span>
+                    <span class="ad-angle">First Person</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">I will be honest. I did not believe a supplement could help.
+
+I had been dealing with prostate issues for almost three years. Getting up 4-5 times a night. Weak stream. That annoying dribble that made me stand at the urinal way longer than anyone else. I tried saw palmetto on its own. I tried pumpkin seed oil. Nothing seemed to make a real difference.
+
+When my brother-in-law told me about PowerX Pro, I rolled my eyes. "Another supplement that promises the world," I thought.
+
+But he kept bringing it up. And he seemed to be sleeping better, had more energy, and was not sprinting to the bathroom every hour anymore. So I figured, what the heck, it has a 60-day money-back guarantee.
+
+I am glad I listened. The combination of ingredients, Saw Palmetto with Beta-Sitosterol, Pygeum, Zinc, Lycopene, and Nettle Root, seems to work differently than taking just one ingredient alone.
+
+I still cannot believe I am writing this. But if you are as skeptical as I was, just try it. The guarantee makes it completely risk-free.
+
+*Individual results may vary. This is a personal experience and not a guarantee of results.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">"I Didn't Believe a Supplement Could Help. I Was Wrong."</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">See why skeptics are becoming believers. PowerX Pro - 6 ingredients, 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 6.2 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 6.2 - "My Wife Noticed First"</span>
+                    <span class="ad-angle">Relationship Angle</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">My wife noticed before I did.
+
+"You did not get up last night," she said over coffee one morning. "Not even once."
+
+I honestly had not thought about it. But she was right. For the first time in what felt like years, I had slept through the entire night without my bladder dragging me out of bed.
+
+I had been taking PowerX Pro for a few weeks at that point. A friend recommended it after I complained about my prostate issues at a barbecue (because apparently that is what we talk about after 50).
+
+The difference was not instant, and I want to be upfront about that. But gradually, the nighttime trips went from 4-5 down to 1, and some nights none at all. My stream felt stronger. I stopped mapping out restrooms before leaving the house.
+
+But the biggest change? My energy. When you actually sleep through the night, you feel like a different person during the day.
+
+PowerX Pro has Saw Palmetto, Beta-Sitosterol, Pygeum, Zinc, Lycopene, and Stinging Nettle Root. Six ingredients working together. 60-day guarantee.
+
+If your wife is counting your bathroom trips at night, she will notice the difference too.
+
+*Individual results may vary.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">"My Wife Noticed I Slept Through the Night Before I Did."</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Better prostate support means better sleep for both of you. Try PowerX Pro risk-free.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 6.3 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 6.3 - "Back on the Golf Course"</span>
+                    <span class="ad-angle">Lifestyle Restoration</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">I almost gave up golf.
+
+Not because of my swing (although that needs work too). But because I could not make it through 18 holes without 3-4 bathroom breaks. My buddies started joking about it, which was fine at first, but after a while it just made me want to stay home.
+
+The embarrassment was real. I started making excuses. "Knee is acting up." "Got a thing this weekend." Anything to avoid the jokes.
+
+Then my golf buddy Phil, who is 62, quietly told me he had been dealing with the same thing. He showed me this supplement he had been taking called PowerX Pro. Said it had six different ingredients for prostate support, not just the Saw Palmetto I had been taking on its own.
+
+I ordered the 3-bottle bundle, mostly because of the discount but also because the 60-day money-back guarantee meant I was not stuck if it did not work.
+
+Fast forward: I played 18 holes last Saturday. One bathroom stop. At the turn. Like a normal human being.
+
+Phil and I do not talk about prostates on the course anymore. We talk about birdies.
+
+*Individual results may vary. PowerX Pro is a dietary supplement, not a medication.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">"I Almost Gave Up the Game I Love. Glad I Didn't."</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Get back to doing what you love. PowerX Pro - 6-ingredient prostate support with a 60-day guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad 6.4 -->
+            <div class="ad-card">
+                <div class="ad-card-header">
+                    <span class="ad-label">Ad 6.4 - "The Road Trip Victory"</span>
+                    <span class="ad-angle">Freedom / Independence</span>
+                </div>
+                <div class="ad-card-body">
+                    <div class="ad-field">
+                        <div class="ad-field-label">Primary Text</div>
+                        <div class="ad-field-content">Last month I drove 4 hours straight without stopping.
+
+If you are a man over 50, you know why that is worth celebrating.
+
+For the past two years, any drive over 45 minutes was a white-knuckle experience. I knew every gas station, every rest stop, every fast food restaurant between here and my daughter's house. Not because I was hungry. Because I needed a bathroom.
+
+I dreaded visits. I dreaded road trips with my wife. I dreaded being a passenger in someone else's car and having to ask them to stop.
+
+A urologist buddy of mine suggested I try a comprehensive prostate supplement instead of the single-ingredient Saw Palmetto I had been using. He specifically mentioned looking for something with Beta-Sitosterol and Pygeum alongside the Saw Palmetto.
+
+That led me to PowerX Pro. It had all six ingredients he mentioned in one capsule. I figured the 60-day guarantee made it a no-brainer.
+
+That 4-hour drive last month? I stopped once. For coffee. Because I wanted to, not because I had to.
+
+That is freedom. And I am never going back.
+
+*Individual results may vary.</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Headline</div>
+                        <div class="ad-field-content headline-text">"4 Hours. Zero Bathroom Stops. That's a Win at My Age."</div>
+                    </div>
+                    <div class="ad-field">
+                        <div class="ad-field-label">Description</div>
+                        <div class="ad-field-content">Reclaim your freedom on the road and everywhere else. PowerX Pro. 60-day money-back guarantee.</div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="btn-copy" onclick="copyAd(this)"><i class="bi bi-clipboard"></i> Copy Ad</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 7: HOOK LIBRARY -->
+        <!-- ========================================== -->
+        <div class="section-block" id="hook-library">
+            <h2>7. Hook Library</h2>
+            <p class="section-desc">20 proven opening hooks organized by angle. Use these as the first line of your Facebook ads to stop the scroll. Pair with any of the ad body copy above or write your own.</p>
+
+            <!-- Curiosity Hooks -->
+            <div class="hook-category">
+                <h4>
+                    <span class="hook-icon"><i class="bi bi-search"></i></span>
+                    Curiosity Hooks
+                </h4>
+
+                <div class="hook-item">
+                    <span class="hook-number">1</span>
+                    <span class="hook-text">Your prostate is the size of a walnut. So why is it controlling your entire life?</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">2</span>
+                    <span class="hook-text">There is a reason most prostate supplements only use one ingredient. And it is not a good one.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">3</span>
+                    <span class="hook-text">European doctors have been using this natural compound for prostate issues since the 1960s. Most Americans have never heard of it.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">4</span>
+                    <span class="hook-text">What if your bathroom trips at night had nothing to do with "getting older" and everything to do with one overlooked gland?</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+
+            <!-- Fear / Urgency Hooks -->
+            <div class="hook-category">
+                <h4>
+                    <span class="hook-icon"><i class="bi bi-exclamation-triangle"></i></span>
+                    Fear / Urgency Hooks
+                </h4>
+
+                <div class="hook-item">
+                    <span class="hook-number">5</span>
+                    <span class="hook-text">If you are getting up more than twice a night, your prostate is trying to tell you something. Do not ignore it.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">6</span>
+                    <span class="hook-text">Every year you ignore your prostate, the symptoms get a little worse. Here is what most men over 40 do not realize.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">7</span>
+                    <span class="hook-text">The broken sleep from prostate issues is not just annoying. It is slowly draining your health in ways you cannot see.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">8</span>
+                    <span class="hook-text">You are not "just getting old." Something specific is happening to your prostate right now, and waiting will not make it better.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+
+            <!-- Authority Hooks -->
+            <div class="hook-category">
+                <h4>
+                    <span class="hook-icon"><i class="bi bi-mortarboard"></i></span>
+                    Authority Hooks
+                </h4>
+
+                <div class="hook-item">
+                    <span class="hook-number">9</span>
+                    <span class="hook-text">According to the NIH, over 50% of men in their 50s have some degree of prostate enlargement. By 80, it is over 90%. Here is what the research says helps.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">10</span>
+                    <span class="hook-text">Urologists in Germany have been prescribing Saw Palmetto and Pygeum for over 40 years. Now you can get both in one capsule.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">11</span>
+                    <span class="hook-text">Beta-Sitosterol has been studied in randomized controlled trials for urinary flow. Here is what the data actually shows.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">12</span>
+                    <span class="hook-text">Your prostate contains more zinc than almost any other organ in your body. Most men over 40 are not getting enough. Here is why that matters.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+
+            <!-- Social Proof Hooks -->
+            <div class="hook-category">
+                <h4>
+                    <span class="hook-icon"><i class="bi bi-people"></i></span>
+                    Social Proof Hooks
+                </h4>
+
+                <div class="hook-item">
+                    <span class="hook-number">13</span>
+                    <span class="hook-text">Thousands of men over 40 have already tried this 6-ingredient prostate formula. Here is why they are not going back to their old supplements.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">14</span>
+                    <span class="hook-text">My buddy Phil handed me this bottle and said, "Trust me. Just try it for a month." So I did.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">15</span>
+                    <span class="hook-text">"I have not gotten up in the middle of the night in two weeks." That is what my neighbor told me over the fence last Sunday.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">16</span>
+                    <span class="hook-text">When three different guys in my golf foursome started taking the same prostate supplement, I figured I should pay attention.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+
+            <!-- Urgency / Scarcity Hooks -->
+            <div class="hook-category">
+                <h4>
+                    <span class="hook-icon"><i class="bi bi-clock-history"></i></span>
+                    Urgency / Action Hooks
+                </h4>
+
+                <div class="hook-item">
+                    <span class="hook-number">17</span>
+                    <span class="hook-text">If you are reading this at 3 AM because your bladder woke you up again, this might be the most important post you see all year.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">18</span>
+                    <span class="hook-text">You have two choices: keep managing the symptoms, or start supporting the cause. Here is how to do the second one.</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">19</span>
+                    <span class="hook-text">Every night you lose to your prostate is a night you will never get back. How many more are you willing to give up?</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <div class="hook-item">
+                    <span class="hook-number">20</span>
+                    <span class="hook-text">Sixty days. That is how long you have to try PowerX Pro completely risk-free. If it does not work, you pay nothing. What are you waiting for?</span>
+                    <button class="btn-copy" onclick="copyHook(this)"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 8: COMPLIANCE GUIDE -->
+        <!-- ========================================== -->
+        <div class="section-block" id="compliance-guide">
+            <h2>8. Facebook Ads Compliance Guide</h2>
+            <p class="section-desc">Facebook has strict policies for health and supplement advertising. Follow these guidelines to keep your ads approved and your account in good standing. Non-compliance can result in ad rejection, account restrictions, or permanent bans.</p>
+
+            <!-- What to Avoid -->
+            <div class="compliance-card">
+                <h4><i class="bi bi-x-octagon-fill dont-icon"></i> What to Avoid (Will Get Your Ad Rejected)</h4>
+                <ul>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>Direct health claims or guarantees of results.</strong> Never say the product will "cure," "treat," "fix," or "eliminate" any condition. Facebook flags these as medical claims.
+                            <div class="example-box">
+                                <table><tr><td class="bad-cell">"PowerX Pro cures BPH and eliminates prostate problems."</td><td class="good-cell">"PowerX Pro supports healthy prostate function with 6 natural ingredients."</td></tr></table>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>Before/after implications.</strong> Avoid language or imagery that implies a guaranteed transformation. Facebook is especially strict about before-and-after scenarios in health advertising.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>"You" statements about personal health conditions.</strong> Facebook flags ads that call out users' health issues directly, as this violates their personal attributes policy.
+                            <div class="example-box">
+                                <table><tr><td class="bad-cell">"Are YOU struggling with an enlarged prostate?"</td><td class="good-cell">"Many men over 40 experience changes in prostate health."</td></tr></table>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>References to specific diseases or diagnoses.</strong> Do not mention cancer, BPH by its clinical name in a treatment context, or any specific medical diagnosis as something the product addresses.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>Fake urgency or scarcity.</strong> Claims like "Only 12 bottles left!" or "Sale ends in 2 hours!" when they are not true can trigger both Facebook policy violations and FTC scrutiny.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>Misleading imagery.</strong> Avoid using images that imply the product is a prescription drug, that depict nudity or sexual situations, or that show unrealistic results.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-x-circle-fill dont-icon"></i>
+                        <div><strong>Fake testimonials.</strong> All testimonials must be from real users with genuine experiences. The FTC requires that testimonials reflect typical results, or you must clearly disclose that they do not.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Safe Language Patterns -->
+            <div class="compliance-card">
+                <h4><i class="bi bi-check-circle-fill do-icon"></i> Safe Language Patterns</h4>
+                <ul>
+                    <li>
+                        <i class="bi bi-check-circle-fill do-icon"></i>
+                        <div><strong>"Supports" instead of "fixes" or "cures."</strong> Always frame the product as nutritional support, not a medical treatment.
+                            <div class="example-box">
+                                <span class="good">"Supports healthy prostate function"</span><br>
+                                <span class="good">"Helps support normal urinary patterns"</span><br>
+                                <span class="good">"Provides nutritional support for prostate health"</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill do-icon"></i>
+                        <div><strong>Third-person framing instead of "you."</strong> Instead of calling out the reader directly, speak in general terms about men who experience these issues.
+                            <div class="example-box">
+                                <span class="good">"Many men over 40 notice changes in urinary patterns."</span><br>
+                                <span class="good">"For men experiencing frequent nighttime trips to the bathroom..."</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill do-icon"></i>
+                        <div><strong>Qualify claims with hedge language.</strong> Words like "may," "can help," "designed to," and "traditionally used" keep your copy compliant.
+                            <div class="example-box">
+                                <span class="good">"Saw Palmetto has been traditionally used to support prostate health."</span><br>
+                                <span class="good">"These ingredients may help support healthy urinary function."</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill do-icon"></i>
+                        <div><strong>Focus on ingredients, not outcomes.</strong> Talk about what is in the formula and the research behind the ingredients rather than promising specific results to the user.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill do-icon"></i>
+                        <div><strong>Use educational framing.</strong> Ads that educate about prostate health generally, and then introduce the product as one option, tend to pass review more easily than direct-sell ads.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Disclaimer Requirements -->
+            <div class="compliance-card">
+                <h4><i class="bi bi-info-circle-fill warn-icon"></i> Disclaimer Requirements</h4>
+                <ul>
+                    <li>
+                        <i class="bi bi-info-circle-fill warn-icon"></i>
+                        <div><strong>FDA disclaimer on landing pages.</strong> Every landing page must include: <em>"These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."</em></div>
+                    </li>
+                    <li>
+                        <i class="bi bi-info-circle-fill warn-icon"></i>
+                        <div><strong>"Individual results may vary"</strong> should appear near any testimonial or personal experience story, both in the ad copy and on the landing page.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-info-circle-fill warn-icon"></i>
+                        <div><strong>Affiliate disclosure.</strong> If you are promoting as an affiliate, you must disclose the relationship. FTC requires clear and conspicuous disclosure that you may earn a commission.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-info-circle-fill warn-icon"></i>
+                        <div><strong>"Consult your doctor"</strong> language should be included when discussing health conditions or when suggesting someone change their health routine.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-info-circle-fill warn-icon"></i>
+                        <div><strong>Landing page congruence.</strong> Facebook requires that your ad copy, creative, and landing page all tell the same story. Do not use a mild ad that leads to an aggressive landing page, as this is a common reason for account bans.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Pro Tips -->
+            <div class="compliance-card">
+                <h4><i class="bi bi-lightbulb-fill" style="color: var(--accent-blue);"></i> Pro Tips for Staying Approved</h4>
+                <ul>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Warm up your ad account.</strong> Start with small budgets ($5-10/day) and educational content before scaling to direct-response supplement ads. New accounts running aggressive health ads immediately are more likely to get flagged.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Use a pre-sell / advertorial page.</strong> Instead of sending traffic directly to the sales page, use a pre-sell article that educates about prostate health and naturally introduces PowerX Pro. This improves both compliance and conversion rates.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Test your landing page with Facebook's ad review in mind.</strong> Run a Page Post Engagement campaign first with a small budget to see if the landing page triggers any issues before committing to a larger Conversion campaign.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Avoid "clickbait" formatting in images.</strong> Red circles, arrows, shocked faces, and sensationalized thumbnails increase the chance of manual review and rejection.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Keep a clean Facebook Page.</strong> Your Page should have legitimate posts, a real profile picture, contact information, and a privacy policy link. Pages that only exist to run ads get flagged more often.</div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check2 do-icon"></i>
+                        <div><strong>Appeal rejections with specifics.</strong> If your ad is rejected, do not just resubmit it unchanged. Read the specific policy cited, adjust your copy, and submit a detailed appeal explaining how your revised ad complies.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="compliance-card" style="border: 2px solid var(--accent-blue);">
+                <h4><i class="bi bi-bookmark-star-fill" style="color: var(--accent-blue);"></i> Quick Reference: Word Swap Guide</h4>
+                <div style="overflow-x: auto;">
+                    <table class="table table-sm table-bordered mb-0" style="font-size: 0.88rem;">
+                        <thead style="background: var(--accent-light);">
+                            <tr>
+                                <th style="color: #dc3545; width: 45%;">Avoid This</th>
+                                <th style="color: var(--success-green); width: 55%;">Use This Instead</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cures prostate problems</td><td>Supports healthy prostate function</td></tr>
+                            <tr><td>Fixes your weak stream</td><td>Supports healthy urinary flow</td></tr>
+                            <tr><td>Eliminates nighttime urination</td><td>Supports healthy nighttime urinary patterns</td></tr>
+                            <tr><td>Treats BPH / enlarged prostate</td><td>Supports healthy prostate size</td></tr>
+                            <tr><td>Stops frequent bathroom trips</td><td>Helps support normal urinary frequency</td></tr>
+                            <tr><td>Boosts testosterone</td><td>Supports healthy male vitality</td></tr>
+                            <tr><td>Proven to work</td><td>Clinically studied ingredients</td></tr>
+                            <tr><td>Guaranteed results</td><td>60-day money-back guarantee</td></tr>
+                            <tr><td>You have prostate problems</td><td>Many men over 40 experience prostate changes</td></tr>
+                            <tr><td>Reverses aging</td><td>Supports healthy aging</td></tr>
+                            <tr><td>Shrinks your prostate</td><td>Supports healthy prostate size</td></tr>
+                            <tr><td>No more bathroom trips</td><td>Supports urinary comfort and confidence</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-5 pt-4" style="border-top: 1px solid #e2e8f0;">
+            <p style="font-size: 0.82rem; color: #94a3b8;">
+                This document is for authorized PowerX Pro affiliates only. All ad copy is provided as swipe templates and should be customized for your campaigns.<br>
+                Ensure all advertising complies with Facebook Advertising Policies, FTC guidelines, and applicable local regulations.<br>
+                These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
+            </p>
+            <a href="../index.html" class="btn-copy-all" style="text-decoration: none; margin-top: 8px;">
+                <i class="bi bi-arrow-left"></i> Back to Affiliate Tools
+            </a>
+        </div>
+
+    </div><!-- /content-wrapper -->
+</div><!-- /main-content -->
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Copy full ad (primary text + headline + description)
+    function copyAd(btn) {
+        const card = btn.closest('.ad-card-body');
+        const fields = card.querySelectorAll('.ad-field');
+        let text = '';
+        fields.forEach(function(field) {
+            const label = field.querySelector('.ad-field-label');
+            const content = field.querySelector('.ad-field-content');
+            if (label && content) {
+                text += label.textContent.trim() + ':\n' + content.textContent.trim() + '\n\n';
+            }
+        });
+        copyToClipboard(text.trim(), btn);
+    }
+
+    // Copy individual hook
+    function copyHook(btn) {
+        const hookItem = btn.closest('.hook-item');
+        const hookText = hookItem.querySelector('.hook-text').textContent.trim();
+        copyToClipboard(hookText, btn);
+    }
+
+    // Clipboard helper
+    function copyToClipboard(text, btn) {
+        navigator.clipboard.writeText(text).then(function() {
+            var originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(function() {
+            // Fallback for older browsers
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                var originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.remove('copied');
+                }, 2000);
+            } catch (e) {
+                alert('Copy failed. Please select and copy manually.');
+            }
+            document.body.removeChild(textarea);
+        });
+    }
+
+    // Scroll to top button visibility
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+
+    // Active TOC link highlighting
+    window.addEventListener('scroll', function() {
+        var sections = document.querySelectorAll('.section-block');
+        var tocLinks = document.querySelectorAll('.toc-nav a');
+        var scrollPos = window.scrollY + 100;
+
+        sections.forEach(function(section, index) {
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+                tocLinks.forEach(function(link) { link.classList.remove('active'); });
+                // index + 1 because first toc link is product-overview (index 0 in toc, section index 0)
+                if (tocLinks[index]) {
+                    tocLinks[index].classList.add('active');
+                }
+            }
+        });
+    });
+
+    // Close sidebar on mobile when clicking a link
+    document.querySelectorAll('.toc-nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 991) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
+        });
+    });
+</script>
+</body>
+</html>

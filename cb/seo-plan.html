@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Site SEO Plan — KetoWater &amp; KetoFlow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0e1a;
+            color: #c8cdd8;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #111827, #1a1f36);
+            border-radius: 16px;
+            border: 1px solid #2a3050;
+        }
+        .header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header .subtitle { color: #6b7394; font-size: 1rem; }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+        .score-box {
+            background: #111827;
+            border: 1px solid #1e2540;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .score-box .label { font-size: 0.75rem; color: #6b7394; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .score-box .num { font-size: 2.2rem; font-weight: 700; }
+        .score-box .sub { font-size: 0.8rem; margin-top: 4px; }
+
+        .pass { color: #34d399; }
+        .warn { color: #fbbf24; }
+        .fail { color: #f87171; }
+
+        .section { margin: 40px 0; }
+        .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 6px; }
+        .section-subtitle { color: #5a6180; font-size: 0.9rem; margin-bottom: 24px; }
+
+        .card {
+            background: #111827;
+            border: 1px solid #1e2540;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .card:hover { border-color: #2e365a; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+        .card h3 { color: #e2e5ee; font-size: 1.05rem; font-weight: 600; }
+        .card p { color: #8b92b0; font-size: 0.88rem; margin-bottom: 10px; }
+
+        .badge {
+            display: inline-block; padding: 2px 10px; border-radius: 6px;
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .badge-critical { background: rgba(248,113,113,0.15); color: #f87171; }
+        .badge-high { background: rgba(251,191,36,0.15); color: #fbbf24; }
+        .badge-medium { background: rgba(96,165,250,0.15); color: #60a5fa; }
+        .badge-low { background: rgba(52,211,153,0.15); color: #34d399; }
+
+        .detail {
+            color: #6b7394; font-size: 0.82rem;
+            background: rgba(0,0,0,0.25); padding: 12px 16px; border-radius: 8px;
+            margin: 12px 0; font-family: 'Cascadia Code', 'Fira Code', monospace; line-height: 1.8;
+        }
+
+        .proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+        .pro-box, .con-box { padding: 14px 16px; border-radius: 8px; font-size: 0.82rem; }
+        .pro-box { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.15); }
+        .con-box { background: rgba(248,113,113,0.06); border: 1px solid rgba(248,113,113,0.15); }
+        .pro-box h4 { color: #34d399; font-size: 0.78rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .con-box h4 { color: #f87171; font-size: 0.78rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pro-box ul, .con-box ul { padding-left: 16px; }
+        .pro-box li { color: #6ee7b7; margin-bottom: 4px; }
+        .con-box li { color: #fca5a5; margin-bottom: 4px; }
+
+        .impact-bar { display: flex; align-items: center; gap: 10px; margin: 8px 0 2px; }
+        .impact-bar .label { font-size: 0.72rem; color: #6b7394; text-transform: uppercase; letter-spacing: 0.5px; min-width: 110px; }
+        .impact-track { flex: 1; height: 6px; background: #1a1f36; border-radius: 3px; overflow: hidden; }
+        .impact-fill { height: 100%; border-radius: 3px; }
+        .impact-fill.high { background: linear-gradient(90deg, #f87171, #fb923c); }
+        .impact-fill.medium { background: linear-gradient(90deg, #fbbf24, #60a5fa); }
+        .impact-fill.low { background: linear-gradient(90deg, #34d399, #60a5fa); }
+
+        .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid #1e2540; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        thead th { background: #141929; color: #8b92b0; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px; padding: 14px 18px; text-align: left; border-bottom: 1px solid #1e2540; }
+        tbody td { padding: 12px 18px; border-bottom: 1px solid #151a2e; }
+        tbody tr:hover { background: rgba(255,255,255,0.02); }
+        .metric-name { color: #e2e5ee; font-weight: 500; }
+
+        .order-num {
+            width: 28px; height: 28px; border-radius: 50%; display: inline-flex;
+            align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
+            color: #fff; margin-right: 10px;
+        }
+        .o1 { background: #f87171; }
+        .o2 { background: #fb923c; }
+        .o3 { background: #fbbf24; }
+        .o4 { background: #60a5fa; }
+        .o5 { background: #818cf8; }
+        .o6 { background: #a78bfa; }
+        .o7 { background: #34d399; }
+
+        @media (max-width: 768px) {
+            .score-grid { grid-template-columns: repeat(2, 1fr); }
+            .proscons { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <h1>On-Site SEO Plan</h1>
+        <div class="subtitle">KetoWater &amp; KetoFlow &bull; Testing on KW Desktop first</div>
+    </div>
+
+    <!-- Current Scores -->
+    <div class="section">
+        <h2 class="section-title">Current Scores (all 4 pages)</h2>
+        <div class="score-grid">
+            <div class="score-box">
+                <div class="label">KW Desktop</div>
+                <div class="num warn">92</div>
+                <div class="sub">SEO</div>
+            </div>
+            <div class="score-box">
+                <div class="label">KW Mobile</div>
+                <div class="num warn">92</div>
+                <div class="sub">SEO</div>
+            </div>
+            <div class="score-box">
+                <div class="label">KF Desktop</div>
+                <div class="num warn">92</div>
+                <div class="sub">SEO</div>
+            </div>
+            <div class="score-box">
+                <div class="label">KF Mobile</div>
+                <div class="num warn">92</div>
+                <div class="sub">SEO</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What's passing / failing -->
+    <div class="section">
+        <h2 class="section-title">Current Audit Status</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Audit</th><th>Status</th><th>Impact</th></tr></thead>
+                <tbody>
+                    <tr><td class="metric-name">Title tag</td><td class="pass">PASS</td><td>Has title on all pages</td></tr>
+                    <tr><td class="metric-name">Meta description</td><td class="pass">PASS</td><td>Present on all pages</td></tr>
+                    <tr><td class="metric-name">HTTP status</td><td class="pass">PASS</td><td>Returns 200</td></tr>
+                    <tr><td class="metric-name">Crawlable links</td><td class="pass">PASS</td><td>All links crawlable</td></tr>
+                    <tr><td class="metric-name">Not blocked from indexing</td><td class="pass">PASS</td><td>No noindex found</td></tr>
+                    <tr><td class="metric-name">Image alt attributes</td><td class="pass">PASS</td><td>All images have alt</td></tr>
+                    <tr><td class="metric-name">HTML lang attribute</td><td class="pass">PASS</td><td>lang="en"</td></tr>
+                    <tr><td class="metric-name">Link text descriptive</td><td class="pass">PASS</td><td>Meaningful anchor text</td></tr>
+                    <tr style="background:rgba(248,113,113,0.04)"><td class="metric-name">robots.txt</td><td class="fail">FAIL</td><td>Invalid or missing</td></tr>
+                    <tr style="background:rgba(248,113,113,0.04)"><td class="metric-name">Heading order</td><td class="fail">FAIL</td><td>h4 before h3, skipped levels</td></tr>
+                    <tr style="background:rgba(248,113,113,0.04)"><td class="metric-name">Charset declaration</td><td class="fail">FAIL</td><td>Missing or too late in &lt;head&gt;</td></tr>
+                    <tr style="background:rgba(248,113,113,0.04)"><td class="metric-name">Color contrast</td><td class="fail">FAIL</td><td>15 elements insufficient contrast</td></tr>
+                    <tr style="background:rgba(248,113,113,0.04)"><td class="metric-name">Button accessible names</td><td class="fail">FAIL</td><td>2 gallery nav buttons</td></tr>
+                    <tr style="background:rgba(251,191,36,0.04)"><td class="metric-name">Canonical URL</td><td class="warn">MISSING</td><td>Not set &mdash; duplicate content risk</td></tr>
+                    <tr style="background:rgba(251,191,36,0.04)"><td class="metric-name">sitemap.xml</td><td class="warn">MISSING</td><td>No sitemap for search engines</td></tr>
+                    <tr style="background:rgba(251,191,36,0.04)"><td class="metric-name">Open Graph tags</td><td class="warn">MISSING</td><td>No social sharing metadata</td></tr>
+                    <tr style="background:rgba(251,191,36,0.04)"><td class="metric-name">Twitter Card tags</td><td class="warn">MISSING</td><td>No Twitter sharing metadata</td></tr>
+                    <tr style="background:rgba(251,191,36,0.04)"><td class="metric-name">JSON-LD structured data</td><td class="warn">MISSING</td><td>No Product/Organization schema</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SEO Fixes with Pros/Cons -->
+    <div class="section">
+        <h2 class="section-title">SEO Fix Plan</h2>
+        <p class="section-subtitle">7 fixes ordered by SEO impact. Each with pros &amp; cons. Testing on KW Desktop first.</p>
+
+        <!-- Fix 1: robots.txt + sitemap.xml -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o1">1</span>robots.txt + sitemap.xml</h3>
+                <span class="badge badge-critical">Critical</span>
+            </div>
+            <p>The foundation of technical SEO. Without these, search engines don't know what to crawl or where your pages are.</p>
+
+            <div class="detail">
+<strong>robots.txt</strong> &mdash; tells search engines what to crawl/skip:<br>
+&nbsp;&nbsp;User-agent: *<br>
+&nbsp;&nbsp;Allow: /<br>
+&nbsp;&nbsp;Disallow: /short/<br>
+&nbsp;&nbsp;Disallow: /popup/<br>
+&nbsp;&nbsp;Disallow: /lib/<br>
+&nbsp;&nbsp;Disallow: /eBooks/<br>
+&nbsp;&nbsp;Sitemap: https://ketowater.trustednutraproduct.com/sitemap.xml<br><br>
+<strong>sitemap.xml</strong> &mdash; lists all indexable pages with priority &amp; update frequency
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill high" style="width:95%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:15%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Directly fixes the Lighthouse robots.txt FAIL</li>
+                        <li>Enables Google Search Console sitemap submission</li>
+                        <li>Prevents indexing of junk pages (popup, lib, eBooks)</li>
+                        <li>Takes 2 minutes to create</li>
+                        <li>Zero risk &mdash; purely additive</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>None &mdash; this is mandatory for any site wanting search traffic</li>
+                        <li>Needs to be kept updated if new pages are added</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 2: Canonical URLs -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o2">2</span>Canonical URLs</h3>
+                <span class="badge badge-critical">Critical</span>
+            </div>
+            <p>desktop.html and mobile.html are separate pages with the same content &mdash; Google sees this as duplicate content. Canonical tags tell Google which version to index.</p>
+
+            <div class="detail">
+<strong>Add to desktop.html:</strong><br>
+&nbsp;&nbsp;&lt;link rel="canonical" href="https://ketowater.trustednutraproduct.com/desktop.html"&gt;<br><br>
+<strong>Add to mobile.html:</strong><br>
+&nbsp;&nbsp;&lt;link rel="canonical" href="https://ketowater.trustednutraproduct.com/desktop.html"&gt;<br><br>
+Both point to desktop as the canonical version. Google indexes desktop, serves mobile users the mobile version via index.html redirect.
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill high" style="width:90%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:10%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Eliminates duplicate content penalty risk</li>
+                        <li>Consolidates link equity to one URL</li>
+                        <li>One line of HTML per page</li>
+                        <li>Industry standard practice</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>If set wrong, could de-index a page accidentally</li>
+                        <li>Mobile-first indexing: Google may prefer mobile as canonical instead</li>
+                        <li>Need to decide: desktop or mobile as canonical?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 3: Meta charset -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o3">3</span>Meta Charset at Top of &lt;head&gt;</h3>
+                <span class="badge badge-high">High</span>
+            </div>
+            <p>Lighthouse flags charset declaration missing or too late. The <code>&lt;meta charset="utf-8"&gt;</code> must be within the first 1024 bytes of the document.</p>
+
+            <div class="detail">
+<strong>Add as FIRST tag inside &lt;head&gt;:</strong><br>
+&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br><br>
+Must come before any other tag, including &lt;link&gt; and &lt;style&gt;.
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:50%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:5%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Fixes Best Practices FAIL immediately</li>
+                        <li>Prevents character encoding bugs</li>
+                        <li>One line, zero risk</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>None &mdash; purely a fix for a missing standard tag</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 4: Heading Order -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o4">4</span>Fix Heading Order (h1 &rarr; h2 &rarr; h3 &rarr; h4)</h3>
+                <span class="badge badge-high">High</span>
+            </div>
+            <p>Currently using h4 before h3, h5 after h3, h6 randomly. Proper hierarchy helps search engines understand content structure.</p>
+
+            <div class="detail">
+<strong>Current issues:</strong><br>
+&nbsp;&nbsp;&bull; h4 appears before h3 in several sections<br>
+&nbsp;&nbsp;&bull; h5 used directly after h3 (skipping h4)<br>
+&nbsp;&nbsp;&bull; h6 used without h5 parent<br><br>
+<strong>Fix:</strong> Re-tag headings to follow sequential order.<br>
+&nbsp;&nbsp;h1 (page title) &rarr; h2 (sections) &rarr; h3 (subsections) &rarr; h4 (details)
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:60%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:45%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Fixes both SEO and Accessibility audits</li>
+                        <li>Improves content hierarchy for crawlers</li>
+                        <li>Better screen reader experience</li>
+                        <li>Google uses heading structure to understand topics</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>Changing heading tags may affect CSS styling</li>
+                        <li>Need to audit all headings across ~6000 line pages</li>
+                        <li>Visual testing needed to ensure no style breaks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 5: Open Graph + Twitter Cards -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o5">5</span>Open Graph + Twitter Card Tags</h3>
+                <span class="badge badge-medium">Medium</span>
+            </div>
+            <p>When someone shares your page on Facebook, WhatsApp, Telegram, Twitter, or LinkedIn &mdash; they see a blank preview. OG tags control exactly what appears.</p>
+
+            <div class="detail">
+<strong>Add to &lt;head&gt;:</strong><br>
+&nbsp;&nbsp;&lt;meta property="og:title" content="KetoWater&trade; &mdash; Keto Hydration Supplement"&gt;<br>
+&nbsp;&nbsp;&lt;meta property="og:description" content="Science-backed keto hydration..."&gt;<br>
+&nbsp;&nbsp;&lt;meta property="og:image" content="https://ketowater.trustednutraproduct.com/product_images/hero-bg.webp"&gt;<br>
+&nbsp;&nbsp;&lt;meta property="og:url" content="https://ketowater.trustednutraproduct.com/"&gt;<br>
+&nbsp;&nbsp;&lt;meta property="og:type" content="product"&gt;<br>
+&nbsp;&nbsp;&lt;meta name="twitter:card" content="summary_large_image"&gt;<br>
+&nbsp;&nbsp;&lt;meta name="twitter:title" content="KetoWater&trade;"&gt;<br>
+&nbsp;&nbsp;&lt;meta name="twitter:description" content="..."&gt;<br>
+&nbsp;&nbsp;&lt;meta name="twitter:image" content="..."&gt;
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:45%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:15%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Rich previews when shared on social media</li>
+                        <li>Higher click-through rates from social shares</li>
+                        <li>Professional appearance on WhatsApp/Telegram</li>
+                        <li>Indirect SEO signal (more shares = more traffic)</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>Doesn't directly affect Google ranking</li>
+                        <li>Need a good OG image (ideally 1200x630)</li>
+                        <li>Must be maintained if title/description changes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 6: JSON-LD Structured Data -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o6">6</span>JSON-LD Structured Data (Product Schema)</h3>
+                <span class="badge badge-medium">Medium</span>
+            </div>
+            <p>Structured data helps Google understand your page is a product with a price, rating, and availability. Can trigger rich snippets in search results (stars, price, stock).</p>
+
+            <div class="detail">
+<strong>Add before &lt;/body&gt;:</strong><br>
+&nbsp;&nbsp;&lt;script type="application/ld+json"&gt;<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"@context": "https://schema.org",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"@type": "Product",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "KetoWater",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"description": "Science-backed keto hydration supplement...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"image": "https://ketowater.trustednutraproduct.com/product_images/hero-bg.webp",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"brand": {"@type": "Brand", "name": "Trusted Nutra Products"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"offers": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@type": "Offer", "price": "69.00", "priceCurrency": "USD",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"availability": "https://schema.org/InStock"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"aggregateRating": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "2147"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&lt;/script&gt;
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:55%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:20%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Rich snippets in Google (stars, price, availability)</li>
+                        <li>Higher click-through from search results</li>
+                        <li>Helps Google understand page content as a Product</li>
+                        <li>Easy to validate with Google's Rich Results Test</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>Data must match what's on the page (Google verifies)</li>
+                        <li>Fake reviews in schema can trigger Google penalty</li>
+                        <li>Need to update price/rating if they change</li>
+                        <li>Rich snippets not guaranteed &mdash; Google decides</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fix 7: Accessibility (contrast + buttons) -->
+        <div class="card">
+            <div class="card-header">
+                <h3><span class="order-num o7">7</span>Accessibility Fixes (contrast + button names)</h3>
+                <span class="badge badge-low">Lower Priority</span>
+            </div>
+            <p>15 elements have insufficient color contrast. 2 gallery navigation buttons lack accessible names. Accessibility indirectly affects SEO via user experience signals.</p>
+
+            <div class="detail">
+<strong>Color contrast fixes:</strong><br>
+&nbsp;&nbsp;&bull; Green highlight text (#6fb81c) &rarr; darken to #4a8c10 (contrast 3.5:1 &rarr; 4.5:1)<br>
+&nbsp;&nbsp;&bull; Teal accent (#3bb790) &rarr; darken to #2a8a6c<br>
+&nbsp;&nbsp;&bull; Strikethrough price (#888) &rarr; darken to #666<br>
+&nbsp;&nbsp;&bull; "Excellent" badge &rarr; increase contrast<br>
+&nbsp;&nbsp;&bull; "FAQS" heading &rarr; increase contrast<br><br>
+<strong>Button names:</strong><br>
+&nbsp;&nbsp;&bull; Add aria-label="Previous image" / "Next image" to gallery nav buttons
+            </div>
+
+            <div class="impact-bar">
+                <span class="label">SEO Impact</span>
+                <div class="impact-track"><div class="impact-fill low" style="width:20%"></div></div>
+            </div>
+            <div class="impact-bar">
+                <span class="label">Effort</span>
+                <div class="impact-track"><div class="impact-fill medium" style="width:35%"></div></div>
+            </div>
+
+            <div class="proscons">
+                <div class="pro-box">
+                    <h4>Pros</h4>
+                    <ul>
+                        <li>Improves Accessibility score (85 &rarr; 95+)</li>
+                        <li>Better for visually impaired users</li>
+                        <li>Google considers accessibility as quality signal</li>
+                        <li>Screen reader compatibility</li>
+                    </ul>
+                </div>
+                <div class="con-box">
+                    <h4>Cons</h4>
+                    <ul>
+                        <li>Color changes may affect brand design aesthetic</li>
+                        <li>Need to visually verify each color change</li>
+                        <li>Minimal direct SEO ranking impact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary table -->
+    <div class="section">
+        <h2 class="section-title">Execution Summary</h2>
+        <p class="section-subtitle">Expected score improvement after all 7 fixes on KW Desktop</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>#</th><th>Fix</th><th>SEO Impact</th><th>Effort</th><th>Fixes</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="order-num o1">1</span></td><td class="metric-name">robots.txt + sitemap.xml</td><td class="fail">Critical</td><td class="pass">2 min</td><td>SEO score +3-5</td></tr>
+                    <tr><td><span class="order-num o2">2</span></td><td class="metric-name">Canonical URLs</td><td class="fail">Critical</td><td class="pass">1 min</td><td>Duplicate content risk</td></tr>
+                    <tr><td><span class="order-num o3">3</span></td><td class="metric-name">Meta charset first</td><td class="warn">High</td><td class="pass">30 sec</td><td>Best Practices FAIL</td></tr>
+                    <tr><td><span class="order-num o4">4</span></td><td class="metric-name">Heading order</td><td class="warn">High</td><td class="warn">15 min</td><td>SEO + A11y FAIL</td></tr>
+                    <tr><td><span class="order-num o5">5</span></td><td class="metric-name">Open Graph + Twitter Cards</td><td style="color:#60a5fa;">Medium</td><td class="pass">3 min</td><td>Social sharing</td></tr>
+                    <tr><td><span class="order-num o6">6</span></td><td class="metric-name">JSON-LD Product Schema</td><td style="color:#60a5fa;">Medium</td><td class="pass">5 min</td><td>Rich snippets</td></tr>
+                    <tr><td><span class="order-num o7">7</span></td><td class="metric-name">Accessibility (contrast + buttons)</td><td class="pass">Lower</td><td class="warn">10 min</td><td>A11y score +10</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="score-grid" style="margin-top: 30px;">
+            <div class="score-box">
+                <div class="label">SEO Now</div>
+                <div class="num warn">92</div>
+            </div>
+            <div class="score-box">
+                <div class="label">SEO Target</div>
+                <div class="num pass">100</div>
+            </div>
+            <div class="score-box">
+                <div class="label">A11y Now</div>
+                <div class="num warn">85</div>
+            </div>
+            <div class="score-box">
+                <div class="label">A11y Target</div>
+                <div class="num pass">95+</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:60px; padding:20px; color:#3a4060; font-size:0.78rem;">
+        Data source: Google PageSpeed Insights API v5 &bull; April 17, 2026<br>
+        Test page: KW Desktop &bull; Apply to all pages after verification
+    </div>
+
+</div>
+</body>
+</html>

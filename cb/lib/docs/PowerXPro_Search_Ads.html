@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerX Pro - Search Ads Copy Swipes | Affiliate Toolkit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script src="https://cdn.trustednutraproduct.com/t.js?v=powerxpro-trustednutraproduct-com-v3"></script>
+    <style>
+        :root {
+            --sidebar-bg: #184579;
+            --sidebar-hover: #1d5294;
+            --sidebar-active: #0f2d4f;
+            --accent: #2a7de1;
+            --accent-light: #e8f1fc;
+            --success: #28a745;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffc107;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: #fff;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .sidebar-header h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .sidebar-header .badge-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 12px 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 9px 20px 9px 24px;
+            color: rgba(255,255,255,0.78);
+            text-decoration: none;
+            font-size: 0.88rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-nav li a:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+            border-left-color: rgba(255,255,255,0.5);
+        }
+
+        .sidebar-nav li a.active {
+            background: var(--sidebar-active);
+            color: #fff;
+            border-left-color: #5ba3f5;
+            font-weight: 600;
+        }
+
+        .sidebar-nav .nav-section-label {
+            padding: 18px 20px 6px 24px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .sidebar-back {
+            display: block;
+            padding: 14px 20px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.84rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
+        }
+
+        .sidebar-back:hover {
+            background: var(--sidebar-hover);
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 32px 40px 60px;
+            max-width: 1020px;
+        }
+
+        .page-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--sidebar-bg);
+            margin-bottom: 6px;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: #6c757d;
+            margin-bottom: 28px;
+        }
+
+        .product-meta {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 36px;
+            font-size: 0.92rem;
+        }
+
+        .product-meta strong { color: var(--sidebar-bg); }
+
+        /* Section Cards */
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 32px 36px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .content-section h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .content-section h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #34495e;
+            margin: 24px 0 10px;
+        }
+
+        .content-section h4 {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #495057;
+            margin: 18px 0 8px;
+        }
+
+        .section-intro {
+            color: #6c757d;
+            font-size: 0.93rem;
+            margin-bottom: 18px;
+        }
+
+        /* Keyword blocks */
+        .keyword-group {
+            background: #f8f9fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+
+        .keyword-group .kg-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #dee2e6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.84rem;
+            margin: 3px 4px 3px 0;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .keyword-tag.negative {
+            background: #fff5f5;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .keyword-tag.negative:hover {
+            background: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+
+        /* RSA blocks */
+        .rsa-block {
+            background: #fff;
+            border: 2px solid #e2e6ea;
+            border-radius: 10px;
+            padding: 24px 24px 18px;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .rsa-block .rsa-angle {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rsa-block h4 {
+            margin: 0 0 12px;
+            color: var(--sidebar-bg);
+        }
+
+        .rsa-headlines, .rsa-descriptions {
+            margin-bottom: 16px;
+        }
+
+        .rsa-headlines .rsa-label,
+        .rsa-descriptions .rsa-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #6c757d;
+            margin-bottom: 6px;
+        }
+
+        .rsa-item {
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            padding: 7px 14px;
+            margin-bottom: 4px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rsa-item .rsa-num {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 22px;
+            font-size: 0.68rem;
+            font-weight: 700;
+        }
+
+        .rsa-item .rsa-chars {
+            margin-left: auto;
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            color: #adb5bd;
+            font-weight: 600;
+        }
+
+        .rsa-item.description {
+            background: #eef6ff;
+            border-color: #d4e6f9;
+        }
+
+        /* Copy button */
+        .btn-copy {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            color: #6c757d;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .btn-copy.copied {
+            background: var(--success);
+            color: #fff;
+            border-color: var(--success);
+        }
+
+        .btn-copy-rsa {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+
+        /* Tip / Warning / Info boxes */
+        .tip-box {
+            background: #d4edda;
+            border-left: 4px solid var(--success);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .warning-box {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Table styles */
+        .table-custom {
+            font-size: 0.9rem;
+        }
+
+        .table-custom thead th {
+            background: var(--sidebar-bg);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            padding: 10px 14px;
+        }
+
+        .table-custom tbody td {
+            padding: 10px 14px;
+            vertical-align: top;
+            border-color: #eee;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 6px 0;
+            font-size: 0.93rem;
+        }
+
+        .checklist li i { margin-right: 8px; }
+        .checklist li .bi-check-circle-fill { color: var(--success); }
+        .checklist li .bi-x-circle-fill { color: #dc3545; }
+        .checklist li .bi-exclamation-circle-fill { color: var(--warning-border); }
+
+        /* Extension blocks */
+        .extension-block {
+            background: #f8f9fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+
+        .extension-block .ext-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .extension-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 10px 14px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+        }
+
+        .extension-item .ext-name {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: #1a0dab;
+        }
+
+        .extension-item .ext-desc {
+            font-size: 0.84rem;
+            color: #545454;
+            margin-top: 2px;
+        }
+
+        .extension-item .ext-url {
+            font-size: 0.8rem;
+            color: #006621;
+            margin-top: 2px;
+        }
+
+        /* Mobile toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: var(--sidebar-bg);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.show { transform: translateX(0); }
+            .sidebar-toggle { display: block; }
+            .main-content { margin-left: 0; padding: 24px 18px 50px; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('show')">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <h4>PowerX Pro</h4>
+        <span class="badge-type">Search Ads Swipes</span>
+    </div>
+    <ul class="sidebar-nav">
+        <li class="nav-section-label">Keyword Strategy</li>
+        <li><a href="#keyword-research">Keyword Research</a></li>
+        <li><a href="#negative-keywords">Negative Keywords</a></li>
+        <li class="nav-section-label">Ad Copy</li>
+        <li><a href="#rsa-sets">Responsive Search Ads</a></li>
+        <li><a href="#ad-extensions">Ad Extensions</a></li>
+        <li class="nav-section-label">Optimization</li>
+        <li><a href="#bidding-strategy">Bidding Strategy Tips</a></li>
+        <li><a href="#quality-score">Quality Score Optimization</a></li>
+        <li class="nav-section-label">Policy</li>
+        <li><a href="#compliance-checklist">Compliance Checklist</a></li>
+    </ul>
+    <a href="javascript:history.back()" class="sidebar-back"><i class="bi bi-arrow-left me-2"></i>Back to Affiliate Tools</a>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+    <h1 class="page-title">Search Ads Copy Swipes</h1>
+    <p class="page-subtitle">Google Ads &amp; Microsoft Ads keyword strategy, RSA copy sets, extensions, and compliance guidance.</p>
+
+    <div class="product-meta">
+        <strong>Product:</strong> PowerX Pro &mdash; Premium Prostate Health Formula<br>
+        <strong>Target Audience:</strong> Two batches: Erectile Dysfunction (Men 20+ All Men) | Prostate Health (Men 45+)<br>
+        <strong>Key Ingredients:</strong> Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, Stinging Nettle Root<br>
+        <strong>Funnel:</strong> Search Ad &rarr; Landing Page (VSL or Text Sales Letter) &rarr; Checkout
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: KEYWORD RESEARCH -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="keyword-research">
+        <h2><i class="bi bi-search me-2"></i>Keyword Research</h2>
+        <p class="section-intro">Keywords organized by search intent &mdash; from high-intent buyers ready to purchase, to mid-intent researchers, to long-tail queries that indicate specific symptom awareness. Estimated monthly search volumes are US-based approximations.</p>
+
+        <h3>High-Intent Keywords (Ready to Buy)</h3>
+        <p style="font-size:0.85rem; color:#6c757d;">These searchers are actively looking for a supplement to purchase. Highest CPC, highest conversion rate. Bid aggressively.</p>
+        <div class="keyword-group">
+            <div class="kg-label">Prostate Supplement &mdash; Purchase Intent</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">best prostate supplement</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate supplement for men</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">top rated prostate supplements</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">buy prostate health supplement</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">best prostate pills</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate formula for men over 50</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">natural prostate supplement reviews</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate health vitamins for men</span>
+        </div>
+
+        <h3>Mid-Intent Keywords (Researching Solutions)</h3>
+        <p style="font-size:0.85rem; color:#6c757d;">These searchers know their problem and are exploring options. Moderate CPC, good conversion potential with a strong landing page.</p>
+        <div class="keyword-group">
+            <div class="kg-label">Frequent Urination / Bladder Symptoms</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">how to stop frequent urination in men</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">natural remedy for frequent urination</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">supplements for overactive bladder men</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">frequent urination at night male</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">weak urine flow supplement</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">nocturia treatment natural</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">stop waking up to pee at night</span>
+        </div>
+        <div class="keyword-group">
+            <div class="kg-label">Prostate Health / BPH</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">enlarged prostate natural treatment</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">BPH natural remedies</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">how to shrink enlarged prostate</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate health tips for men over 40</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">reduce prostate inflammation naturally</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate support for aging men</span>
+        </div>
+
+        <h3>Long-Tail Keywords (Specific / Low Competition)</h3>
+        <p style="font-size:0.85rem; color:#6c757d;">Lower volume but very specific intent. Lower CPC, often higher conversion rate. Great for scaling profitably.</p>
+        <div class="keyword-group">
+            <div class="kg-label">Ingredient-Specific Searches</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">saw palmetto supplement for prostate</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">beta sitosterol prostate benefits</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">pygeum africanum supplement for men</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">zinc and lycopene for prostate health</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">stinging nettle root prostate supplement</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">saw palmetto and beta sitosterol together</span>
+        </div>
+        <div class="keyword-group">
+            <div class="kg-label">Male Vitality / Energy</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">natural energy supplement for men over 50</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">male vitality supplement</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">men's health supplement for energy and prostate</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">best vitamins for men over 40</span>
+        </div>
+        <div class="keyword-group">
+            <div class="kg-label">Problem + Solution Queries</div>
+            <span class="keyword-tag" onclick="copyKeyword(this)">why do I pee so much at night over 50</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate supplement without side effects</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">natural alternative to flomax</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">supplement to stop getting up at night to urinate</span>
+            <span class="keyword-tag" onclick="copyKeyword(this)">prostate supplement money back guarantee</span>
+        </div>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Keyword Strategy:</strong> Start your campaigns with high-intent and ingredient-specific keywords in exact and phrase match. Once you're profitable, expand to mid-intent and long-tail keywords using broad match modified. Always monitor search term reports weekly to find new winners and identify terms to add as negatives.
+        </div>
+
+        <h3>Keyword Volume & CPC Estimates</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Est. Monthly Volume (US)</th>
+                    <th>Est. CPC Range</th>
+                    <th>Intent Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>best prostate supplement</td><td>18,100</td><td>$2.80 - $5.50</td><td><span class="badge bg-danger">High</span></td></tr>
+                <tr><td>prostate supplement for men</td><td>8,100</td><td>$2.40 - $4.80</td><td><span class="badge bg-danger">High</span></td></tr>
+                <tr><td>enlarged prostate natural treatment</td><td>6,600</td><td>$1.90 - $3.60</td><td><span class="badge bg-warning text-dark">Mid</span></td></tr>
+                <tr><td>frequent urination at night male</td><td>5,400</td><td>$1.50 - $3.20</td><td><span class="badge bg-warning text-dark">Mid</span></td></tr>
+                <tr><td>saw palmetto supplement for prostate</td><td>3,600</td><td>$1.80 - $3.40</td><td><span class="badge bg-warning text-dark">Mid</span></td></tr>
+                <tr><td>how to stop frequent urination in men</td><td>4,400</td><td>$1.20 - $2.80</td><td><span class="badge bg-warning text-dark">Mid</span></td></tr>
+                <tr><td>natural alternative to flomax</td><td>1,900</td><td>$2.10 - $4.20</td><td><span class="badge bg-danger">High</span></td></tr>
+                <tr><td>beta sitosterol prostate benefits</td><td>1,300</td><td>$1.40 - $2.60</td><td><span class="badge bg-info">Long-tail</span></td></tr>
+                <tr><td>supplement to stop getting up at night to urinate</td><td>720</td><td>$1.60 - $3.00</td><td><span class="badge bg-info">Long-tail</span></td></tr>
+                <tr><td>prostate supplement money back guarantee</td><td>390</td><td>$2.00 - $3.80</td><td><span class="badge bg-danger">High</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: NEGATIVE KEYWORDS -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="negative-keywords">
+        <h2><i class="bi bi-slash-circle me-2"></i>Negative Keywords</h2>
+        <p class="section-intro">Add these as campaign-level negatives from day one to prevent wasted spend on irrelevant clicks. Review your search term report weekly and add new negatives as needed.</p>
+
+        <h3>Medical / Clinical (Non-Buyer Intent)</h3>
+        <div class="keyword-group">
+            <span class="keyword-tag negative">prostate cancer</span>
+            <span class="keyword-tag negative">prostate cancer symptoms</span>
+            <span class="keyword-tag negative">prostate exam</span>
+            <span class="keyword-tag negative">PSA test</span>
+            <span class="keyword-tag negative">prostatitis</span>
+            <span class="keyword-tag negative">prostate biopsy</span>
+            <span class="keyword-tag negative">prostate surgery</span>
+            <span class="keyword-tag negative">prostate removal</span>
+            <span class="keyword-tag negative">TURP procedure</span>
+            <span class="keyword-tag negative">urologist near me</span>
+        </div>
+
+        <h3>Prescription / Drug-Related</h3>
+        <div class="keyword-group">
+            <span class="keyword-tag negative">flomax side effects</span>
+            <span class="keyword-tag negative">finasteride</span>
+            <span class="keyword-tag negative">tamsulosin</span>
+            <span class="keyword-tag negative">dutasteride</span>
+            <span class="keyword-tag negative">prescription prostate medication</span>
+        </div>
+
+        <h3>Non-Buyer / Informational</h3>
+        <div class="keyword-group">
+            <span class="keyword-tag negative">free</span>
+            <span class="keyword-tag negative">sample</span>
+            <span class="keyword-tag negative">coupon code</span>
+            <span class="keyword-tag negative">class action lawsuit</span>
+            <span class="keyword-tag negative">scam</span>
+            <span class="keyword-tag negative">complaints</span>
+            <span class="keyword-tag negative">recall</span>
+            <span class="keyword-tag negative">FDA warning</span>
+            <span class="keyword-tag negative">Wikipedia</span>
+            <span class="keyword-tag negative">WebMD</span>
+        </div>
+
+        <h3>Competitor Brands (Optional Negatives)</h3>
+        <div class="keyword-group">
+            <div class="kg-label">Exclude if NOT running competitor campaigns</div>
+            <span class="keyword-tag negative">Prostadine</span>
+            <span class="keyword-tag negative">ProstaGenix</span>
+            <span class="keyword-tag negative">Super Beta Prostate</span>
+            <span class="keyword-tag negative">Fluxactive Complete</span>
+            <span class="keyword-tag negative">ProstaBiome</span>
+        </div>
+
+        <div class="warning-box">
+            <strong><i class="bi bi-exclamation-triangle me-1"></i> Important:</strong> Add negatives as phrase match or exact match &mdash; not broad match &mdash; to avoid accidentally blocking relevant traffic. For example, add <code>[prostate cancer]</code> and <code>"prostate cancer"</code> but not broad <code>cancer</code>, which could block "prostate supplement to support healthy cells against cancer risk."
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: RESPONSIVE SEARCH ADS -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="rsa-sets">
+        <h2><i class="bi bi-file-earmark-text me-2"></i>Responsive Search Ads (RSA Sets)</h2>
+        <p class="section-intro">Six complete RSA sets, each targeting a different angle. Google recommends 15 headlines (max 30 chars each) and 4 descriptions (max 90 chars each) per RSA. Pin your strongest headlines to positions 1 and 2 for consistent messaging.</p>
+
+        <!-- RSA SET 1: Prostate Health -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 1: Prostate Health</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Prostate Health &amp; Support</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> Prostate Health Formula for Men <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> Support Your Prostate Naturally <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> #1 Rated Prostate Supplement <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> Clinically Studied Ingredients <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Prostate Support for Men 40+ <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> PowerX Pro Official Site <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> 6 Powerful Prostate Nutrients <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Premium Prostate Formula <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> Doctor-Recommended Formula <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> Comprehensive Prostate Support <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> Saw Palmetto + Beta-Sitosterol <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> Made in the USA &mdash; GMP Certified <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> Thousands of Men Trust This <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> Science-Backed Prostate Care <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> Try PowerX Pro Risk Free <span class="rsa-chars">25</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> PowerX Pro combines 6 clinically studied ingredients to support healthy prostate function in men over 40. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> Saw Palmetto, Beta-Sitosterol & Pygeum in one powerful formula. Support your prostate the natural way. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> Join thousands of men who trust PowerX Pro for daily prostate support. Order today with free shipping. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Premium prostate health formula with a 100% money-back guarantee. Try it risk-free for 60 days today. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <!-- RSA SET 2: Bathroom Relief -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 2: Bathroom Relief</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Fewer Bathroom Trips</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> Fewer Bathroom Trips Daily <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> Stop Running to the Bathroom <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> Reduce Frequent Urination <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> Support Healthy Urine Flow <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Tired of Constant Urgency? <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> Natural Bladder Support <span class="rsa-chars">23</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> End Embarrassing Bathroom Runs <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Stronger Flow, Fewer Trips <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> Empty Your Bladder Fully <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> No More Urgency or Dribbling <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> PowerX Pro &mdash; Real Relief <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> Regain Bladder Confidence <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> Clinically Studied Ingredients <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> 60-Day Money-Back Guarantee <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> Works for Men Over 40 <span class="rsa-chars">22</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> Sick of mapping every bathroom? PowerX Pro supports healthy urinary flow so you can live life on your terms. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> Beta-Sitosterol and Pygeum work together to support normal urination frequency. Feel the difference fast. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> Men report fewer bathroom trips and stronger flow within weeks. Try PowerX Pro with our 60-day guarantee. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Don't let an overactive bladder control your day. Natural prostate support that actually works. Order now. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <!-- RSA SET 3: Energy / Vitality -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 3: Energy &amp; Vitality</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Restored Energy &amp; Vitality</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> Feel Like Yourself Again <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> Restore Your Male Vitality <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> More Energy After 50 <span class="rsa-chars">20</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> Sleep Better, Live Better <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Wake Up Refreshed &amp; Ready <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> Stop Losing Sleep to Your <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> Reclaim Your Best Years <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Natural Energy for Men 40+ <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> Get Your Edge Back Today <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> PowerX Pro for Active Men <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> Prostate + Energy Support <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> End Daytime Fatigue Now <span class="rsa-chars">23</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> Full Night's Sleep Again <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> Zinc + Lycopene for Men <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> 60-Day Guarantee Included <span class="rsa-chars">27</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> When your prostate keeps you up all night, everything suffers. PowerX Pro helps you sleep and feel alive again. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> Zinc, Lycopene, and 4 more nutrients support prostate health so you can reclaim the energy you've been missing. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> Stop dragging through your days. Support your prostate, sleep better, and feel sharper. Try PowerX Pro now. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Thousands of men over 50 use PowerX Pro to support vitality and prostate wellness. 100% money-back guarantee. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <!-- RSA SET 4: Natural Solution -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 4: Natural Solution</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Drug-Free &amp; Natural Approach</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> Natural Prostate Support <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> No Drugs, No Side Effects <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> Plant-Based Prostate Care <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> Skip the Prescription <span class="rsa-chars">22</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Nature's Prostate Formula <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> Safe, Natural &amp; Effective <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> Herbal Prostate Support <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Zero Side Effects Reported <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> Pygeum + Saw Palmetto Power <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> European-Grade Ingredients <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> PowerX Pro &mdash; All Natural <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> Drug-Free Prostate Relief <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> Non-GMO &amp; GMP Certified <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> Gentle but Powerful Formula <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> Try It Risk Free &mdash; 60 Days <span class="rsa-chars">27</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> Tired of prescription side effects? PowerX Pro uses 6 natural ingredients to support healthy prostate function. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> Saw Palmetto and Pygeum have been used in Europe for decades. Now available in one powerful, drug-free formula. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> No harsh chemicals. No unwanted side effects. Just proven botanicals working together for your prostate health. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Plant-based prostate support that men actually trust. Over 47,000 bottles sold. Try it with our 60-day guarantee. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <!-- RSA SET 5: Money-Back Guarantee -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 5: Money-Back Guarantee</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Risk-Free Trial &amp; Guarantee</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> 60-Day Money-Back Guarantee <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> Try It Completely Risk Free <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> Love It or Full Refund <span class="rsa-chars">24</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> No Risk &mdash; 100% Guaranteed <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Your Money Back If It Fails <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> Prostate Relief Guaranteed <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> We Stand Behind Our Formula <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Zero Risk to Try PowerX Pro <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> Hassle-Free Returns Always <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> Buy With Total Confidence <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> Free Shipping on All Orders <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> Best Value 6-Bottle Package <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> Save Up to 40% Today Only <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> Limited Time Special Pricing <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> Order Now &mdash; Ships Tomorrow <span class="rsa-chars">28</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> Not sure if PowerX Pro is right for you? Try it for 60 days. If you're not thrilled, get a complete refund. Simple. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> We're so confident you'll feel the difference that we offer a no-questions-asked 60-day money-back guarantee. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> Free shipping, bulk discounts, and a 60-day guarantee. There's zero risk to see if PowerX Pro works for you. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Over 47,000 satisfied customers and counting. Order your supply of PowerX Pro today with free, fast shipping. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <!-- RSA SET 6: Ingredient-Focused -->
+        <div class="rsa-block">
+            <span class="rsa-angle">Angle 6: Ingredient-Focused</span>
+            <button class="btn-copy btn-copy-rsa" onclick="copyRSA(this)">Copy All</button>
+            <h4>RSA Set: Science &amp; Ingredients</h4>
+
+            <div class="rsa-headlines">
+                <div class="rsa-label">Headlines (15)</div>
+                <div class="rsa-item"><span class="rsa-num">1</span> Saw Palmetto + 5 More Proven <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">2</span> Beta-Sitosterol Inside <span class="rsa-chars">22</span></div>
+                <div class="rsa-item"><span class="rsa-num">3</span> Pygeum Africanum Extract <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">4</span> 6 Researched Ingredients <span class="rsa-chars">26</span></div>
+                <div class="rsa-item"><span class="rsa-num">5</span> Zinc + Lycopene for Prostate <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">6</span> Stinging Nettle Root Added <span class="rsa-chars">27</span></div>
+                <div class="rsa-item"><span class="rsa-num">7</span> Clinically Studied Doses <span class="rsa-chars">25</span></div>
+                <div class="rsa-item"><span class="rsa-num">8</span> Multi-Pathway Prostate Care <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">9</span> European-Proven Botanicals <span class="rsa-chars">28</span></div>
+                <div class="rsa-item"><span class="rsa-num">10</span> Backed by Published Research <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">11</span> Full Ingredient Transparency <span class="rsa-chars">30</span></div>
+                <div class="rsa-item"><span class="rsa-num">12</span> No Proprietary Blends <span class="rsa-chars">22</span></div>
+                <div class="rsa-item"><span class="rsa-num">13</span> See What's Inside PowerX Pro <span class="rsa-chars">29</span></div>
+                <div class="rsa-item"><span class="rsa-num">14</span> Science You Can Trust <span class="rsa-chars">22</span></div>
+                <div class="rsa-item"><span class="rsa-num">15</span> Optimal Doses, Real Results <span class="rsa-chars">29</span></div>
+            </div>
+
+            <div class="rsa-descriptions">
+                <div class="rsa-label">Descriptions (4)</div>
+                <div class="rsa-item description"><span class="rsa-num">D1</span> Saw Palmetto, Beta-Sitosterol, Pygeum, Zinc, Lycopene, Nettle Root. Six ingredients. One powerful prostate formula. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D2</span> Every ingredient in PowerX Pro is backed by published research. No fillers, no proprietary blends. Full transparency. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D3</span> Beta-Sitosterol supports healthy urine flow. Pygeum reduces nighttime trips. Together in one daily capsule. <span class="rsa-chars">90</span></div>
+                <div class="rsa-item description"><span class="rsa-num">D4</span> Don't settle for one-ingredient formulas. PowerX Pro attacks prostate discomfort from 6 angles. See the science. <span class="rsa-chars">90</span></div>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> RSA Best Practice:</strong> Pin your brand name headline ("PowerX Pro Official Site") to position 1 or 2 for branded campaigns. For non-branded campaigns, pin your strongest benefit headline to position 1 and your CTA or guarantee headline to position 2. Let Google rotate the rest for optimal performance.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: AD EXTENSIONS -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="ad-extensions">
+        <h2><i class="bi bi-puzzle me-2"></i>Ad Extensions</h2>
+        <p class="section-intro">Extensions increase your ad's real estate, improve Quality Score, and boost CTR by 10-20%. Set these up at the campaign level for maximum coverage.</p>
+
+        <h3>Sitelink Extensions</h3>
+        <div class="extension-block">
+            <div class="ext-label">Recommended Sitelinks (4-6)</div>
+
+            <div class="extension-item">
+                <div class="ext-name">See the Ingredients</div>
+                <div class="ext-desc">View the full list of 6 clinically studied ingredients in PowerX Pro.</div>
+                <div class="ext-url">/ingredients</div>
+            </div>
+            <div class="extension-item">
+                <div class="ext-name">Customer Reviews</div>
+                <div class="ext-desc">Read real reviews from men who've tried PowerX Pro for prostate support.</div>
+                <div class="ext-url">/reviews</div>
+            </div>
+            <div class="extension-item">
+                <div class="ext-name">60-Day Guarantee</div>
+                <div class="ext-desc">Try PowerX Pro risk-free. Not satisfied? Get a complete refund in 60 days.</div>
+                <div class="ext-url">/guarantee</div>
+            </div>
+            <div class="extension-item">
+                <div class="ext-name">Special Pricing &amp; Bundles</div>
+                <div class="ext-desc">Save up to 40% with our multi-bottle packages. Free shipping included.</div>
+                <div class="ext-url">/pricing</div>
+            </div>
+            <div class="extension-item">
+                <div class="ext-name">How It Works</div>
+                <div class="ext-desc">Learn how PowerX Pro supports prostate health through 6 natural pathways.</div>
+                <div class="ext-url">/how-it-works</div>
+            </div>
+            <div class="extension-item">
+                <div class="ext-name">Frequently Asked Questions</div>
+                <div class="ext-desc">Get answers about dosage, shipping, returns, and expected results.</div>
+                <div class="ext-url">/faq</div>
+            </div>
+        </div>
+
+        <h3>Callout Extensions</h3>
+        <div class="extension-block">
+            <div class="ext-label">Recommended Callouts (6-8)</div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+                <span class="keyword-tag">Free Shipping</span>
+                <span class="keyword-tag">60-Day Money-Back Guarantee</span>
+                <span class="keyword-tag">Made in the USA</span>
+                <span class="keyword-tag">GMP Certified Facility</span>
+                <span class="keyword-tag">6 Clinically Studied Ingredients</span>
+                <span class="keyword-tag">No Prescription Required</span>
+                <span class="keyword-tag">Non-GMO Formula</span>
+                <span class="keyword-tag">Over 47,000 Bottles Sold</span>
+            </div>
+        </div>
+
+        <h3>Structured Snippet Extensions</h3>
+        <div class="extension-block">
+            <div class="ext-label">Header: Types</div>
+            <p style="margin:4px 0 0; font-size:0.9rem;">Prostate Support, Urinary Health, Sleep Support, Male Vitality, Natural Wellness, Ingredient Transparency</p>
+        </div>
+        <div class="extension-block">
+            <div class="ext-label">Header: Brands (if running comparison pages)</div>
+            <p style="margin:4px 0 0; font-size:0.9rem;">Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, Stinging Nettle Root</p>
+        </div>
+
+        <h3>Price Extensions (Optional)</h3>
+        <div class="extension-block">
+            <div class="ext-label">Product Pricing Tiers</div>
+            <table class="table table-custom table-bordered mt-2 mb-0">
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Price</th>
+                        <th>Qualifier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1 Bottle (30-Day Supply)</td><td>From $69</td><td>Per bottle</td></tr>
+                    <tr><td>3 Bottles (90-Day Supply)</td><td>From $59</td><td>Per bottle</td></tr>
+                    <tr><td>6 Bottles (180-Day Supply)</td><td>From $49</td><td>Per bottle</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <strong><i class="bi bi-info-circle me-1"></i> Extension Tip:</strong> Google selects which extensions to show based on predicted performance. Adding more extension types increases the chances that at least some will appear with your ad. Aim for at least 4 sitelinks, 6 callouts, and 1 structured snippet per campaign.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: BIDDING STRATEGY -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="bidding-strategy">
+        <h2><i class="bi bi-graph-up me-2"></i>Bidding Strategy Tips</h2>
+        <p class="section-intro">Search ads for health supplements require careful bid management. Here's a phase-by-phase approach to scaling profitably.</p>
+
+        <h3>Phase 1: Testing (Days 1-14)</h3>
+        <table class="table table-custom table-bordered">
+            <tbody>
+                <tr><td style="width:30%;"><strong>Bidding Strategy</strong></td><td>Manual CPC or Maximize Clicks with a max CPC cap</td></tr>
+                <tr><td><strong>Daily Budget</strong></td><td>$50-100 per campaign (start with 2-3 campaigns)</td></tr>
+                <tr><td><strong>Max CPC Cap</strong></td><td>$3.00-5.00 for high-intent keywords; $1.50-3.00 for mid-intent</td></tr>
+                <tr><td><strong>Goal</strong></td><td>Gather 50-100 clicks per ad group to assess CTR and landing page conversion rate</td></tr>
+                <tr><td><strong>Key Actions</strong></td><td>Review search term reports daily. Add negatives aggressively. Pause low-CTR ads.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Phase 2: Optimization (Days 15-30)</h3>
+        <table class="table table-custom table-bordered">
+            <tbody>
+                <tr><td style="width:30%;"><strong>Bidding Strategy</strong></td><td>Switch to Target CPA once you have 15+ conversions in 30 days</td></tr>
+                <tr><td><strong>Target CPA</strong></td><td>$40-65 depending on your product payout and acceptable ROAS</td></tr>
+                <tr><td><strong>Daily Budget</strong></td><td>Increase to $100-200/day for winning campaigns</td></tr>
+                <tr><td><strong>Goal</strong></td><td>Let Google's algorithm optimize for conversions while maintaining profitability</td></tr>
+                <tr><td><strong>Key Actions</strong></td><td>Kill ad groups with CPA above 2x your target. Double down on winning keywords.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Phase 3: Scaling (Day 30+)</h3>
+        <table class="table table-custom table-bordered">
+            <tbody>
+                <tr><td style="width:30%;"><strong>Bidding Strategy</strong></td><td>Target ROAS or Maximize Conversion Value if tracking revenue</td></tr>
+                <tr><td><strong>Target ROAS</strong></td><td>300-500% (meaning $3-5 in revenue for every $1 spent on ads)</td></tr>
+                <tr><td><strong>Daily Budget</strong></td><td>$200-500+ per campaign, scaling in 20% increments every 3-5 days</td></tr>
+                <tr><td><strong>Goal</strong></td><td>Scale winning campaigns while maintaining ROAS targets</td></tr>
+                <tr><td><strong>Key Actions</strong></td><td>Expand to broad match on proven converters. Add Microsoft Ads as a secondary channel. Test new RSA angles.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>CPA Benchmarks for Prostate Supplements</h3>
+        <div class="keyword-group">
+            <div class="kg-label">Typical CPA ranges (US market)</div>
+            <table class="table table-custom table-bordered mt-2 mb-0">
+                <thead>
+                    <tr>
+                        <th>Traffic Type</th>
+                        <th>Expected CPA</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Branded Search (PowerX Pro)</td><td>$15-25</td><td>Lowest CPA, highest intent</td></tr>
+                    <tr><td>High-Intent Non-Branded</td><td>$40-65</td><td>e.g., "best prostate supplement"</td></tr>
+                    <tr><td>Mid-Intent (Symptom-Based)</td><td>$55-85</td><td>e.g., "frequent urination at night"</td></tr>
+                    <tr><td>Long-Tail / Ingredient</td><td>$35-55</td><td>Lower volume but efficient CPA</td></tr>
+                    <tr><td>Competitor Keywords</td><td>$50-90</td><td>High CPC, variable conversion</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning-box">
+            <strong><i class="bi bi-exclamation-triangle me-1"></i> Budget Scaling Rule:</strong> Never increase your daily budget by more than 20% at a time. Google's algorithm needs time to readjust after budget changes. Aggressive scaling (doubling budgets overnight) typically causes CPA to spike for 3-5 days while the algorithm re-learns.
+        </div>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Microsoft Ads Opportunity:</strong> After proving your funnel on Google, duplicate your winning campaigns to Microsoft Ads (Bing). CPCs are typically 30-40% lower, and the Bing audience skews older and more affluent &mdash; a perfect demographic match for prostate supplements. Expect 15-25% of Google's volume at a better CPA.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: QUALITY SCORE -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="quality-score">
+        <h2><i class="bi bi-speedometer2 me-2"></i>Quality Score Optimization</h2>
+        <p class="section-intro">Quality Score directly impacts your CPC and ad rank. A Quality Score of 7+ means you pay less per click than competitors. Here's how to maximize it for supplement ads.</p>
+
+        <h3>The Three Quality Score Factors</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:25%;">Factor</th>
+                    <th style="width:15%;">Weight</th>
+                    <th>How to Optimize for Supplement Ads</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expected CTR</strong></td>
+                    <td>~39%</td>
+                    <td>
+                        <ul style="margin:0; padding-left:16px; font-size:0.88rem;">
+                            <li>Use exact and phrase match keywords to ensure tight relevance between search query and ad</li>
+                            <li>Include the primary keyword in Headline 1 and Headline 2 (pin if needed)</li>
+                            <li>Test emotional triggers in descriptions: urgency, fear of missing out, social proof numbers</li>
+                            <li>Use ad extensions to increase visible ad size and improve CTR</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Ad Relevance</strong></td>
+                    <td>~22%</td>
+                    <td>
+                        <ul style="margin:0; padding-left:16px; font-size:0.88rem;">
+                            <li>Create tightly themed ad groups with 5-15 closely related keywords each</li>
+                            <li>Write ad copy that directly mirrors the keywords in each ad group</li>
+                            <li>Create separate ad groups for: prostate supplement, frequent urination, nighttime urination, saw palmetto, etc.</li>
+                            <li>Do NOT put all keywords in one ad group &mdash; this destroys ad relevance</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Landing Page Experience</strong></td>
+                    <td>~39%</td>
+                    <td>
+                        <ul style="margin:0; padding-left:16px; font-size:0.88rem;">
+                            <li>Ensure your landing page loads in under 3 seconds (use Google PageSpeed Insights)</li>
+                            <li>The landing page headline must echo the ad's primary message (message match)</li>
+                            <li>Include the target keyword naturally on the landing page, especially in the H1 and first paragraph</li>
+                            <li>Mobile responsiveness is mandatory &mdash; over 60% of health searches happen on mobile</li>
+                            <li>Include trust signals: money-back guarantee badge, secure checkout icons, customer count</li>
+                            <li>Have visible contact information, privacy policy, and terms of service</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Ad Group Structure for PowerX Pro</h3>
+        <div class="keyword-group">
+            <div class="kg-label">Recommended Ad Group Architecture</div>
+            <table class="table table-custom table-bordered mt-2 mb-0">
+                <thead>
+                    <tr>
+                        <th>Ad Group</th>
+                        <th>Core Keywords</th>
+                        <th>RSA Set to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AG1: Prostate Supplement</strong></td>
+                        <td>best prostate supplement, prostate supplement for men, top rated prostate supplements</td>
+                        <td>Angle 1 (Prostate Health)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AG2: Frequent Urination</strong></td>
+                        <td>frequent urination men, how to stop frequent urination, overactive bladder supplement</td>
+                        <td>Angle 2 (Bathroom Relief)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AG3: Nighttime Urination</strong></td>
+                        <td>nocturia treatment, stop waking up to pee, nighttime urination men</td>
+                        <td>Angle 3 (Energy/Vitality)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AG4: Natural Prostate</strong></td>
+                        <td>natural prostate support, enlarged prostate natural treatment, drug-free prostate help</td>
+                        <td>Angle 4 (Natural Solution)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AG5: Saw Palmetto</strong></td>
+                        <td>saw palmetto supplement, saw palmetto prostate, beta sitosterol supplement</td>
+                        <td>Angle 6 (Ingredient-Focused)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AG6: Branded</strong></td>
+                        <td>powerx pro, power x pro, powerxpro supplement</td>
+                        <td>Angle 5 (Guarantee)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tip-box">
+            <strong><i class="bi bi-check-circle me-1"></i> Quick Win:</strong> Landing page speed is the most impactful and least competitive Quality Score lever for supplement advertisers. Most competitors have slow, image-heavy pages. If your page loads in under 2 seconds on mobile, you'll have a significant advantage in Quality Score and pay materially less per click.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: COMPLIANCE CHECKLIST -->
+    <!-- ============================================================ -->
+    <div class="content-section" id="compliance-checklist">
+        <h2><i class="bi bi-clipboard-check me-2"></i>Compliance Checklist</h2>
+        <p class="section-intro">Google Ads has specific policies for healthcare and supplement advertising. Violating these can result in ad disapproval, account suspension, or permanent bans. Microsoft Ads follows similar but slightly more lenient policies.</p>
+
+        <h3>Google Ads Healthcare & Supplements Policy</h3>
+        <ul class="checklist">
+            <li><i class="bi bi-check-circle-fill"></i> <strong>Supplements are permitted</strong> in Google Ads in most countries, including the US, UK, CA, and AU.</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>No disease claims:</strong> You cannot claim that PowerX Pro treats, cures, or prevents BPH, cancer, or any disease.</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>No misleading claims:</strong> Avoid superlatives like "the only," "guaranteed cure," or "100% effective."</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>Use structure/function claims only:</strong> "Supports prostate health," "promotes healthy urinary flow," "helps maintain normal prostate function."</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>FDA disclaimer required on landing page:</strong> "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>Landing page must have:</strong> Contact information, privacy policy, terms of service, and clear refund policy.</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>No before/after imagery:</strong> Google prohibits before-and-after comparisons for supplement ads.</li>
+            <li><i class="bi bi-check-circle-fill"></i> <strong>No fake urgency:</strong> Countdown timers that reset on refresh, fake "limited stock" warnings, or fabricated scarcity are policy violations.</li>
+        </ul>
+
+        <h3>Ad Copy Do's and Don'ts</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:50%; background:#28a745;">Approved Language</th>
+                    <th style="width:50%; background:#dc3545;">Prohibited Language</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>"Supports healthy prostate function"</td><td>"Cures enlarged prostate"</td></tr>
+                <tr><td>"May help promote normal urination"</td><td>"Eliminates frequent urination"</td></tr>
+                <tr><td>"Clinically studied ingredients"</td><td>"Clinically proven to shrink prostate"</td></tr>
+                <tr><td>"Natural prostate support formula"</td><td>"Better than prescription drugs"</td></tr>
+                <tr><td>"Thousands of men trust this formula"</td><td>"Doctors recommend this over Flomax"</td></tr>
+                <tr><td>"60-day money-back guarantee"</td><td>"Guaranteed results or your money back"</td></tr>
+                <tr><td>"Feel the difference in weeks"</td><td>"See results in 24 hours"</td></tr>
+                <tr><td>"Drug-free approach to prostate care"</td><td>"No need for a doctor anymore"</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Landing Page Compliance Audit</h3>
+        <p style="font-size:0.88rem; color:#6c757d;">Before submitting your ads, verify your landing page passes every item on this checklist.</p>
+        <ul class="checklist">
+            <li><i class="bi bi-check-circle-fill"></i> FDA disclaimer visible on the page (footer minimum; near claims preferred)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Privacy policy linked and accessible</li>
+            <li><i class="bi bi-check-circle-fill"></i> Terms and conditions linked and accessible</li>
+            <li><i class="bi bi-check-circle-fill"></i> Refund/return policy clearly stated</li>
+            <li><i class="bi bi-check-circle-fill"></i> Physical address or customer service contact information present</li>
+            <li><i class="bi bi-check-circle-fill"></i> No auto-playing video with sound</li>
+            <li><i class="bi bi-check-circle-fill"></i> No exit-intent popups (Google may flag these as deceptive)</li>
+            <li><i class="bi bi-check-circle-fill"></i> No fake testimonials or fabricated doctor endorsements</li>
+            <li><i class="bi bi-check-circle-fill"></i> "Results may vary" or "Individual results not guaranteed" near testimonials</li>
+            <li><i class="bi bi-check-circle-fill"></i> No countdown timers that reset on page refresh</li>
+            <li><i class="bi bi-check-circle-fill"></i> HTTPS/SSL certificate active (no mixed content warnings)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Page loads in under 3 seconds on mobile</li>
+            <li><i class="bi bi-check-circle-fill"></i> Mobile-responsive layout (no horizontal scrolling, readable text without zooming)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Affiliate disclosure present if you earn commissions</li>
+        </ul>
+
+        <h3>Common Disapproval Reasons &amp; Fixes</h3>
+        <table class="table table-custom table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:30%;">Disapproval Reason</th>
+                    <th style="width:35%;">What It Means</th>
+                    <th style="width:35%;">How to Fix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>"Healthcare and medicines"</td>
+                    <td>Your ad or landing page contains language that implies treating a medical condition</td>
+                    <td>Replace disease claims with structure/function claims. Remove words like "treat," "cure," "remedy," "disease."</td>
+                </tr>
+                <tr>
+                    <td>"Misleading content"</td>
+                    <td>Claims on your landing page are considered exaggerated or unsubstantiated</td>
+                    <td>Soften claims with qualifiers ("may," "supports," "helps promote"). Remove fake urgency elements.</td>
+                </tr>
+                <tr>
+                    <td>"Destination not working"</td>
+                    <td>Your landing page is slow, returns errors, or has broken elements</td>
+                    <td>Fix page speed, resolve 404 errors, ensure SSL is active. Test on multiple devices.</td>
+                </tr>
+                <tr>
+                    <td>"Restricted content"</td>
+                    <td>Your ad targets a restricted category (healthcare/supplements) without proper account setup</td>
+                    <td>Ensure your Google Ads account has passed healthcare advertiser verification (if required in your country).</td>
+                </tr>
+                <tr>
+                    <td>"Unacceptable business practices"</td>
+                    <td>Your landing page uses deceptive tactics (fake reviews, misleading checkout flows, hidden charges)</td>
+                    <td>Remove fake elements. Ensure checkout is transparent. Display pricing clearly before purchase.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <strong><i class="bi bi-exclamation-triangle me-1"></i> Account Safety:</strong> If you receive a policy violation, fix the issue and request a review through Google Ads. Do NOT create a new ad account to circumvent violations &mdash; Google will detect this and permanently ban all associated accounts. Treat every policy warning seriously.
+        </div>
+
+        <h3>Microsoft Ads Differences</h3>
+        <div class="info-box">
+            <strong><i class="bi bi-info-circle me-1"></i> Microsoft Ads (Bing):</strong> Microsoft Ads generally follows similar policies to Google but tends to be slightly more lenient in enforcement. However, do not assume something that gets disapproved on Google will pass on Microsoft. Key differences:
+            <ul style="margin-bottom:0; margin-top:8px;">
+                <li>Microsoft may allow slightly more aggressive claims in descriptions, but still prohibits disease cure claims.</li>
+                <li>Microsoft's review process is often faster (same day vs. 1-3 days for Google).</li>
+                <li>Microsoft requires the same landing page elements: privacy policy, contact info, FDA disclaimer.</li>
+                <li>If your Google campaigns are approved, you can typically import them to Microsoft Ads with minimal policy issues.</li>
+            </ul>
+        </div>
+    </div>
+
+</div><!-- /.main-content -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Copy keyword on click
+    function copyKeyword(el) {
+        const text = el.textContent.trim();
+        navigator.clipboard.writeText(text).then(() => {
+            const original = el.textContent;
+            el.textContent = 'Copied!';
+            el.style.background = '#28a745';
+            el.style.color = '#fff';
+            el.style.borderColor = '#28a745';
+            setTimeout(() => {
+                el.textContent = original;
+                el.style.background = '';
+                el.style.color = '';
+                el.style.borderColor = '';
+            }, 1500);
+        });
+    }
+
+    // Copy entire RSA block
+    function copyRSA(btn) {
+        const block = btn.closest('.rsa-block');
+        const angle = block.querySelector('.rsa-angle').textContent.trim();
+        const title = block.querySelector('h4').textContent.trim();
+
+        let text = angle + '\n' + title + '\n\n';
+
+        // Headlines
+        text += 'HEADLINES:\n';
+        block.querySelectorAll('.rsa-headlines .rsa-item').forEach((item, i) => {
+            const clone = item.cloneNode(true);
+            clone.querySelectorAll('.rsa-num, .rsa-chars').forEach(el => el.remove());
+            text += (i + 1) + '. ' + clone.textContent.trim() + '\n';
+        });
+
+        text += '\nDESCRIPTIONS:\n';
+        block.querySelectorAll('.rsa-descriptions .rsa-item').forEach((item, i) => {
+            const clone = item.cloneNode(true);
+            clone.querySelectorAll('.rsa-num, .rsa-chars').forEach(el => el.remove());
+            text += (i + 1) + '. ' + clone.textContent.trim() + '\n';
+        });
+
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy All';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Generic copy button
+    function copyText(btn) {
+        const parent = btn.closest('.swipe-block') || btn.closest('li') || btn.closest('.extension-item');
+        let text = '';
+        if (parent) {
+            const clone = parent.cloneNode(true);
+            clone.querySelectorAll('.btn-copy, .rsa-num, .rsa-chars, .ext-label, .kg-label').forEach(el => el.remove());
+            text = clone.textContent.trim();
+        }
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Sidebar active state on scroll
+    const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Close sidebar on mobile when link clicked
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 991) {
+                document.querySelector('.sidebar').classList.remove('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

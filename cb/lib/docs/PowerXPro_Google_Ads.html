@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.trustednutraproduct.com/t.js?v=powerxpro-trustednutraproduct-com-v3"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>PowerX Pro - Google Ads Copy Swipes | Affiliate Tools</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --sidebar-bg: #184579;
+    --sidebar-hover: #1d5294;
+    --sidebar-active: #0f2d4f;
+    --accent: #2b7de9;
+    --accent-light: #e8f1fc;
+    --success: #28a745;
+    --copy-btn: #184579;
+    --copy-btn-hover: #1d5294;
+    --border-color: #dee2e6;
+    --section-bg: #f8f9fa;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0; padding: 0; background: #f5f6f8; color: #222;
+}
+/* Sidebar */
+.sidebar {
+    position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+    background: var(--sidebar-bg); color: #fff; overflow-y: auto;
+    padding: 0; z-index: 1000;
+}
+.sidebar-header {
+    padding: 24px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.sidebar-header h4 { margin: 0 0 4px; font-size: 18px; font-weight: 700; }
+.sidebar-header p { margin: 0; font-size: 12px; opacity: 0.7; }
+.sidebar-nav { list-style: none; margin: 0; padding: 12px 0; }
+.sidebar-nav li a {
+    display: block; padding: 9px 20px; color: rgba(255,255,255,0.85);
+    text-decoration: none; font-size: 13px; font-weight: 500;
+    border-left: 3px solid transparent; transition: all 0.15s;
+}
+.sidebar-nav li a:hover {
+    background: var(--sidebar-hover); color: #fff;
+    border-left-color: rgba(255,255,255,0.5);
+}
+.sidebar-nav li a.active {
+    background: var(--sidebar-active); color: #fff;
+    border-left-color: #fff;
+}
+.sidebar-nav .nav-divider {
+    height: 1px; background: rgba(255,255,255,0.1);
+    margin: 8px 20px;
+}
+.sidebar-back {
+    display: block; padding: 14px 20px; color: rgba(255,255,255,0.7);
+    text-decoration: none; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar-back:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+/* Main content */
+.main-content {
+    margin-left: 280px; padding: 32px 40px 60px; max-width: 960px;
+}
+h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; color: #111; }
+.subtitle { font-size: 15px; color: #666; margin-bottom: 32px; }
+h2 {
+    font-size: 22px; font-weight: 700; color: var(--sidebar-bg);
+    margin: 48px 0 16px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+}
+h3 { font-size: 17px; font-weight: 600; color: #333; margin: 28px 0 12px; }
+h4 { font-size: 15px; font-weight: 600; color: #444; margin: 20px 0 8px; }
+
+/* Reference table */
+.ref-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+.ref-table th {
+    background: var(--sidebar-bg); color: #fff; padding: 10px 14px;
+    text-align: left; font-weight: 600; width: 200px;
+}
+.ref-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-color); }
+.ref-table tr:nth-child(even) td { background: var(--section-bg); }
+
+/* Ad copy blocks */
+.ad-block {
+    background: #fff; border: 1px solid var(--border-color);
+    border-radius: 8px; padding: 20px 24px; margin: 16px 0;
+    position: relative;
+}
+.ad-block-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+}
+.ad-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--accent); background: var(--accent-light);
+    padding: 3px 10px; border-radius: 4px;
+}
+.copy-btn {
+    background: var(--copy-btn); color: #fff; border: none;
+    padding: 5px 14px; border-radius: 5px; font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.copy-btn:hover { background: var(--copy-btn-hover); transform: translateY(-1px); }
+.copy-btn.copied { background: var(--success); }
+.ad-copy { white-space: pre-wrap; font-size: 13.5px; line-height: 1.7; color: #333; }
+.ad-copy .headline { font-weight: 700; color: #1a0dab; font-size: 15px; }
+.ad-copy .url { color: #006621; font-size: 13px; }
+.ad-copy .desc { color: #333; }
+.ad-copy .label-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    color: #888; text-transform: uppercase; letter-spacing: 0.5px;
+    margin-top: 6px;
+}
+
+/* Script blocks */
+.script-block {
+    background: #1a1a2e; color: #e0e0e0; border-radius: 8px;
+    padding: 20px 24px; margin: 16px 0; position: relative;
+    font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8;
+}
+.script-block .copy-btn {
+    position: absolute; top: 12px; right: 12px;
+}
+.script-label {
+    color: #7eb8f7; font-weight: 700; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+}
+
+/* Checklist */
+.checklist { list-style: none; padding: 0; margin: 16px 0; }
+.checklist li {
+    padding: 10px 14px 10px 36px; border-bottom: 1px solid var(--border-color);
+    position: relative; font-size: 14px; line-height: 1.5;
+}
+.checklist li::before {
+    content: "\2713"; position: absolute; left: 12px; top: 10px;
+    color: var(--success); font-weight: 700; font-size: 15px;
+}
+
+/* Tips */
+.tip-box {
+    background: #fff8e1; border-left: 4px solid #ffc107; padding: 14px 18px;
+    border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 13.5px;
+}
+.tip-box strong { color: #856404; }
+.warning-box {
+    background: #fce4ec; border-left: 4px solid #e53935; padding: 14px 18px;
+    border-radius: 0 6px 6px 0; margin: 16px 0; font-size: 13.5px;
+}
+.warning-box strong { color: #c62828; }
+
+/* Keywords */
+.keyword-list {
+    display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 16px;
+}
+.keyword-tag {
+    background: var(--accent-light); color: var(--sidebar-bg);
+    padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar { width: 240px; }
+    .main-content { margin-left: 240px; padding: 24px 28px 40px; }
+}
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative; width: 100%; height: auto;
+        max-height: none; overflow: visible;
+    }
+    .main-content { margin-left: 0; padding: 20px 16px 40px; }
+    .sidebar-nav { display: flex; flex-wrap: wrap; padding: 8px; }
+    .sidebar-nav li a { padding: 6px 12px; font-size: 12px; border-left: none; }
+    .sidebar-nav .nav-divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar TOC -->
+<nav class="sidebar">
+    <a href="../../aff/index.html" class="sidebar-back">&larr; Back to Affiliate Tools</a>
+    <div class="sidebar-header">
+        <h4>PowerX Pro</h4>
+        <p>Google Ads Copy Swipes</p>
+    </div>
+    <ul class="sidebar-nav">
+        <li><a href="#quick-ref">Product Quick Reference</a></li>
+        <div class="nav-divider"></div>
+        <li><a href="#search-prostate">Search Ads - Prostate Health</a></li>
+        <li><a href="#search-vitality">Search Ads - Male Vitality</a></li>
+        <li><a href="#youtube">YouTube Pre-Roll Scripts</a></li>
+        <li><a href="#pmax">Performance Max Assets</a></li>
+        <li><a href="#display">Display Ad Copy</a></li>
+        <li><a href="#rda">Responsive Display Assets</a></li>
+        <div class="nav-divider"></div>
+        <li><a href="#compliance">Pre-Launch Checklist</a></li>
+        <li><a href="#media-buyer-notes">Notes for Media Buyers</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+<h1>Google Ads Copy Swipes</h1>
+<p class="subtitle">PowerX Pro -- Prostate Health &amp; Male Vitality Supplement | Ready-to-deploy ad copy for Google Search, Display, YouTube, and Performance Max campaigns.</p>
+
+<!-- ============================================================ -->
+<!-- SECTION: Product Quick Reference -->
+<!-- ============================================================ -->
+<h2 id="quick-ref">Product Quick Reference</h2>
+<table class="ref-table">
+    <tr><th>Product</th><td>PowerX Pro</td></tr>
+    <tr><th>Category</th><td>Prostate Health / Male Vitality</td></tr>
+    <tr><th>Key Ingredients</th><td>Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, Stinging Nettle Root</td></tr>
+    <tr><th>Guarantee</th><td>60-Day Money-Back Guarantee</td></tr>
+    <tr><th>Price Range</th><td>$69 (1 bottle) -- $294 (6 bottles)</td></tr>
+    <tr><th>Target Audience</th><td>Erectile Dysfunction: Men 20+ (All Men) | Prostate Health: Men 45+</td></tr>
+    <tr><th>Top Markets</th><td>USA (primary), Canada, UK, Australia</td></tr>
+    <tr><th>Compliance Note</th><td>Google restricts health claims. Avoid words like "cure," "treat," or "diagnose." Focus on "support," "maintain," and "promote."</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: Search Ads - Prostate Health -->
+<!-- ============================================================ -->
+<h2 id="search-prostate">1. Search Ads -- Prostate Health</h2>
+<p>Responsive Search Ad sets targeting men actively searching for prostate support. Each set contains 15 headlines (30 chars max) and 4 descriptions (90 chars max) formatted for Google Ads RSAs.</p>
+
+<div class="keyword-list">
+    <span class="keyword-tag">prostate supplement</span>
+    <span class="keyword-tag">frequent urination remedy</span>
+    <span class="keyword-tag">enlarged prostate natural</span>
+    <span class="keyword-tag">prostate health men</span>
+    <span class="keyword-tag">prostate support supplement</span>
+    <span class="keyword-tag">nighttime urination help</span>
+    <span class="keyword-tag">natural prostate care</span>
+</div>
+
+<!-- RSA Set 1 -->
+<h3>RSA Set 1 -- "Nighttime Bathroom Trips" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Tired of Nighttime Bathroom?
+H2:  Prostate Support for Men 40+
+H3:  Wake Up Feeling Rested Again
+H4:  Natural Prostate Formula
+H5:  6 Clinically Studied Herbs
+H6:  60-Day Money-Back Guarantee
+H7:  PowerX Pro Prostate Support
+H8:  Stop Waking Up at 3 AM
+H9:  Support Healthy Urine Flow
+H10: Doctor-Recommended Herbs
+H11: Saw Palmetto + Beta-Sitosterol
+H12: Over 97,000 Men Trust Us
+H13: Prostate Health Starts Here
+H14: Limited-Time Special Pricing
+H15: Free Shipping on 3+ Bottles
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: PowerX Pro uses 6 natural ingredients to support prostate health and normal urinary function.
+D2: Tired of waking up multiple times each night? Support normal urine flow with PowerX Pro.
+D3: Clinically studied ingredients including Saw Palmetto and Pygeum. 60-day money-back guarantee.
+D4: Join 97,000+ men supporting their prostate health naturally. Order PowerX Pro risk-free today.</div>
+</div>
+
+<!-- RSA Set 2 -->
+<h3>RSA Set 2 -- "Science-Backed" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Science-Backed Prostate Care
+H2:  6 Researched Ingredients
+H3:  Support Normal Prostate Size
+H4:  PowerX Pro -- Natural Formula
+H5:  Men Over 40 Trust PowerX Pro
+H6:  Saw Palmetto + Pygeum + Zinc
+H7:  Clinically Studied Formula
+H8:  Maintain Healthy Prostate
+H9:  Official Site -- Best Price
+H10: 60-Day Risk-Free Guarantee
+H11: Beta-Sitosterol Inside
+H12: Support Urinary Comfort
+H13: Save Up to 40% Today
+H14: No Prescription Required
+H15: Made in the USA -- GMP Lab
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: PowerX Pro combines Saw Palmetto and Beta-Sitosterol to support normal prostate function.
+D2: Backed by published research on prostate-supporting herbs. Try risk-free for 60 full days.
+D3: Manufactured in a GMP-certified facility in the USA. No fillers. No artificial ingredients.
+D4: Each capsule delivers the exact doses used in clinical studies. Order from the official site.</div>
+</div>
+
+<!-- RSA Set 3 -->
+<h3>RSA Set 3 -- "Reclaim Your Confidence" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Reclaim Your Confidence Now
+H2:  Prostate Support That Works
+H3:  For Men Who Want Their Life
+H4:  Don't Let Your Prostate Win
+H5:  Natural Urinary Flow Support
+H6:  PowerX Pro -- Feel Like You
+H7:  End Embarrassing Urgency
+H8:  No More Planning Around It
+H9:  Get Back to Living Fully
+H10: 6 Powerful Plant Extracts
+H11: 60-Day Full Refund Policy
+H12: Trusted by 97,000+ Men
+H13: Fast, Discreet Shipping
+H14: Bulk Pricing Available Now
+H15: Results or Your Money Back
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: Don't let an aging prostate dictate your schedule. PowerX Pro supports normal urinary flow.
+D2: 6 plant-based ingredients work together to promote prostate comfort for men over 40.
+D3: Thousands of men have taken back their confidence with PowerX Pro. Risk-free for 60 days.
+D4: Stop planning your day around the nearest restroom. Try PowerX Pro with our full guarantee.</div>
+</div>
+
+<!-- RSA Set 4 -->
+<h3>RSA Set 4 -- "Price/Value" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  PowerX Pro -- Only $49/Bottle
+H2:  Prostate Formula -- Save 40%
+H3:  Best-Selling Prostate Support
+H4:  Limited Stock -- Order Today
+H5:  Free Shipping + Free Bonuses
+H6:  Bulk Discount -- 6 Bottles
+H7:  Compare & Save vs. Prescriptions
+H8:  60-Day Guarantee Included
+H9:  Premium Formula, Fair Price
+H10: Saw Palmetto + 5 More Herbs
+H11: No Auto-Ship, No Surprises
+H12: One-Time Purchase Only
+H13: #1 Rated Prostate Formula
+H14: Clinical Doses, Not Pixie Dust
+H15: Official Website -- Best Deal
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: Get PowerX Pro at the lowest price available. Bulk discounts and free shipping on 3+ bottles.
+D2: No auto-ship programs. No hidden charges. Just a one-time purchase with a 60-day guarantee.
+D3: Why pay more for less? PowerX Pro delivers clinical-dose ingredients at an affordable price.
+D4: Save up to 40% when you order the 6-bottle package. Includes free bonuses and free shipping.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 2: Search Ads - Male Vitality -->
+<!-- ============================================================ -->
+<h2 id="search-vitality">2. Search Ads -- Male Vitality</h2>
+<p>Responsive Search Ads targeting men searching for energy, vitality, and overall male wellness. These ads bridge prostate health with broader quality-of-life improvements.</p>
+
+<div class="keyword-list">
+    <span class="keyword-tag">male vitality supplement</span>
+    <span class="keyword-tag">boost male energy</span>
+    <span class="keyword-tag">men's performance supplement</span>
+    <span class="keyword-tag">men's health over 40</span>
+    <span class="keyword-tag">natural male support</span>
+</div>
+
+<!-- RSA Set 1 - Vitality -->
+<h3>RSA Set 1 -- "Energy and Drive" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Reignite Your Male Vitality
+H2:  Energy Support for Men 40+
+H3:  Feel Younger, Stronger, Sharper
+H4:  PowerX Pro -- Male Vitality
+H5:  Natural Energy, No Stimulants
+H6:  Support Your Body's Foundation
+H7:  Zinc + Saw Palmetto Formula
+H8:  Wake Up Ready to Perform
+H9:  Your Best Decades Ahead
+H10: 60-Day Risk-Free Trial
+H11: Thousands of Men Agree
+H12: Made in a GMP Facility
+H13: Support Overall Male Health
+H14: The Vitality Formula for Men
+H15: Official Site -- Lowest Price
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: PowerX Pro supports the prostate, energy levels, and overall male vitality with 6 key herbs.
+D2: Zinc, Lycopene, and Saw Palmetto work together to help you feel sharp, strong, and focused.
+D3: Age is a number, not a sentence. Support your male health naturally with PowerX Pro daily.
+D4: No caffeine, no stimulants -- just targeted nutrition for men who want to feel their best.</div>
+</div>
+
+<!-- RSA Set 2 - Vitality -->
+<h3>RSA Set 2 -- "Active Lifestyle" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Stay Active After 40
+H2:  Men's Vitality Supplement
+H3:  PowerX Pro -- Live Fully
+H4:  Support Stamina Naturally
+H5:  Don't Slow Down with Age
+H6:  6 Ingredients, 1 Capsule
+H7:  Prostate + Vitality Support
+H8:  Keep Doing What You Love
+H9:  For the Man Who Won't Quit
+H10: Backed by Real Science
+H11: 60-Day Money-Back Guarantee
+H12: Join 97,000+ Satisfied Men
+H13: Discreet Shipping Included
+H14: Best Price -- Official Site
+H15: No Prescription Necessary
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: PowerX Pro helps men over 40 support prostate health and maintain an active, vibrant life.
+D2: Don't let age slow you down. 6 natural ingredients support your energy, comfort, and drive.
+D3: Formulated for men who refuse to sit on the sidelines. Try PowerX Pro risk-free for 60 days.
+D4: Support your prostate and your lifestyle in one daily capsule. Free shipping on bulk orders.</div>
+</div>
+
+<!-- RSA Set 3 - Vitality -->
+<h3>RSA Set 3 -- "Foundational Health" Angle</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Responsive Search Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">
+<span class="label-tag">Headlines (30 chars max each):</span>
+H1:  Build Your Health Foundation
+H2:  Male Wellness Starts Inside
+H3:  PowerX Pro Daily Formula
+H4:  Prostate + Vitality in One
+H5:  Invest in Yourself Today
+H6:  Nutrient Support for Men
+H7:  Lycopene + Beta-Sitosterol
+H8:  Your Body Deserves the Best
+H9:  Premium Male Health Formula
+H10: 60-Day Guarantee Included
+H11: Clinically Studied Doses
+H12: GMP Certified, USA Made
+H13: One Capsule, Total Support
+H14: Trusted by Doctors Globally
+H15: Special Pricing -- Act Now
+
+<span class="label-tag">Descriptions (90 chars max each):</span>
+D1: PowerX Pro is a foundational male health supplement with clinical-dose prostate ingredients.
+D2: Supporting your prostate now means supporting your energy, comfort, and vitality long-term.
+D3: Lycopene, Beta-Sitosterol, and Stinging Nettle Root for comprehensive male wellness support.
+D4: Men who invest in their health today enjoy more active, confident tomorrows. Start risk-free.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 3: YouTube Pre-Roll Scripts -->
+<!-- ============================================================ -->
+<h2 id="youtube">3. YouTube Pre-Roll Scripts</h2>
+<p>Video ad scripts for YouTube in-stream placements. Formatted for 6-second bumper ads, 15-second non-skippable ads, and 30-second skippable ads. Use a confident male voiceover, age 45-55, with a warm authoritative tone.</p>
+
+<div class="tip-box">
+    <strong>Production Tip:</strong> Pair these scripts with b-roll of active men hiking, playing golf, or spending time with family. Avoid any medical imagery. Show the product bottle in the final 3-5 seconds alongside the URL.
+</div>
+
+<!-- 6-Second Scripts -->
+<h3>6-Second Bumper Ads</h3>
+
+<div class="script-block">
+    <div class="script-label">6-Second Script A -- "Nighttime" Hook</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[VISUAL: Man sits up in bed at night, frustrated]
+VO: "Tired of waking up three times a night?"
+[VISUAL: PowerX Pro bottle + logo]
+VO: "Try PowerX Pro."
+[SUPER: PowerXPro.com | 60-Day Guarantee]
+</div>
+
+<div class="script-block">
+    <div class="script-label">6-Second Script B -- "Take Back Control"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[VISUAL: Man confidently walking outdoors, smiling]
+VO: "Take back control of your prostate health."
+[VISUAL: PowerX Pro bottle]
+VO: "PowerX Pro. Try it risk-free."
+[SUPER: Official Site | 60-Day Guarantee]
+</div>
+
+<div class="script-block">
+    <div class="script-label">6-Second Script C -- "Over 40"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[VISUAL: Active man in his 50s playing with grandkids]
+VO: "Over 40? Support your prostate naturally."
+[VISUAL: Product shot with ingredients overlay]
+VO: "PowerX Pro."
+[SUPER: 6 Natural Ingredients | PowerXPro.com]
+</div>
+
+<!-- 15-Second Scripts -->
+<h3>15-Second Non-Skippable Ads</h3>
+
+<div class="script-block">
+    <div class="script-label">15-Second Script A -- "The Countdown"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-3s] [VISUAL: Dark bedroom. Clock reads 2:47 AM. Man gets out of bed.]
+VO: "Another trip to the bathroom."
+
+[3-8s] [VISUAL: Split screen -- same man, now outdoors, energetic, confident]
+VO: "Thousands of men over 40 have discovered PowerX Pro -- six natural ingredients that support prostate health and normal urinary flow."
+
+[8-13s] [VISUAL: Product bottle with ingredient callouts appearing]
+VO: "Saw Palmetto. Beta-Sitosterol. Pygeum. And more."
+
+[13-15s] [VISUAL: Product + logo + URL]
+VO: "Try it risk-free for sixty days."
+[SUPER: PowerXPro.com | 60-Day Money-Back Guarantee]
+</div>
+
+<div class="script-block">
+    <div class="script-label">15-Second Script B -- "Simple Question"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-4s] [VISUAL: Text on screen: "How many times did you get up last night?"]
+VO: "How many times did you wake up last night?"
+
+[4-10s] [VISUAL: Man enjoying morning coffee, relaxed, well-rested]
+VO: "PowerX Pro helps support healthy prostate function and normal urinary flow -- so you can finally sleep through the night."
+
+[10-15s] [VISUAL: Product shot, ingredient icons, guarantee badge]
+VO: "Six clinically studied ingredients. Sixty-day guarantee. Try it today."
+[SUPER: PowerXPro.com | Free Shipping Available]
+</div>
+
+<div class="script-block">
+    <div class="script-label">15-Second Script C -- "Your Friends Won't Tell You"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-4s] [VISUAL: Group of men at a barbecue, laughing]
+VO: "Your buddies won't talk about it. But most men over 50 deal with prostate issues."
+
+[4-10s] [VISUAL: Close-up of PowerX Pro bottle being opened, capsule in hand]
+VO: "PowerX Pro is the natural prostate formula with Saw Palmetto, Zinc, and four more researched ingredients."
+
+[10-15s] [VISUAL: Man smiling, giving a thumbs up. Product + URL.]
+VO: "Support your prostate. Support your life. Sixty-day guarantee."
+[SUPER: PowerXPro.com | Order Now]
+</div>
+
+<!-- 30-Second Scripts -->
+<h3>30-Second Skippable Ads</h3>
+
+<div class="script-block">
+    <div class="script-label">30-Second Script A -- "The Full Story"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-5s] [VISUAL: Man lying awake in bed. Wife asleep beside him. He sighs, gets up.]
+VO: "If you're over 40 and making multiple bathroom trips every night, you're not alone. Millions of men deal with this."
+
+[5-12s] [VISUAL: Doctor's office setting. Ingredient graphics appear one by one.]
+VO: "PowerX Pro combines six clinically studied ingredients -- Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root -- to support normal prostate function."
+
+[12-20s] [VISUAL: Before/after lifestyle montage -- tired vs. active, hesitant vs. confident]
+VO: "These aren't random herbs. Each one was selected based on published research showing support for prostate health and healthy urinary flow."
+
+[20-27s] [VISUAL: Product beauty shot. Three bottle options. Guarantee badge.]
+VO: "And you can try PowerX Pro completely risk-free with our sixty-day money-back guarantee. If you're not satisfied, you get a full refund. No questions."
+
+[27-30s] [VISUAL: Logo + URL + CTA button graphic]
+VO: "Visit PowerXPro.com today. Your prostate will thank you."
+[SUPER: PowerXPro.com | 60-Day Money-Back Guarantee | Free Shipping on 3+ Bottles]
+</div>
+
+<div class="script-block">
+    <div class="script-label">30-Second Script B -- "The Turning Point"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-5s] [VISUAL: Calendar pages flipping. Man notices he's 45, then 50, then 55.]
+VO: "There comes a point where you realize your body isn't working the way it used to."
+
+[5-12s] [VISUAL: Man on a hike, pausing uncomfortably. Then at a dinner party, excusing himself.]
+VO: "The constant urgency. The interrupted sleep. The planning your day around a bathroom. It doesn't have to be this way."
+
+[12-20s] [VISUAL: PowerX Pro bottle with each ingredient highlighted as named]
+VO: "PowerX Pro was formulated specifically for men like you. Six targeted ingredients -- Saw Palmetto, Beta-Sitosterol, Pygeum, Zinc, Lycopene, and Stinging Nettle -- work together to support your prostate health naturally."
+
+[20-27s] [VISUAL: Happy, active man. Golfing. Laughing with friends. Sleeping peacefully.]
+VO: "No prescriptions. No side effects. Just science-backed nutrition in one daily capsule. And it's backed by a full sixty-day money-back guarantee."
+
+[27-30s] [VISUAL: Product + URL + "Order Now" CTA]
+VO: "Visit PowerXPro.com and take the first step."
+[SUPER: PowerXPro.com | Limited-Time Savings | 60-Day Guarantee]
+</div>
+
+<div class="script-block">
+    <div class="script-label">30-Second Script C -- "By The Numbers"</div>
+    <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+[0-5s] [VISUAL: Bold text on screen with each stat: "50% of men over 50..." ]
+VO: "Did you know that roughly half of all men over 50 experience prostate-related discomfort?"
+
+[5-12s] [VISUAL: Man counting on fingers. Then tossing and turning in bed.]
+VO: "That could mean waking up two, three, even five times a night. It means urgency during meetings, on road trips, during the moments that matter."
+
+[12-20s] [VISUAL: PowerX Pro ingredient panel close-up. Each ingredient appears as a clean graphic.]
+VO: "PowerX Pro addresses this with six natural ingredients backed by real research. Saw Palmetto for prostate size support. Beta-Sitosterol for urinary flow. Zinc for hormonal balance. And three more."
+
+[20-27s] [VISUAL: Montage of satisfied men. Testimonial-style text overlays. Product shot.]
+VO: "Over ninety-seven thousand men have already chosen PowerX Pro. And every order comes with a sixty-day money-back guarantee -- no risk, no hassle."
+
+[27-30s] [VISUAL: Clean product shot. URL. CTA.]
+VO: "Go to PowerXPro.com. Support your prostate the natural way."
+[SUPER: PowerXPro.com | Save Up to 40% | Free Shipping]
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 4: Performance Max Assets -->
+<!-- ============================================================ -->
+<h2 id="pmax">4. Performance Max (PMax) Assets</h2>
+<p>Pre-written text assets for Performance Max campaigns. These auto-deploy across Search, Display, YouTube, Gmail, and Discover. Follow Google's character limits exactly.</p>
+
+<h3>Short Headlines (30 characters max)</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">PMax Short Headlines</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1.  PowerX Pro Prostate Support
+2.  Natural Prostate Formula
+3.  Sleep Through the Night
+4.  Support Healthy Urine Flow
+5.  6 Clinically Studied Herbs
+6.  For Men Over 40
+7.  60-Day Money-Back Guarantee
+8.  Prostate Health Made Simple
+9.  Feel Like Yourself Again
+10. Save Up to 40% Today</div>
+</div>
+
+<h3>Long Headlines (90 characters max)</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">PMax Long Headlines</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1. PowerX Pro: 6 Clinically Studied Ingredients to Support Your Prostate Health Naturally
+2. Tired of Nighttime Bathroom Trips? PowerX Pro Supports Normal Urinary Flow for Men 40+
+3. Over 97,000 Men Trust PowerX Pro for Daily Prostate Support -- Try It Risk-Free Today
+4. Support Prostate Health, Urinary Comfort, and Male Vitality With One Daily Capsule
+5. Saw Palmetto + Beta-Sitosterol + Pygeum: The Science Behind PowerX Pro's Natural Formula</div>
+</div>
+
+<h3>Descriptions (90 characters max)</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">PMax Descriptions</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1. PowerX Pro combines 6 natural ingredients to support prostate health for men over 40.
+2. Stop waking up at night. Support normal urinary flow with PowerX Pro's proven formula.
+3. Saw Palmetto, Beta-Sitosterol, and 4 more herbs in clinical doses. 60-day guarantee.
+4. Manufactured in the USA in a GMP-certified facility. No fillers, no artificial junk.
+5. Join 97,000+ men who support their prostate naturally. Risk-free with our full guarantee.</div>
+</div>
+
+<div class="tip-box">
+    <strong>PMax Tip:</strong> Upload at least 5 images (product shots, lifestyle images of active men, ingredient graphics), 1 landscape video, and 1 portrait video to maximize asset group coverage. Google's algorithm needs variety to optimize placement across all surfaces.
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 5: Display Ad Copy -->
+<!-- ============================================================ -->
+<h2 id="display">5. Display Ad Copy</h2>
+<p>Text variations for Google Display Network (GDN) banner ads. Pair with high-quality product images and lifestyle photography of active, confident men aged 45-65.</p>
+
+<h3>Display Ad Variation 1 -- "Nighttime Relief"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> Tired of Nighttime Bathroom Trips?
+<span class="headline">Long Headline:</span> 6 Natural Ingredients to Support Prostate Health and Normal Urinary Flow
+<span class="desc">Description:</span> PowerX Pro's clinically studied formula helps men 40+ support healthy prostate function. Saw Palmetto, Beta-Sitosterol, Pygeum, and more -- in one daily capsule. Try it with a 60-day money-back guarantee.
+<span class="desc">CTA:</span> Learn More</div>
+</div>
+
+<h3>Display Ad Variation 2 -- "Science-Backed"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> Prostate Support Backed by Research
+<span class="headline">Long Headline:</span> Clinically Studied Ingredients in Every Capsule of PowerX Pro
+<span class="desc">Description:</span> Each ingredient in PowerX Pro was chosen based on published research supporting prostate health. Saw Palmetto for prostate size. Beta-Sitosterol for urinary flow. Zinc for hormonal balance. Try risk-free.
+<span class="desc">CTA:</span> Shop Now</div>
+</div>
+
+<h3>Display Ad Variation 3 -- "Thousands Trust It"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> Over 97,000 Men Support Their Prostate With This
+<span class="headline">Long Headline:</span> The #1-Selling Natural Prostate Formula for Men Who Want to Live Without Limits
+<span class="desc">Description:</span> PowerX Pro is trusted by tens of thousands of men across the USA. Six plant-based ingredients. No stimulants, no prescriptions. Just natural prostate support with a full 60-day money-back guarantee.
+<span class="desc">CTA:</span> Order Now</div>
+</div>
+
+<h3>Display Ad Variation 4 -- "One Capsule"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> One Daily Capsule. Six Powerful Ingredients.
+<span class="headline">Long Headline:</span> PowerX Pro Delivers Targeted Prostate Nutrition for Men Over 40
+<span class="desc">Description:</span> Saw Palmetto, Beta-Sitosterol, Pygeum Africanum, Zinc, Lycopene, and Stinging Nettle Root -- all in one convenient capsule. Support your prostate health the natural way. 60-day guarantee included.
+<span class="desc">CTA:</span> Try It Risk-Free</div>
+</div>
+
+<h3>Display Ad Variation 5 -- "Don't Wait"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> Don't Wait Until It Gets Worse
+<span class="headline">Long Headline:</span> Support Your Prostate Health Now With PowerX Pro's Natural Formula
+<span class="desc">Description:</span> Prostate discomfort tends to increase with age. PowerX Pro provides daily nutritional support with six ingredients chosen for their role in maintaining normal prostate function. Start today -- risk-free.
+<span class="desc">CTA:</span> Get Started</div>
+</div>
+
+<h3>Display Ad Variation 6 -- "Save Today"</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Display Ad</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="headline">Headline:</span> Save Up to 40% on PowerX Pro
+<span class="headline">Long Headline:</span> Limited-Time Pricing on the #1 Natural Prostate Support for Men 40+
+<span class="desc">Description:</span> Stock up and save. PowerX Pro's 6-bottle package gives you the best value -- plus free shipping and bonus guides. Every order is protected by a 60-day money-back guarantee. No auto-ship, ever.
+<span class="desc">CTA:</span> Claim Your Discount</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 6: Responsive Display Assets -->
+<!-- ============================================================ -->
+<h2 id="rda">6. Responsive Display Ad Assets</h2>
+<p>Formatted for Google's Responsive Display Ad (RDA) format. Google will automatically combine these assets. Provide all variations for maximum optimization.</p>
+
+<h3>Short Headlines (30 chars max) -- Provide up to 5</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">RDA Short Headlines</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1. PowerX Pro Prostate Support
+2. Natural Prostate Health
+3. For Men Over 40
+4. Support Urinary Comfort
+5. Try It Risk-Free Today</div>
+</div>
+
+<h3>Long Headlines (90 chars max) -- Provide 1-5</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">RDA Long Headlines</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1. PowerX Pro Combines 6 Natural Ingredients to Support Prostate Health for Men Over 40
+2. Tired of Nighttime Bathroom Trips? Support Normal Urinary Flow With PowerX Pro
+3. Join 97,000+ Men Who Have Chosen PowerX Pro for Natural Prostate Support
+4. Clinically Studied Saw Palmetto, Beta-Sitosterol, and 4 More Herbs in Every Capsule
+5. Support Your Prostate, Your Sleep, and Your Confidence With PowerX Pro's Daily Formula</div>
+</div>
+
+<h3>Descriptions (90 chars max) -- Provide up to 5</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">RDA Descriptions</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy">1. 6 natural ingredients support prostate health and normal urinary flow. 60-day guarantee.
+2. Saw Palmetto + Beta-Sitosterol + Pygeum in clinical doses. Made in USA. No auto-ship.
+3. Men 40+ trust PowerX Pro for prostate comfort, better sleep, and renewed male vitality.
+4. No prescriptions needed. No stimulants. Just research-backed prostate nutrition daily.
+5. Order today and save up to 40%. Free shipping on 3+ bottles. Full 60-day money-back.</div>
+</div>
+
+<h3>Business Name &amp; Final URL</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">RDA Business Info</span>
+        <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+    </div>
+    <div class="ad-copy"><span class="label-tag">Business Name:</span> PowerX Pro
+<span class="label-tag">Final URL:</span> [Your Affiliate Link]
+<span class="label-tag">Display Path 1:</span> prostate-support
+<span class="label-tag">Display Path 2:</span> natural-formula
+
+<span class="label-tag">Image Specs (upload all sizes):</span>
+- Landscape (1.91:1): 1200 x 628 px
+- Square (1:1): 1200 x 1200 px
+- Logo (landscape): 1200 x 300 px (optional)
+- Logo (square): 1200 x 1200 px</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 7: Pre-Launch Compliance Checklist -->
+<!-- ============================================================ -->
+<h2 id="compliance">7. Pre-Launch Compliance Checklist</h2>
+<p>Google Ads has strict healthcare and supplement policies. Review every item below before launching any campaign. Non-compliance can result in ad disapproval, account suspension, or permanent bans.</p>
+
+<div class="warning-box">
+    <strong>Critical:</strong> Google's Healthcare and Medicines policy prohibits ads that make unsubstantiated health claims. Supplements cannot claim to "cure," "treat," "prevent," or "diagnose" any disease or medical condition. All copy in this document has been written to comply with these guidelines, but always verify against the latest Google Ads policies before launch.
+</div>
+
+<ul class="checklist">
+    <li><strong>No disease claims.</strong> Never use words like "cure," "treat," "prevent," "diagnose," "BPH," "benign prostatic hyperplasia," or reference any specific medical condition by name. Use "support," "promote," "maintain," and "healthy function" instead.</li>
+    <li><strong>No before/after images.</strong> Google prohibits before-and-after imagery for health products. Use lifestyle photography of active, healthy men.</li>
+    <li><strong>No misleading guarantees.</strong> You can mention the 60-day money-back guarantee, but do not imply guaranteed health outcomes (e.g., "guaranteed to work" or "100% effective").</li>
+    <li><strong>Landing page must match ad claims.</strong> Ensure your landing page does not contain claims that go beyond what the ad states. Google reviews landing pages during ad approval.</li>
+    <li><strong>Landing page must have required disclosures.</strong> Include a visible FDA disclaimer ("These statements have not been evaluated by the FDA..."), privacy policy link, terms of service link, and contact information.</li>
+    <li><strong>No restricted pharmaceutical terms.</strong> Avoid terms like "prescription strength," "clinical strength," "pharmaceutical grade," or any comparison to prescription medications.</li>
+    <li><strong>Use compliant testimonials.</strong> If using testimonials on your landing page, include a disclaimer that results are not typical and individual results may vary.</li>
+    <li><strong>Set up conversion tracking properly.</strong> Use Google Ads conversion tracking or Google Analytics 4 goals. Without proper tracking, Smart Bidding strategies will underperform.</li>
+    <li><strong>Verify your advertiser identity.</strong> Google requires advertiser verification for health-related ads in most markets. Complete this before launching.</li>
+    <li><strong>Check geographic targeting restrictions.</strong> Some countries have stricter supplement advertising laws. Start with USA targeting and expand carefully.</li>
+    <li><strong>Review ad extensions.</strong> Add sitelink extensions (e.g., "Ingredients," "Reviews," "Money-Back Guarantee," "How It Works") and callout extensions (e.g., "Free Shipping," "No Auto-Ship," "Made in USA").</li>
+    <li><strong>Test your landing page load speed.</strong> Google factors page speed into Quality Score. Use PageSpeed Insights and aim for a score above 70 on mobile.</li>
+</ul>
+
+
+<!-- ============================================================ -->
+<!-- SECTION 8: Final Notes for Media Buyers -->
+<!-- ============================================================ -->
+<h2 id="media-buyer-notes">8. Final Notes for Media Buyers</h2>
+<p>Optimization strategies and practical advice for scaling PowerX Pro campaigns on Google Ads.</p>
+
+<h3>Campaign Structure Recommendations</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Strategy Notes</span>
+    </div>
+    <div class="ad-copy"><strong>Start with Search, then expand to PMax.</strong>
+Search campaigns give you the clearest intent signal and the most control over keyword targeting. Once you have 30+ conversions, layer in a Performance Max campaign to capture additional demand across YouTube, Display, Gmail, and Discover.
+
+<strong>Recommended campaign structure:</strong>
+- Campaign 1: Search -- Prostate Health Keywords (exact + phrase match)
+- Campaign 2: Search -- Male Vitality Keywords (exact + phrase match)
+- Campaign 3: Performance Max -- Full asset group with all text, image, and video assets
+- Campaign 4 (optional): YouTube -- Video action campaigns using the 15s and 30s scripts
+
+<strong>Bidding strategy progression:</strong>
+1. Start with Manual CPC or Maximize Clicks (with a bid cap) for the first 2-4 weeks
+2. Switch to Target CPA once you have 15-30 conversions in a 30-day window
+3. Test Target ROAS only if you are tracking revenue values accurately
+
+<strong>Budget allocation:</strong>
+- Allocate 60-70% of budget to Search campaigns initially
+- Allocate 20-30% to PMax once Search is profitable
+- Reserve 10% for YouTube testing if you have video assets</div>
+</div>
+
+<h3>Audience Targeting Tips</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Audience Notes</span>
+    </div>
+    <div class="ad-copy"><strong>Demographics:</strong>
+- Age: 45-65+ (primary), 35-44 (secondary for early-stage prostate awareness)
+- Gender: Male only
+- Household income: Top 50% (supplement buyers tend to skew higher income)
+- Parental status: Not a strong signal for this product; leave open
+
+<strong>In-Market Audiences (for observation or targeting):</strong>
+- Health & Fitness > Vitamins & Supplements
+- Health & Fitness > Health Products
+- Combine with age/gender layering for best results
+
+<strong>Custom Intent Audiences (for PMax and Display):</strong>
+- Build custom audiences based on competitor URLs and prostate-related search terms
+- Include URLs of top prostate supplement brands and health information sites
+- Include search terms: "best prostate supplement," "prostate health," "Saw Palmetto benefits," "frequent urination at night men"
+
+<strong>Remarketing:</strong>
+- Set up a remarketing list for landing page visitors who did not convert
+- Create a 7-day, 14-day, and 30-day remarketing audience
+- Use different messaging for each window (urgency increases with recency)</div>
+</div>
+
+<h3>Ad Testing and Iteration</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Testing Notes</span>
+    </div>
+    <div class="ad-copy"><strong>RSA testing approach:</strong>
+- Run 2-3 RSAs per ad group maximum
+- Pin your strongest headline in position 1 and strongest CTA headline in position 2
+- Let Google rotate the remaining headlines and descriptions
+- Review "Asset Details" in the Ads tab after 2,000+ impressions to see performance ratings
+
+<strong>Key metrics to monitor:</strong>
+- CTR by ad: Aim for 4%+ on Search, 0.5%+ on Display
+- Conversion rate: 2-5% is healthy for supplement landing pages
+- Cost per acquisition (CPA): Calculate your max CPA based on your affiliate commission
+- Quality Score: Check keyword-level QS weekly; aim for 7+ across core terms
+- Search impression share: Monitor to ensure you are not losing impression share to budget
+
+<strong>Negative keyword management:</strong>
+- Add negatives aggressively in the first 2 weeks using the Search Terms report
+- Common negatives for this niche: "free," "reddit," "side effects," "scam," "review," "FDA," "cancer," "symptoms," "surgery," "medication," "prescription," "wiki"
+- Create a shared negative keyword list and apply it across all campaigns
+
+<strong>Landing page split testing:</strong>
+- Test long-form VSL pages against shorter direct-response pages
+- Test different hero images (product shot vs. lifestyle vs. ingredients)
+- Test price display (showing vs. hiding price above the fold)
+- Use Google Ads Experiments or a third-party tool for statistical rigor</div>
+</div>
+
+<h3>Scaling Playbook</h3>
+<div class="ad-block">
+    <div class="ad-block-header">
+        <span class="ad-label">Scaling Notes</span>
+    </div>
+    <div class="ad-copy"><strong>Phase 1 -- Validate (Week 1-3):</strong>
+- Daily budget: $50-100/day across all campaigns
+- Goal: Find 2-3 profitable keywords and 1 winning ad combination
+- Action: Pause underperformers aggressively. Focus budget on winners.
+
+<strong>Phase 2 -- Optimize (Week 3-6):</strong>
+- Daily budget: $100-250/day
+- Goal: Achieve consistent CPA below your breakeven threshold
+- Action: Switch to automated bidding. Add PMax campaign. Expand keyword lists.
+
+<strong>Phase 3 -- Scale (Week 6+):</strong>
+- Daily budget: $250-1,000+/day
+- Goal: Maintain CPA while increasing volume
+- Action: Increase budgets by 15-20% every 3-5 days (avoid shocking the algorithm). Add YouTube video campaigns. Test new audience segments. Expand to CA/UK/AU markets.
+
+<strong>Common pitfalls to avoid:</strong>
+- Do not increase budget by more than 20% in a single day
+- Do not change bidding strategy and budget simultaneously
+- Do not judge performance on fewer than 50 clicks per ad variation
+- Do not ignore mobile vs. desktop performance splits
+- Do not run without a negative keyword list from day one</div>
+</div>
+
+<div class="tip-box">
+    <strong>Final Reminder:</strong> All copy in this document is provided as a starting point. The best-performing ads are the ones you test, iterate, and refine based on real data from your specific audience and landing page. Use these swipes to get launched quickly, then optimize relentlessly.
+</div>
+
+<hr style="margin: 48px 0 24px; border: none; border-top: 1px solid #dee2e6;">
+<p style="font-size: 12px; color: #888; text-align: center;">
+    PowerX Pro Google Ads Copy Swipes | For authorized affiliates only. Do not distribute publicly.<br>
+    Questions? Contact your affiliate manager for support.
+</p>
+
+</div><!-- /main-content -->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Copy-to-clipboard functionality
+function copyBlock(btn) {
+    const block = btn.closest('.ad-block') || btn.closest('.script-block');
+    const copyTarget = block.querySelector('.ad-copy') || block;
+
+    // Get text content, excluding the button itself
+    let text = '';
+    if (copyTarget.classList.contains('ad-copy')) {
+        text = copyTarget.innerText;
+    } else {
+        // For script blocks, get all text except the button and label
+        const children = block.childNodes;
+        const parts = [];
+        children.forEach(function(node) {
+            if (node.nodeType === 3) { // text node
+                parts.push(node.textContent);
+            } else if (node.nodeType === 1 && !node.classList.contains('copy-btn')) {
+                if (node.classList.contains('script-label')) {
+                    parts.push(node.textContent + '\n');
+                } else {
+                    parts.push(node.textContent);
+                }
+            }
+        });
+        text = parts.join('').trim();
+    }
+
+    navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+        }, 2000);
+    }).catch(function() {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        } catch(e) {
+            btn.textContent = 'Error';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+        }
+        document.body.removeChild(textarea);
+    });
+}
+
+// Active sidebar link highlighting on scroll
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('h2[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    function updateActiveLink() {
+        let current = '';
+        sections.forEach(function(section) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 120) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+});
+</script>
+
+</body>
+</html>

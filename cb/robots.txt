@@ -1,0 +1,19 @@
+# MetaFlow robots.txt
+# Note: Cloudflare may prepend its own managed content above this section
+
+User-agent: *
+Allow: /
+Disallow: /short/
+Disallow: /popup/
+Disallow: /lib/
+Disallow: /eBooks/
+Disallow: /dummy.html
+Disallow: /index.backup.html
+Disallow: /seo-plan.html
+Disallow: /speed.html
+Disallow: /Thankyou.html
+Disallow: /upsell1.html
+Disallow: /affiliates/test.html
+Disallow: /affiliates/test_images/
+
+Sitemap: https://metaflow.trustednutraproduct.com/sitemap.xml

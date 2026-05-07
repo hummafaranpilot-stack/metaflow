@@ -1,35 +1,10 @@
-.claude/settings.local.json
-node_modules/
-eBooks/node_modules/
-*.db
-*.db-journal
+# Claude Code local session data (user-specific)
+.claude/
+
+# Temp PageSpeed test outputs
+ps_*.json
+
+# OS metadata
 .DS_Store
 Thumbs.db
 desktop.ini
-*.swp
-*.swo
-*~
-tmp/
-temp/
-*.tmp
-.env
-.env.local
-
-# Large binary assets — too big for git
-videos/
-creative-assets/
-**/video_clips/*.webm
-**/video_clips/*.mp4
-video_clips/*.webm
-video_clips/*.mp4
-*.zip
-*.mov
-*.avi
-
-# Large uncompressed source images (originals — not served by website)
-product_images/img-*.png
-product_images/gallery-*.png
-product_images/gallery-main.png
-Images/comparison/*.png
-test.html
-Fonts/google-raw.css
