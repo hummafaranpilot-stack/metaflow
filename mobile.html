@@ -6563,14 +6563,11 @@ function loadDeferred(){
     overlay.classList.remove('kw-exit-active');
     document.body.style.overflow = prevOverflow;
   }
-  /* Desktop trigger: mouse leaving toward the top */
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 5) show();
-  });
-  /* Mobile trigger: scroll-up after deep scroll (proxy for "user heading back to leave") */
+  /* ONLY trigger: continuous upward scroll after deep scroll (no mouseleave, no back-button) */
   var deepReached = false;
   var lastScrollY = 0;
   var upAccum = 0;
+  var UP_THRESHOLD = 400;       // px of uninterrupted upward scroll required
   window.addEventListener('scroll', function() {
     if (shown) return;
     if (!gatesPassed()) return;
@@ -6581,21 +6578,11 @@ function loadDeferred(){
     if (pct > 0.4) deepReached = true;
     if (deepReached) {
       var delta = sy - lastScrollY;
-      if (delta < 0) { upAccum += -delta; if (upAccum > 150) show(); }
-      else if (delta > 0) { upAccum = 0; }
+      if (delta < 0) { upAccum += -delta; if (upAccum > UP_THRESHOLD) show(); }
+      else if (delta > 0) { upAccum = 0; }   /* any downward scroll resets — must be continuous */
     }
     lastScrollY = sy;
   }, { passive: true });
-  /* Mobile trigger 2: back-button intent (history API) */
-  try {
-    window.history.pushState({ kwExit: 1 }, '');
-    window.addEventListener('popstate', function() {
-      if (gatesPassed() && !shown) {
-        show();
-        try { window.history.pushState({ kwExit: 1 }, ''); } catch(e) {}
-      }
-    });
-  } catch(e) {}
   /* Close: click anywhere (banner or backdrop) */
   overlay.addEventListener('click', hide);
   /* Preload image after page load */
