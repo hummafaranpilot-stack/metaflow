@@ -4270,9 +4270,12 @@ html, body { overflow-x: hidden; scroll-behavior: smooth; }
 				.kw-ing-toggle { display: inline-block; background: transparent; border: 0; color: #b22222; font-size: .7rem; font-weight: 600; padding: 0; text-decoration: underline; cursor: pointer; }
 				.kw-ing-toggle:hover { color: #800000; text-decoration: underline; }
 				.kw-ing-toggle::after { content: " +"; }
-				.kw-ing-toggle[aria-expanded="true"]::after { content: " −"; }
-				.kw-ing-body { font-size: .75rem; text-align: left; margin-top: 6px; line-height: 1.4; }
-				.kw-ing-body p { margin-bottom: 6px; }
+				.kw-ing-toggle.active::after { content: " −"; }
+				.kw-ing-card.active { background: #fdf5f5; border-radius: 10px; }
+				.kw-ing-body { display: none; }
+				#kw-ing-detail { display: none; background: #fdf5f5; border-radius: 10px; padding: 14px 16px; margin-top: 10px; font-size: .85rem; line-height: 1.5; text-align: left; }
+				#kw-ing-detail h4 { font-size: 1rem; font-weight: 700; color: #b22222; margin: 0 0 6px; }
+				#kw-ing-detail p { margin-bottom: 6px; color: #333; }
 			</style>
 			<div class="row" id="ingredients-section">
 				<div class="col-6 col-md-2 mb-3">
@@ -4342,6 +4345,32 @@ html, body { overflow-x: hidden; scroll-behavior: smooth; }
 					</div>
 				</div>
 			</div>
+			<div id="kw-ing-detail"></div>
+			<script>
+			(function(){
+				var toggles = document.querySelectorAll('.kw-ing-toggle');
+				var detail = document.getElementById('kw-ing-detail');
+				toggles.forEach(function(t){
+					t.removeAttribute('data-toggle');
+					t.addEventListener('click', function(e){
+						e.preventDefault();
+						var card = t.closest('.kw-ing-card');
+						var body = card.querySelector('.kw-ing-body');
+						var name = card.querySelector('h5').textContent;
+						var wasActive = card.classList.contains('active');
+						document.querySelectorAll('.kw-ing-card').forEach(function(c){ c.classList.remove('active'); });
+						document.querySelectorAll('.kw-ing-toggle').forEach(function(a){ a.classList.remove('active'); a.setAttribute('aria-expanded','false'); });
+						if(wasActive){ detail.style.display='none'; return; }
+						card.classList.add('active');
+						t.classList.add('active');
+						t.setAttribute('aria-expanded','true');
+						detail.innerHTML = '<h4>'+name+'</h4>' + body.innerHTML;
+						detail.style.display = 'block';
+						detail.scrollIntoView({behavior:'smooth', block:'nearest'});
+					});
+				});
+			})();
+			</script>
 		</div>
 	</section>
 
